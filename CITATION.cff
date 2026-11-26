@@ -5,7 +5,9 @@ abstract: "Five tests for the claim that an AI agent has become an AGI agent: re
 authors:
   - name: "Empire Labs Pty Ltd"
 version: 0.1.0
-date-released: 2026-11-26
+date-released: 2026-11-27
 license: CC-BY-4.0
 repository-code: "https://github.com/narko4u/agent-transition-battery"
+doi: "10.5281/zenodo.24573102"
+url: "https://doi.org/10.5281/zenodo.24573102"
 keywords: [agi, agents, evaluation, self-improvement, verification]

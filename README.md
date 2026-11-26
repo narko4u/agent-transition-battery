@@ -2,6 +2,8 @@
 
 A public test battery for the claim that an AI agent has become an AGI agent.
 
+Paper v0.1: https://doi.org/10.5281/zenodo.24573102 (published 27 November 2026).
+
 Most claims of that kind are made on a capability snapshot. This repo treats the transition as
 the closure of five loops and asks a system to run the tests, not to describe itself.
 
