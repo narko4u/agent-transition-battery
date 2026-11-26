@@ -57,6 +57,74 @@
    "notes": ""
   },
   {
+   "report": "runs/t1-text-0.json",
+   "report_sha256": "sha256:dea7fa4f5e2ec2ec8b8b1a23e45241704b4aec885b7d948ce972db614309f476",
+   "report_id": "sha256:05fc28ce7204ebb250ea471d91d50f221c97c2db0fe116694c88dbc5a74e5fe1",
+   "test": "T1",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "text-basics"
+   ],
+   "tasks_heldout": null,
+   "promoted": null,
+   "spend_usd": 0.0097,
+   "date": "2026-11-26",
+   "notes": ""
+  },
+  {
+   "report": "runs/t1-text-1.json",
+   "report_sha256": "sha256:8d9aac8f7200d2a2546f874128fa248b0fe0e0bf1a7f20133191980090f9807e",
+   "report_id": "sha256:0ae0bcfc33224a9a830ee816e203bca1d2bdbef9f5a651e9133da0de47051f22",
+   "test": "T1",
+   "status": "pass",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "text-basics"
+   ],
+   "tasks_heldout": null,
+   "promoted": null,
+   "spend_usd": 0.01,
+   "date": "2026-11-26",
+   "notes": ""
+  },
+  {
+   "report": "runs/t1-text-2.json",
+   "report_sha256": "sha256:848fd24de39afd84287e1eb12fd65bf4bad72690a79d31460568030b4a01ce14",
+   "report_id": "sha256:4fe535fa27359a5c5d40643c0436be9a8603ad95e61422d5fab7d2bb38278e09",
+   "test": "T1",
+   "status": "pass",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "text-basics"
+   ],
+   "tasks_heldout": null,
+   "promoted": null,
+   "spend_usd": 0.0096,
+   "date": "2026-11-26",
+   "notes": ""
+  },
+  {
+   "report": "runs/t1-text-3.json",
+   "report_sha256": "sha256:2c0a29d43c6a3dab53b0161b2b679ec61078ed03a203e0a76a95bb5d84aaacd9",
+   "report_id": "sha256:5a53ec60afe60220ba9f542742e542b5ffbb9eecf2ba7354f6e42ccbbb2f7aaa",
+   "test": "T1",
+   "status": "pass",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "text-basics"
+   ],
+   "tasks_heldout": null,
+   "promoted": null,
+   "spend_usd": 0.0093,
+   "date": "2026-11-26",
+   "notes": ""
+  },
+  {
    "report": "runs/t2-text-0.json",
    "report_sha256": "sha256:656c7509d2abaa9a27787aee96e609eb2ad9046a6a6f8758b7d709f086cbfb5b",
    "report_id": "sha256:065535bc17626deded4df0b39931bf113a3b789fc44652368aee3c5e99b0738d",

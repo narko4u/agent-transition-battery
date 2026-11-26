@@ -63,6 +63,11 @@ Transfer was zero and the sign changed between runs. The lessons the model wrote
 advice (define the function, smoke-test it), not a strategy for the new family. That is the
 result the literature does not report and the archipelago position predicts.
 
+Four T1 runs on the same family, ten tasks, three blocks per run: block one averaged 0.70,
+block two with the store 0.75, and the no-store control 0.675. Three runs passed the written
+rule and one failed. A single control run moves by a task between seeds, so the rule is not yet
+discriminative at this sample size.
+
 ## Report format
 
 Every run writes a JSON report (`schema/run-report-0.1.schema.json`) and a log. The report

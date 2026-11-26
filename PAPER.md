@@ -8,7 +8,7 @@ Draft v0.1, 26 November 2026. Every number in this paper comes from a paper we r
 
 ## Abstract
 
-The term AGI agent is used for two different things: an agent that scores well on a capability benchmark and an agent that closes its own improvement loops. The first is measured constantly. The second is asserted. We argue that the transition should be defined as the closure of five loops, each with a test that can fail. We show that none of the twenty-four papers we review reports the conjunction. We give the battery, the pass rules and an adversarial arm aimed at the verifier rather than the agent. We then report a pilot that calibrates the instrument rather than the agent: a distilled skill moved design judgement by one paired flip at n=14, from 12 of 14 to 13 of 14, with an exact McNemar p of 1.00. A power calculation on those discordant pairs puts the sample needed to resolve a seven point difference at roughly 330 paired tasks. That is the useful result. A second pilot ran the T5 gate six times on eight held-out tasks: one promotion in six, with baseline accuracy moving two tasks between identical runs. A third measured transfer across two families on ten tasks: zero, with a placebo of equal length performing the same. Transition claims at demo scale are not measurements and the field's reporting standard should say so.
+The term AGI agent is used for two different things: an agent that scores well on a capability benchmark and an agent that closes its own improvement loops. The first is measured constantly. The second is asserted. We argue that the transition should be defined as the closure of five loops, each with a test that can fail. We show that none of the twenty-four papers we review reports the conjunction. We give the battery, the pass rules and an adversarial arm aimed at the verifier rather than the agent. We then report a pilot that calibrates the instrument rather than the agent: a distilled skill moved design judgement by one paired flip at n=14, from 12 of 14 to 13 of 14, with an exact McNemar p of 1.00. A power calculation on those discordant pairs puts the sample needed to resolve a seven point difference at roughly 330 paired tasks. That is the useful result. A second pilot ran the T5 gate six times on eight held-out tasks: one promotion in six, with baseline accuracy moving two tasks between identical runs. A third measured transfer across two families on ten tasks: zero, with a placebo of equal length performing the same. A fourth ran retention four times: three passes of a rule that a single control run cannot make trustworthy. Transition claims at demo scale are not measurements and the field's reporting standard should say so.
 
 ## 1. Two meanings, one label
 
@@ -124,6 +124,10 @@ That is the argument of this paper demonstrated on its own apparatus, at a cost 
 
 The result is a zero. The honest reading is not that transfer is impossible but that a distilled lesson at this strength and this sample buys nothing and that the placebo removes the obvious explanation that any extra text helps. It is also the loop the literature does not report. If transfer is this weak across two families that share a procedure, breadth claims deserve a control before they become generality claims.
 
+**Fourth pilot, retention.** Four runs of T1 on the ten text tasks. Each run has three blocks: block one with no store, a context reset, block two carrying only the distilled lessons and a no-store control. Block one averaged 0.70. Block two averaged 0.75. Control averaged 0.675. Three runs passed the written rule and one failed. The one that failed had control at 0.70 and block two at 0.70.
+
+The pass rule is too weak at this sample. A single control run moves by a task between seeds, so a one-task gain clears the rule three times in four. The honest reading is that the store does not show retention beyond noise at n equal to ten. What the pilot does show is that the loop is instrumented end to end: a store, a context reset, a matched block, a control and a gate that can fail.
+
 We report this pilot because it is the smallest honest version of the problem the whole paper is about. A one-flip result at demo scale is exactly what a transition claim built on a single run looks like from the inside. The field's habit of reporting it as a gain is a measurement failure, not a capability one.
 
 ## 6. What is lacking, in build order
@@ -147,7 +151,7 @@ What we do claim: the five loops are each falsifiable, the conjunction is not re
 
 An AI agent becomes an AGI agent when it closes five loops at a measured scale, not when a benchmark number crosses a line. The useful output of the test is the loop that failed. Report that loop, not the label.
 
-T5 and T2 are built and have run on public families, with the results reported above. T1 is next, because retention is the cheapest loop to instrument and the one that separates memory from a longer prompt. If the loops do not close, the paper that results is still true and more useful than another position.
+T1, T2 and T5 are built and have run on public families, with the results reported above. Each is instrumented end to end and each gate can fail. The next work is not another loop. It is scale: enough tasks and enough seeds that a one-task difference stops deciding the verdict. Then the same measurement on systems that are trying to close all five. If the loops do not close, the paper that results is still true and more useful than another position.
 
 ## References
 

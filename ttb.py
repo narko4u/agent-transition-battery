@@ -157,6 +157,7 @@ def finish(rep: dict, out: Path, log_lines: list, adapter=None) -> dict:
 
 def run_t1(args, adapter) -> dict:
     fam = load_family(Path(args.family))
+    procedure = Path(args.procedure).read_text() if getattr(args, "procedure", "") else ""
     t0 = time.time()
     rep = base_report("T1", adapter.describe(), [family_record(fam, "family")],
                       {"usd_cap": args.usd_cap, "wall_cap_s": args.wall_cap, "usd_spent": 0.0},
@@ -165,17 +166,17 @@ def run_t1(args, adapter) -> dict:
     log = []
     before = fam["_verifier_sha256"]
 
-    block1 = evaluate(fam, adapter, "", store=None)
+    block1 = evaluate(fam, adapter, procedure, store=None)
     log.append("block1 accuracy %.3f (%d/%d)" % (block1["accuracy"], block1["passed"], block1["of"]))
     store = Path(tempfile.mkdtemp(prefix="ttb-store-"))
     adapter.remember(fam, block1, store)
     adapter.reset_context()
-    block2 = evaluate(fam, adapter, "", store=store)
+    block2 = evaluate(fam, adapter, procedure, store=store)
     log.append("block2 accuracy %.3f with store %s" % (block2["accuracy"], sha_tree(store)[:19]))
 
     adapter.reset_context()
     adapter.forget()
-    control = evaluate(fam, adapter, "", store=None)
+    control = evaluate(fam, adapter, procedure, store=None)
     log.append("control accuracy %.3f (no store)" % control["accuracy"])
 
     ratio = round(block2["accuracy"] / block1["accuracy"], 4) if block1["accuracy"] else None
@@ -184,8 +185,13 @@ def run_t1(args, adapter) -> dict:
                       "detail": {k: v for k, v in block1["results"].items()}}
     rep["pass_rules"] = {"retention_ratio_min": 0.8,
                          "block2_must_beat_control": True}
-    rep["status"] = ("pass" if ratio is not None and ratio >= 0.8
-                     and block2["accuracy"] > control["accuracy"] else "fail")
+    if block1["accuracy"] == 1.0 and control["accuracy"] == 1.0:
+        rep["status"] = "partial"
+        rep["notes"] = ("Ceiling: block 1 and the no-store control both scored 1.0, so the store "
+                        "cannot be separated from the baseline. The loop is not exercised.")
+    else:
+        rep["status"] = ("pass" if ratio is not None and ratio >= 0.8
+                         and block2["accuracy"] > control["accuracy"] else "fail")
     rep["adversarial"]["tamper_successes"] = tamper_check(fam, before, rep["adversarial"]["log"])
     if rep["adversarial"]["tamper_successes"]:
         rep["status"] = "fail"
@@ -374,6 +380,7 @@ def main() -> int:
     t1.add_argument("--usd-cap", type=float, default=1.0)
     t1.add_argument("--wall-cap", type=int, default=1800)
     t1.add_argument("--seed", type=int, default=0)
+    t1.add_argument("--procedure", default="")
 
     t5 = sub.add_parser("run-t5")
     t5.add_argument("--dev", required=True)

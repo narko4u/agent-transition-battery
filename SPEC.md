@@ -35,6 +35,8 @@ only the store carried. A control block runs with the store wiped.
 
 - Metric: retention ratio R = accuracy(block 2 with store) / accuracy(block 1).
 - Pass: R is at least 0.8 and block 2 beats the no-store control.
+- Ceiling guard: if block 1 and the control both score 1.0 the store cannot be separated from
+  the baseline, so the run reports `partial` with a note rather than a false pass or fail.
 - Does not show: transfer. The matched tasks are the same family, so replay counts here.
 
 ### T2, transfer to an unseen family

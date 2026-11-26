@@ -1,0 +1,131 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-26T22:09:59+00:00",
+    "changed": false,
+    "verifier_after": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6",
+    "verifier_before": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.01,
+  "wall_cap_s": 1800,
+  "wall_s": 115.8
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "text-basics",
+   "role": "family",
+   "tasks": 10,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6"
+  }
+ ],
+ "finished_at": "2026-11-26T22:09:59+00:00",
+ "lineage": [],
+ "metrics": {
+  "block1": 0.8,
+  "block2": 0.7,
+  "control": 0.6,
+  "detail": {
+   "anagram_key": {
+    "adapter_error": null,
+    "code_sha256": "sha256:96b5e729ea0c96180c3f0c15d64685f2c52cf3342c820e8578e4efab213fe250",
+    "detail": "",
+    "pass": true,
+    "seconds": 2.44
+   },
+   "caesar": {
+    "adapter_error": null,
+    "code_sha256": "sha256:8b411a23bc4ea32e254857cfeffc40f178ac91916687efe70eb2d4043c5662ec",
+    "detail": "",
+    "pass": true,
+    "seconds": 2.43
+   },
+   "csv_field": {
+    "adapter_error": null,
+    "code_sha256": "sha256:e2509e795fa6ea327ebb3d47d1a0cd562f03fe545572c762bd505c2069fe2ab7",
+    "detail": "",
+    "pass": true,
+    "seconds": 1.51
+   },
+   "ellipsize": {
+    "adapter_error": null,
+    "code_sha256": "sha256:78720b452e58d9e04989717b8a3562e8d9f721d62de3acaa8b086ad5464ae789",
+    "detail": "",
+    "pass": true,
+    "seconds": 1.84
+   },
+   "fold_accents": {
+    "adapter_error": null,
+    "code_sha256": "sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "detail": "ImportError: cannot import name 'fold_accents' from 'solution' (/home/vault/.hermes/cache/scratch/ttb-jhywm2yv/solution.py)",
+    "pass": false,
+    "seconds": 6.29
+   },
+   "initials": {
+    "adapter_error": null,
+    "code_sha256": "sha256:0522d9277bff1ee0f43c7009a59aacb29c76dda5b2840a5d661ed463f865f29d",
+    "detail": "",
+    "pass": true,
+    "seconds": 1.12
+   },
+   "parse_kv": {
+    "adapter_error": null,
+    "code_sha256": "sha256:2d446685d9a5fcaf0168b3b7486c55339f1d60c82a4d715dc39b7ac5d00515e1",
+    "detail": "",
+    "pass": true,
+    "seconds": 1.81
+   },
+   "pluralise": {
+    "adapter_error": null,
+    "code_sha256": "sha256:d7d7e45447b70fddbac5ebc642ce048c032ce8d4616bc8b6576d72309d616179",
+    "detail": "",
+    "pass": true,
+    "seconds": 6.15
+   },
+   "title_case": {
+    "adapter_error": null,
+    "code_sha256": "sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "detail": "ImportError: cannot import name 'title_case' from 'solution' (/home/vault/.hermes/cache/scratch/ttb-kk46dpyj/solution.py)",
+    "pass": false,
+    "seconds": 6.98
+   },
+   "wrap_text": {
+    "adapter_error": null,
+    "code_sha256": "sha256:bd3ece3af3318e0dac12269a38c2ccf73751d3bd0ccaa9d39d028a4cd76bdc12",
+    "detail": "",
+    "pass": true,
+    "seconds": 4.01
+   }
+  },
+  "retention_ratio": 0.875
+ },
+ "notes": "",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "block2_must_beat_control": true,
+  "retention_ratio_min": 0.8
+ },
+ "report_id": "sha256:0ae0bcfc33224a9a830ee816e203bca1d2bdbef9f5a651e9133da0de47051f22",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  1
+ ],
+ "started_at": "2026-11-26T22:08:04+00:00",
+ "status": "pass",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 31,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T1"
+}

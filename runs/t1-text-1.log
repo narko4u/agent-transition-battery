@@ -1,0 +1,3 @@
+block1 accuracy 0.800 (8/10)
+block2 accuracy 0.700 with store sha256:952553544ffd
+control accuracy 0.600 (no store)
