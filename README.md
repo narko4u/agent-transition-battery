@@ -5,12 +5,12 @@ A public test battery for the claim that an AI agent has become an AGI agent.
 Most claims of that kind are made on a capability snapshot. This repo treats the transition as
 the closure of five loops and asks a system to run the tests, not to describe itself.
 
-Status: **v0.1, reference runner implements T1 and T5**. T2, T3 and T4 are specified and not
+Status: **v0.1, reference runner implements T1, T2 and T5**. T3 and T4 are specified and not
 implemented. Every result in `runs/` is an executed run with its report, its verifier hash and
 its spend. Nothing here is a leaderboard of intelligence.
 
-Read `SPEC.md` for the battery. Read `PAPER.md` for why the battery is shaped this way. The
-paper is a draft, not a published result.
+Read `SPEC.md` for the battery. Read `PAPER.md` or `PAPER.pdf` for why the battery is shaped
+this way. Code is Apache-2.0, text is CC BY 4.0, see `LICENSING.md`.
 
 ## The five loops
 
