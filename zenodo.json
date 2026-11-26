@@ -6,6 +6,9 @@
   "description": "<p>The term AGI agent is used for two different things: an agent that scores well on a capability benchmark and an agent that closes its own improvement loops. The first is measured constantly. The second is asserted. We argue that the transition should be defined as the closure of five loops, each with a test that can fail. We show that none of the twenty-four papers we review reports the conjunction. We give the battery, the pass rules and an adversarial arm aimed at the verifier rather than the agent. We then report a pilot that calibrates the instrument rather than the agent: a distilled skill moved design judgement by one paired flip at n=14, from 12 of 14 to 13 of 14, with an exact McNemar p of 1.00. A power calculation on those discordant pairs puts the sample needed to resolve a seven point difference at roughly 330 paired tasks. That is the useful result. A second pilot ran the T5 gate six times on eight held-out tasks: one promotion in six, with baseline accuracy moving two tasks between identical runs. A third measured transfer across two families on ten tasks: zero, with a placebo of equal length performing the same. A fourth ran retention four times: three passes of a rule that a single control run cannot make trustworthy. Transition claims at demo scale are not measurements and the field's reporting standard should say so.</p>",
   "creators": [
    {
+    "name": "narko4u"
+   },
+   {
     "name": "Empire Labs Pty Ltd"
    }
   ],

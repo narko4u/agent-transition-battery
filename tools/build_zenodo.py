@@ -20,7 +20,7 @@ meta = {
         "upload_type": "publication",
         "publication_type": "preprint",
         "description": "<p>%s</p>" % abstract,
-        "creators": [{"name": "Empire Labs Pty Ltd"}],
+        "creators": [{"name": "narko4u"}, {"name": "Empire Labs Pty Ltd"}],
         "license": "cc-by-4.0",
         "keywords": ["AGI", "agents", "self-improvement", "evaluation", "verification",
                      "benchmark", "retention", "transfer"],
