@@ -17,7 +17,7 @@ paper is a draft, not a published result.
 | Test | Question | Implemented |
 | --- | --- | --- |
 | T1 Retention | Does performance survive a context reset with only the store carried? | yes |
-| T2 Transfer | Does experience on family A help an unseen family B? | specified |
+| T2 Transfer | Does experience on family A help an unseen family B? | yes |
 | T3 Acquisition | Does cost to a fixed threshold fall on the third unseen family? | specified |
 | T4 Curriculum | Does a self-generated task stream beat replay and a static set? | specified |
 | T5 Self-modification | Is a change promoted only by a verifier the candidate cannot edit? | yes |
@@ -52,6 +52,16 @@ That is the finding, not the promotion. At eight tasks the gate cannot tell a re
 from provider nondeterminism, and a single-run promotion is noise. The battery reports the
 distribution and the spend so a reader can see that for themselves. The reports are in `runs/`,
 immutable once committed.
+
+Two T2 runs from `python-basics` to `text-basics`, ten tasks, three arms:
+
+- control scored 0.7 in both runs
+- experience, after eight python tasks plus at most three distilled lessons, scored 0.6 and 0.7
+- placebo, carrying generic advice of similar length, scored 0.7 and 0.6
+
+Transfer was zero and the sign changed between runs. The lessons the model wrote were process
+advice (define the function, smoke-test it), not a strategy for the new family. That is the
+result the literature does not report and the archipelago position predicts.
 
 ## Report format
 

@@ -1,0 +1,73 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-26T21:40:49+00:00",
+    "changed": false,
+    "verifier_after": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6",
+    "verifier_before": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0118,
+  "wall_cap_s": 1800,
+  "wall_s": 147.0
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "python-basics-dev",
+   "role": "dev",
+   "tasks": 8,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:7b037d0c1bff8ef46e0c5ab93a8e4a33c0647a91ed7dd517169c317613ce4510"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "text-basics",
+   "role": "held-out",
+   "tasks": 10,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6"
+  }
+ ],
+ "finished_at": "2026-11-26T21:40:49+00:00",
+ "lessons": "1. Verify every requested function or symbol is defined with the exact expected name and can be imported from the target module before finishing.\n2. Run a quick smoke test that imports the solution and exercises typical valid and invalid inputs, including error-raising cases.\n3. Read the specification literally and validate ordering, uniqueness, empty input, and malformed forms rather than relying on partial parsing.\n",
+ "lineage": [],
+ "metrics": {
+  "control": 0.7,
+  "delta_experience": -0.1,
+  "delta_placebo": 0.0,
+  "experience": 0.6,
+  "experience_minus_placebo": -0.1,
+  "family_a": 0.875,
+  "placebo": 0.7
+ },
+ "notes": "Single pair, 10 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "pairs_required": 2,
+  "pairs_run": 1,
+  "positive_vs_control": true,
+  "positive_vs_placebo": true
+ },
+ "report_id": "sha256:065535bc17626deded4df0b39931bf113a3b789fc44652368aee3c5e99b0738d",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-26T21:38:22+00:00",
+ "status": "fail",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 39,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T2"
+}

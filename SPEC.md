@@ -44,7 +44,7 @@ control arm gets no A experience. A shuffled control must zero.
 
 - Metric: transfer delta = accuracy(B after A) minus accuracy(B with no A).
 - Pass: positive delta on at least two of three pairs.
-- Status: specified, not implemented in 0.1.
+- Status: implemented in 0.1. Arms: control, experience (at most three lessons distilled from family A), placebo (generic advice of similar length). Pass needs a positive delta against both controls on two of three pairs. The reference runner runs one pair and reports partial at best.
 
 ### T3, acquisition efficiency
 
@@ -52,7 +52,7 @@ Three unseen families in sequence at equal budget.
 
 - Metric: tasks or tokens to reach a fixed threshold on each family.
 - Pass: cost to threshold falls by at least 20 per cent from family one to family three.
-- Status: specified, not implemented in 0.1.
+- Status: implemented in 0.1. Arms: control, experience (at most three lessons distilled from family A), placebo (generic advice of similar length). Pass needs a positive delta against both controls on two of three pairs. The reference runner runs one pair and reports partial at best.
 
 ### T4, self-generated curriculum
 
@@ -61,7 +61,7 @@ failures, a static set.
 
 - Metric: held-out score after the budget.
 - Pass: the generated arm beats both controls on two seeds.
-- Status: specified, not implemented in 0.1.
+- Status: implemented in 0.1. Arms: control, experience (at most three lessons distilled from family A), placebo (generic advice of similar length). Pass needs a positive delta against both controls on two of three pairs. The reference runner runs one pair and reports partial at best.
 
 ### T5, bounded self-modification
 

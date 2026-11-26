@@ -47,10 +47,16 @@ class Scripted:
             return self._broken(task)
         if self.mode == "improver":
             return self._reference(task) if "ALWAYS_RESTATE_THE_SPEC_BEFORE_CODING" in procedure else self._broken(task)
+        if self.mode == "t2demo":
+            p = Path(store) / "lessons.md" if store else None
+            return self._reference(task) if p and p.exists() and "LESSON_MARKER" in p.read_text() else self._broken(task)
         raise ValueError(self.mode)
 
     def remember(self, family, block, store):
         store = Path(store)
+        if self.mode == "t2demo":
+            (store / "lessons.md").write_text("LESSON_MARKER: read the spec before coding\n")
+            return
         for task in family["tasks"]:
             if block["results"].get(task["id"], {}).get("pass"):
                 (store / (task["id"] + ".py")).write_text(self._reference(task))

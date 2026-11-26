@@ -1,0 +1,88 @@
+{
+ "id": "text-basics",
+ "verifier": "unittest",
+ "author": "Empire Labs Pty Ltd",
+ "note": "Transfer target for T2. Same procedure, different surface.",
+ "tasks": [
+  {
+   "id": "initials",
+   "entry": "initials",
+   "spec": "Write initials(name) -> str.\nSplit the name on whitespace, take the first character of each part, uppercase it, join the\nletters with a full stop and end with a full stop. \"Ada Lovelace\" is \"A.L.\". An empty or\nwhitespace-only name returns \"\".",
+   "reference": "def initials(name):\n    parts = str(name).split()\n    if not parts:\n        return \"\"\n    return \"\".join(p[0].upper() + \".\" for p in parts)",
+   "tests": "tests/test_initials.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "wrap_text",
+   "entry": "wrap_text",
+   "spec": "Write wrap_text(text, width) -> list of strings.\nBreak the text into lines of at most width characters at spaces. Never split a word. A word\nlonger than width goes on its own line. Collapse runs of spaces to one. Empty or whitespace\ntext returns [].",
+   "reference": "def wrap_text(text, width):\n    words = str(text).split()\n    if not words:\n        return []\n    lines, cur = [], \"\"\n    for w in words:\n        if not cur:\n            cur = w\n        elif len(cur) + 1 + len(w) <= width:\n            cur += \" \" + w\n        else:\n            lines.append(cur)\n            cur = w\n    if cur:\n        lines.append(cur)\n    return lines",
+   "tests": "tests/test_wrap_text.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "csv_field",
+   "entry": "csv_field",
+   "spec": "Write csv_field(value) -> str.\nIf the value contains a comma, a double quote or a newline, return it wrapped in double quotes\nwith every internal double quote doubled. Otherwise return it unchanged. The value is a string\nalready.",
+   "reference": "def csv_field(value):\n    if any(ch in value for ch in [\",\", '\"', \"\\n\"]):\n        return '\"' + value.replace('\"', '\"\"') + '\"'\n    return value",
+   "tests": "tests/test_csv_field.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "pluralise",
+   "entry": "pluralise",
+   "spec": "Write pluralise(word) -> str.\nIf the word ends in s, x, z, ch or sh, add \"es\". If it ends in a consonant followed by y,\nreplace the y with \"ies\". Otherwise add \"s\". Treat the word case-sensitively.",
+   "reference": "def pluralise(word):\n    w = str(word)\n    if w.endswith((\"s\", \"x\", \"z\", \"ch\", \"sh\")):\n        return w + \"es\"\n    if len(w) > 1 and w.endswith(\"y\") and w[-2].lower() not in \"aeiou\":\n        return w[:-1] + \"ies\"\n    return w + \"s\"",
+   "tests": "tests/test_pluralise.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "fold_accents",
+   "entry": "fold_accents",
+   "spec": "Write fold_accents(text) -> str.\nReturn the text with diacritics removed from Latin characters: decompose each character with\nUnicode NFD and drop combining marks. Other characters are unchanged.",
+   "reference": "import unicodedata\ndef fold_accents(text):\n    return \"\".join(ch for ch in unicodedata.normalize(\"NFD\", text)\n                   if unicodedata.category(ch) != \"Mn\")",
+   "tests": "tests/test_fold_accents.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "title_case",
+   "entry": "title_case",
+   "spec": "Write title_case(text) -> str.\nCapitalise the first letter of each word and lowercase the rest, except for these small words\nwhen they are neither first nor last: a, an, the, of, in, on, and, or, for, to, at, by, with.\nEverything else keeps normal capitalisation of the first letter.",
+   "reference": "SMALL = {\"a\", \"an\", \"the\", \"of\", \"in\", \"on\", \"and\", \"or\", \"for\", \"to\", \"at\", \"by\", \"with\"}\ndef title_case(text):\n    words = str(text).split()\n    out = []\n    for i, w in enumerate(words):\n        low = w.lower()\n        if 0 < i < len(words) - 1 and low in SMALL:\n            out.append(low)\n        else:\n            out.append(low[:1].upper() + low[1:])\n    return \" \".join(out)",
+   "tests": "tests/test_title_case.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "ellipsize",
+   "entry": "ellipsize",
+   "spec": "Write ellipsize(text, n) -> str.\nIf the length of text is at most n, return it unchanged. Otherwise take the first n characters,\nremove trailing spaces, append three dots and return that.",
+   "reference": "def ellipsize(text, n):\n    text = str(text)\n    if len(text) <= n:\n        return text\n    return text[:n].rstrip() + \"...\"",
+   "tests": "tests/test_ellipsize.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "parse_kv",
+   "entry": "parse_kv",
+   "spec": "Write parse_kv(text) -> dict.\nSplit on semicolons. Trim spaces around each part and around key and value. Skip empty parts.\nSplit each part on the first equals sign. A part with no equals sign raises ValueError. A\nrepeated key keeps the last value. An empty string returns {}.",
+   "reference": "def parse_kv(text):\n    out = {}\n    for part in str(text).split(\";\"):\n        part = part.strip()\n        if not part:\n            continue\n        if \"=\" not in part:\n            raise ValueError(part)\n        k, _, v = part.partition(\"=\")\n        out[k.strip()] = v.strip()\n    return out",
+   "tests": "tests/test_parse_kv.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "caesar",
+   "entry": "caesar",
+   "spec": "Write caesar(text, k) -> str.\nShift every ASCII letter forward by k positions, wrapping around the alphabet and preserving\ncase. Characters that are not ASCII letters are unchanged. k may be negative.",
+   "reference": "def caesar(text, k):\n    out = []\n    for ch in str(text):\n        if \"a\" <= ch <= \"z\":\n            out.append(chr((ord(ch) - 97 + k) % 26 + 97))\n        elif \"A\" <= ch <= \"Z\":\n            out.append(chr((ord(ch) - 65 + k) % 26 + 65))\n        else:\n            out.append(ch)\n    return \"\".join(out)",
+   "tests": "tests/test_caesar.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "anagram_key",
+   "entry": "anagram_key",
+   "spec": "Write anagram_key(word) -> str.\nLowercase the word, drop every character that is not an ASCII letter, sort the remaining\ncharacters and return the string.",
+   "reference": "def anagram_key(word):\n    letters = [c for c in str(word).lower() if \"a\" <= c <= \"z\"]\n    return \"\".join(sorted(letters))",
+   "tests": "tests/test_anagram_key.py",
+   "timeout_s": 30
+  }
+ ]
+}

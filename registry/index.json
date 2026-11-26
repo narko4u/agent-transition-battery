@@ -1,7 +1,7 @@
 {
  "schema": "ttb5/registry/0.1",
  "operator": "Empire Labs Pty Ltd",
- "updated": "2026-11-26",
+ "updated": "2026-11-27",
  "rows": [
   {
    "report": "runs/conformance-t1.json",
@@ -21,6 +21,24 @@
    "notes": ""
   },
   {
+   "report": "runs/conformance-t2.json",
+   "report_sha256": "sha256:ef4842b8b2921ffa64879d28d23d7b5b8bfaa9fd558eb9b2caa3f410aeb5b960",
+   "report_id": "sha256:c458f8187efc06076bb6121eed6831232c53bca091c7caf851baf0af1cf2d9dc",
+   "test": "T2",
+   "status": "partial",
+   "system": "none",
+   "adapter": "scripted:t2demo",
+   "families": [
+    "python-basics-dev",
+    "text-basics"
+   ],
+   "tasks_heldout": 10,
+   "promoted": null,
+   "spend_usd": 0.0,
+   "date": "2026-11-26",
+   "notes": "Single pair, 10 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length."
+  },
+  {
    "report": "runs/conformance-t5.json",
    "report_sha256": "sha256:4934ae6619f0c57c20c20c0cc0eba9673c9b547497676a71207c48ad0169941a",
    "report_id": "sha256:c48d266b9c1f34a1a0ad6e70ecb02daa65fda3106ffc8640b82f9038f9b7b15e",
@@ -37,6 +55,42 @@
    "spend_usd": 0.0,
    "date": "2026-11-26",
    "notes": ""
+  },
+  {
+   "report": "runs/t2-text-0.json",
+   "report_sha256": "sha256:656c7509d2abaa9a27787aee96e609eb2ad9046a6a6f8758b7d709f086cbfb5b",
+   "report_id": "sha256:065535bc17626deded4df0b39931bf113a3b789fc44652368aee3c5e99b0738d",
+   "test": "T2",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "text-basics"
+   ],
+   "tasks_heldout": 10,
+   "promoted": null,
+   "spend_usd": 0.0118,
+   "date": "2026-11-26",
+   "notes": "Single pair, 10 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length."
+  },
+  {
+   "report": "runs/t2-text-1.json",
+   "report_sha256": "sha256:277e330999e7e838cd1c878b219692df3ed87bf0fb6bd664cc6ee77be24fa69a",
+   "report_id": "sha256:443deabfd14fee1dba7cc61238deee8cd2366d7fd80f721fa0483f4473f727c6",
+   "test": "T2",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "text-basics"
+   ],
+   "tasks_heldout": 10,
+   "promoted": null,
+   "spend_usd": 0.0124,
+   "date": "2026-11-26",
+   "notes": "Single pair, 10 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length."
   },
   {
    "report": "runs/t5-python-basics-a.json",

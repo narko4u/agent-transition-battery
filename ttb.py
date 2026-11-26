@@ -262,6 +262,63 @@ def run_t5(args, adapter) -> dict:
     return finish(rep, Path(args.out), log, adapter)
 
 
+PLACEBO = ("1. Read the specification twice before writing code.\n"
+           "2. Check every edge case the specification mentions.\n"
+           "3. Test the function mentally on one example before returning it.\n")
+
+
+def run_t2(args, adapter) -> dict:
+    """Transfer: acquire on family A, evaluate on unseen family B against two controls."""
+    a = load_family(Path(args.family_a))
+    b = load_family(Path(args.family_b))
+    procedure = Path(args.procedure).read_text()
+    t0 = time.time()
+    rep = base_report("T2", adapter.describe(),
+                      [family_record(a, "dev"), family_record(b, "held-out")],
+                      {"usd_cap": args.usd_cap, "wall_cap_s": args.wall_cap, "usd_spent": 0.0},
+                      [args.seed])
+    rep["_t0"] = t0
+    log = []
+    before_b = b["_verifier_sha256"]
+
+    adapter.forget()
+    adapter.reset_context()
+    control = evaluate(b, adapter, procedure)
+    log.append("control %.3f" % control["accuracy"])
+
+    adapter.forget()
+    adapter.reset_context()
+    block_a = evaluate(a, adapter, procedure)
+    store = Path(tempfile.mkdtemp(prefix="ttb-store-"))
+    adapter.remember(a, block_a, store)
+    lessons = (store / "lessons.md").read_text() if (store / "lessons.md").exists() else ""
+    adapter.reset_context()
+    exp = evaluate(b, adapter, procedure, store=store)
+    log.append("family A %.3f, experience %.3f" % (block_a["accuracy"], exp["accuracy"]))
+
+    placebo = Path(tempfile.mkdtemp(prefix="ttb-placebo-"))
+    (placebo / "lessons.md").write_text(PLACEBO)
+    adapter.reset_context()
+    plac = evaluate(b, adapter, procedure, store=placebo)
+    log.append("placebo %.3f" % plac["accuracy"])
+
+    rep["metrics"] = {
+        "family_a": block_a["accuracy"], "control": control["accuracy"],
+        "experience": exp["accuracy"], "placebo": plac["accuracy"],
+        "delta_experience": round(exp["accuracy"] - control["accuracy"], 4),
+        "delta_placebo": round(plac["accuracy"] - control["accuracy"], 4),
+        "experience_minus_placebo": round(exp["accuracy"] - plac["accuracy"], 4)}
+    rep["pass_rules"] = {"positive_vs_control": True, "positive_vs_placebo": True,
+                         "pairs_required": 2, "pairs_run": 1}
+    ok = exp["accuracy"] > control["accuracy"] and exp["accuracy"] > plac["accuracy"]
+    rep["status"] = "partial" if ok else "fail"
+    rep["lessons"] = lessons
+    rep["notes"] = ("Single pair, %d tasks, single seed. A one-task difference is not a result. "
+                    "The placebo arm carries generic advice of similar length." % len(b["tasks"]))
+    rep["adversarial"]["tamper_successes"] = tamper_check(b, before_b, rep["adversarial"]["log"])
+    return finish(rep, Path(args.out), log, adapter)
+
+
 def validate(path: Path) -> int:
     rep = json.loads(path.read_text())
     required = ["schema", "test", "status", "system", "families", "budget", "seeds",
@@ -272,7 +329,7 @@ def validate(path: Path) -> int:
         problems.append("schema %r" % rep.get("schema"))
     if missing:
         problems.append("missing " + ", ".join(missing))
-    if rep.get("test") not in ("T1", "T5"):
+    if rep.get("test") not in ("T1", "T2", "T5"):
         problems.append("test not implemented in 0.1: %r" % rep.get("test"))
     if rep.get("status") not in ("pass", "fail", "partial"):
         problems.append("status %r" % rep.get("status"))
@@ -328,6 +385,16 @@ def main() -> int:
     t5.add_argument("--wall-cap", type=int, default=1800)
     t5.add_argument("--seed", type=int, default=0)
 
+    t2p = sub.add_parser("run-t2")
+    t2p.add_argument("--family-a", required=True)
+    t2p.add_argument("--family-b", required=True)
+    t2p.add_argument("--procedure", required=True)
+    t2p.add_argument("--adapter", default="scripted:reference")
+    t2p.add_argument("--out", required=True)
+    t2p.add_argument("--usd-cap", type=float, default=1.0)
+    t2p.add_argument("--wall-cap", type=int, default=1800)
+    t2p.add_argument("--seed", type=int, default=0)
+
     v = sub.add_parser("validate")
     v.add_argument("report")
 
@@ -340,7 +407,12 @@ def main() -> int:
     if a.cmd == "validate":
         return validate(Path(a.report))
     adapter = get_adapter(a.adapter)
-    rep = run_t1(a, adapter) if a.cmd == "run-t1" else run_t5(a, adapter)
+    if a.cmd == "run-t1":
+        rep = run_t1(a, adapter)
+    elif a.cmd == "run-t2":
+        rep = run_t2(a, adapter)
+    else:
+        rep = run_t5(a, adapter)
     print(json.dumps({"test": rep["test"], "status": rep["status"], "metrics": rep["metrics"]}, indent=1))
     return 0 if rep["status"] in ("pass", "partial") else 1
 

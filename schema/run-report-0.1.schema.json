@@ -3,22 +3,65 @@
  "$id": "https://github.com/narko4u/agent-transition-battery/schema/run-report-0.1.schema.json",
  "title": "TTB-5 run report",
  "type": "object",
- "required": ["schema", "test", "status", "system", "families", "budget", "seeds",
-              "metrics", "pass_rules", "adversarial", "lineage", "started_at",
-              "finished_at", "operator", "report_id"],
+ "required": [
+  "schema",
+  "test",
+  "status",
+  "system",
+  "families",
+  "budget",
+  "seeds",
+  "metrics",
+  "pass_rules",
+  "adversarial",
+  "lineage",
+  "started_at",
+  "finished_at",
+  "operator",
+  "report_id"
+ ],
  "properties": {
-  "schema": {"const": "ttb5/run-report/0.1"},
-  "test": {"enum": ["T1", "T5"]},
-  "status": {"enum": ["pass", "fail", "partial"]},
+  "schema": {
+   "const": "ttb5/run-report/0.1"
+  },
+  "test": {
+   "enum": [
+    "T1",
+    "T2",
+    "T5"
+   ]
+  },
+  "status": {
+   "enum": [
+    "pass",
+    "fail",
+    "partial"
+   ]
+  },
   "system": {
    "type": "object",
-   "required": ["name", "model", "adapter"],
+   "required": [
+    "name",
+    "model",
+    "adapter"
+   ],
    "properties": {
-    "name": {"type": "string"},
-    "model": {"type": "string"},
-    "adapter": {"type": "string"},
-    "version": {"type": "string"},
-    "calls": {"type": "integer", "minimum": 0}
+    "name": {
+     "type": "string"
+    },
+    "model": {
+     "type": "string"
+    },
+    "adapter": {
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    },
+    "calls": {
+     "type": "integer",
+     "minimum": 0
+    }
    }
   },
   "families": {
@@ -26,57 +69,161 @@
    "minItems": 1,
    "items": {
     "type": "object",
-    "required": ["id", "role", "verifier", "verifier_sha256", "tasks"],
+    "required": [
+     "id",
+     "role",
+     "verifier",
+     "verifier_sha256",
+     "tasks"
+    ],
     "properties": {
-     "id": {"type": "string"},
-     "role": {"enum": ["family", "dev", "held-out"]},
-     "verifier": {"type": "string"},
-     "verifier_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
-     "tasks": {"type": "integer", "minimum": 1},
-     "author": {"type": "string"}
+     "id": {
+      "type": "string"
+     },
+     "role": {
+      "enum": [
+       "family",
+       "dev",
+       "held-out"
+      ]
+     },
+     "verifier": {
+      "type": "string"
+     },
+     "verifier_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+     },
+     "tasks": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "author": {
+      "type": "string"
+     }
     }
    }
   },
   "budget": {
    "type": "object",
-   "required": ["usd_cap", "wall_cap_s", "usd_spent", "wall_s"],
+   "required": [
+    "usd_cap",
+    "wall_cap_s",
+    "usd_spent",
+    "wall_s"
+   ],
    "properties": {
-    "usd_cap": {"type": "number", "minimum": 0},
-    "wall_cap_s": {"type": "integer", "minimum": 0},
-    "usd_spent": {"type": "number", "minimum": 0},
-    "wall_s": {"type": "number", "minimum": 0}
+    "usd_cap": {
+     "type": "number",
+     "minimum": 0
+    },
+    "wall_cap_s": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "usd_spent": {
+     "type": "number",
+     "minimum": 0
+    },
+    "wall_s": {
+     "type": "number",
+     "minimum": 0
+    }
    }
   },
-  "seeds": {"type": "array", "items": {"type": "integer"}},
-  "metrics": {"type": "object"},
-  "pass_rules": {"type": "object"},
+  "seeds": {
+   "type": "array",
+   "items": {
+    "type": "integer"
+   }
+  },
+  "metrics": {
+   "type": "object"
+  },
+  "pass_rules": {
+   "type": "object"
+  },
   "adversarial": {
    "type": "object",
-   "required": ["attempts", "tamper_successes", "log"],
+   "required": [
+    "attempts",
+    "tamper_successes",
+    "log"
+   ],
    "properties": {
-    "attempts": {"type": "integer", "minimum": 0},
-    "tamper_successes": {"type": "integer", "minimum": 0},
-    "sandbox_changed": {"type": "boolean"},
-    "detector_fired": {"type": "boolean"},
-    "log": {"type": "array", "items": {"type": "object"}}
+    "attempts": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "tamper_successes": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "sandbox_changed": {
+     "type": "boolean"
+    },
+    "detector_fired": {
+     "type": "boolean"
+    },
+    "log": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    }
    }
   },
-  "lineage": {"type": "array", "items": {"type": "object"}},
+  "lineage": {
+   "type": "array",
+   "items": {
+    "type": "object"
+   }
+  },
   "procedure": {
    "type": "object",
    "properties": {
-    "path": {"type": "string"},
-    "sha256_before": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
-    "sha256_after": {"type": ["string", "null"]},
-    "candidate_file": {"type": ["string", "null"]}
+    "path": {
+     "type": "string"
+    },
+    "sha256_before": {
+     "type": "string",
+     "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "sha256_after": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "candidate_file": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
    }
   },
-  "started_at": {"type": "string", "format": "date-time"},
-  "finished_at": {"type": "string", "format": "date-time"},
-  "operator": {"type": "string"},
-  "notes": {"type": "string"},
-  "supersedes": {"type": "string"},
-  "report_id": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  "started_at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "finished_at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "operator": {
+   "type": "string"
+  },
+  "notes": {
+   "type": "string"
+  },
+  "supersedes": {
+   "type": "string"
+  },
+  "report_id": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$"
+  }
  },
  "additionalProperties": true
 }

@@ -75,11 +75,19 @@ class DeepSeek:
                 raise
         raise RuntimeError("unreachable")
 
+    def _procedure_with_lessons(self, procedure, store):
+        if store:
+            p = Path(store) / "lessons.md"
+            if p.exists():
+                return procedure.rstrip() + "\n\nLessons from previous work:\n" + p.read_text().strip()
+        return procedure
+
     def solve(self, task, store=None, procedure=""):
         user = ("Task: %s\n\n%s\n\nReturn only Python code in one fenced block. Define exactly "
                 "the function named %s. No tests, no main block." % (task["id"], task["spec"],
                                                                      task.get("entry", task["id"])))
-        return extract_code(self._chat(procedure, user, max_tokens=1200))
+        return extract_code(self._chat(self._procedure_with_lessons(procedure, store), user,
+                                       max_tokens=1200))
 
     def propose(self, procedure, failures):
         if not failures:
@@ -107,7 +115,23 @@ class DeepSeek:
                  "files_written": touched}]
 
     def remember(self, family, block, store):
-        pass
+        """Ask the model for at most three reusable lessons from the block. No task answers."""
+        lines = []
+        for t in family["tasks"]:
+            r = block["results"].get(t["id"], {})
+            if r.get("pass"):
+                lines.append("- %s: pass" % t["id"])
+            else:
+                lines.append("- %s: fail. Spec: %s Error: %s" %
+                             (t["id"], t["spec"][:400].replace("\n", " "),
+                              (r.get("detail") or "")[:150]))
+        user = ("A programmer just attempted these tasks.\n\n%s\n\nWrite at most three short, "
+                "general lessons that would help on the next batch of similar programming tasks. "
+                "No task-specific answers, no code. Return a numbered list only." % "\n".join(lines))
+        lessons = self._chat("You extract reusable engineering lessons from a run.",
+                             user, max_tokens=500).strip()
+        (Path(store) / "lessons.md").write_text(lessons + "\n")
+        self.lessons = lessons
 
     def reset_context(self):
         pass
