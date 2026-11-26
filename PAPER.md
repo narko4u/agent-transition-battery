@@ -61,6 +61,8 @@ The closest in method is the executive-disposes instrument, which is worth separ
 
 The ARC-AGI-3 paper is also worth reading against itself. Its headline is a bare-model number: 0.50% for the best frontier model. In the same paper the authors report hiring researchers to build general harnesses on three public environments and then testing those harnesses on the full public set. The same model, Opus 4.6, scores 0.0% with no harness and 97.1% with the Duke harness on a variant of TR87 and 0.0% under both configurations on BP35. Extreme bimodal performance, in the authors' phrase. That result does more for the transition argument than any position paper in the set. The scaffold moves the score by 97 points on one environment and by nothing on another, so a benchmark number reported without its harness and without a transfer test is neither a capability measure nor a generality measure.
 
+The benchmark has also moved since that release. In September 2026 OpenAI claimed that GPT-6 Astra saturates ARC-AGI-3 at 99.9% and surpasses the human action-efficiency baseline on 96 per cent of levels. Both figures come from the vendor's own harness and its own evaluation. If they hold, the March gap closed in six months, which is the strongest argument for this battery rather than against it: a benchmark family saturates and the claim moves to the next family, so the transition claim has to survive the replacement. A dated benchmark number is a snapshot of one family, not a property of the system.
+
 ## 3. The transition is a conjunction
 
 We propose that an agent becomes an AGI-grade agent, at a measured scale, when five loops are closed. Each loop has a failure mode that the others do not catch.
