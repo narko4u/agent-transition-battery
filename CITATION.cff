@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this battery, cite it as below."
+title: "Agent Transition Battery (TTB-5)"
+abstract: "Five tests for the claim that an AI agent has become an AGI agent: retention, transfer, acquisition efficiency, self-generated curriculum and bounded self-modification."
+authors:
+  - name: "Empire Labs Pty Ltd"
+version: 0.1.0
+date-released: 2026-11-26
+license: CC-BY-4.0
+repository-code: "https://github.com/narko4u/agent-transition-battery"
+keywords: [agi, agents, evaluation, self-improvement, verification]

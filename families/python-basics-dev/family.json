@@ -1,0 +1,72 @@
+{
+ "id": "python-basics-dev",
+ "verifier": "unittest",
+ "author": "Empire Labs Pty Ltd",
+ "note": "Dev half. The candidate may learn from these.",
+ "tasks": [
+  {
+   "id": "slugify",
+   "entry": "slugify",
+   "spec": "Write slugify(text) -> str.\nLowercase. Replace every run of characters that are not ASCII letters or digits with a single\nhyphen. Strip leading and trailing hyphens. Return \"\" when nothing remains.",
+   "reference": "import re\ndef slugify(text):\n    s = re.sub(r\"[^a-z0-9]+\", \"-\", str(text).lower())\n    return s.strip(\"-\")",
+   "tests": "tests/test_slugify.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "parse_duration",
+   "entry": "parse_duration",
+   "spec": "Write parse_duration(text) -> int seconds.\nAccept an optional sequence of <int><unit> where unit is h, m or s, in that order, each at most\nonce. \"1h30m45s\" is 5445. \"90s\" is 90. \"2m\" is 120. An empty string is 0. Any other form,\nincluding a bad unit or a repeated unit, raises ValueError.",
+   "reference": "import re\ndef parse_duration(text):\n    text = str(text).strip()\n    if text == \"\":\n        return 0\n    m = re.fullmatch(r\"(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?\", text)\n    if not m or not any(m.groups()):\n        raise ValueError(text)\n    h, mi, s = (int(x) if x else 0 for x in m.groups())\n    return h * 3600 + mi * 60 + s",
+   "tests": "tests/test_parse_duration.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "chunk",
+   "entry": "chunk",
+   "spec": "Write chunk(seq, n) -> list of lists.\nSplit seq into consecutive lists of length n, the last one shorter if needed. n must be a\npositive int, otherwise raise ValueError. chunk([], 3) is [].",
+   "reference": "def chunk(seq, n):\n    if not isinstance(n, int) or n <= 0:\n        raise ValueError(n)\n    seq = list(seq)\n    return [seq[i:i + n] for i in range(0, len(seq), n)]",
+   "tests": "tests/test_chunk.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "clamp",
+   "entry": "clamp",
+   "spec": "Write clamp(x, lo, hi) -> number.\nReturn x limited to the inclusive range [lo, hi]. Raise ValueError when lo > hi.",
+   "reference": "def clamp(x, lo, hi):\n    if lo > hi:\n        raise ValueError((lo, hi))\n    return max(lo, min(hi, x))",
+   "tests": "tests/test_clamp.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "median",
+   "entry": "median",
+   "spec": "Write median(nums) -> float.\nReturn the median of a non-empty sequence of numbers. An even length returns the mean of the two\nmiddle values as a float. An empty sequence raises ValueError.",
+   "reference": "def median(nums):\n    nums = sorted(nums)\n    if not nums:\n        raise ValueError(\"empty\")\n    n = len(nums)\n    mid = n // 2\n    if n % 2:\n        return float(nums[mid])\n    return (nums[mid - 1] + nums[mid]) / 2.0",
+   "tests": "tests/test_median.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "dedupe",
+   "entry": "dedupe",
+   "spec": "Write dedupe(items) -> list.\nKeep the first occurrence of each item, preserving order. Works for unhashable items too, so\nuse equality rather than a set.",
+   "reference": "def dedupe(items):\n    out = []\n    for x in items:\n        if x not in out:\n            out.append(x)\n    return out",
+   "tests": "tests/test_dedupe.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "rotate",
+   "entry": "rotate",
+   "spec": "Write rotate(items, k) -> list.\nRotate the sequence right by k places. A negative k rotates left. k may exceed the length.\nAn empty sequence returns [].",
+   "reference": "def rotate(items, k):\n    items = list(items)\n    if not items:\n        return []\n    k %= len(items)\n    return items[-k:] + items[:-k] if k else items",
+   "tests": "tests/test_rotate.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "is_palindrome",
+   "entry": "is_palindrome",
+   "spec": "Write is_palindrome(text) -> bool.\nIgnore case and every character that is not an ASCII letter or digit. An empty result is True.",
+   "reference": "import re\ndef is_palindrome(text):\n    s = re.sub(r\"[^a-z0-9]\", \"\", str(text).lower())\n    return s == s[::-1]",
+   "tests": "tests/test_is_palindrome.py",
+   "timeout_s": 30
+  }
+ ]
+}

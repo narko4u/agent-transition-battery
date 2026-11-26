@@ -1,0 +1,18 @@
+name: validate
+on: [push, pull_request]
+jobs:
+  reports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate every run report
+        run: python3 tools/check_reports.py
+      - name: Conformance run must reproduce
+        run: |
+          python3 ttb.py run-t1 --family families/python-basics --adapter scripted:learner --out /tmp/t1.json
+          python3 ttb.py run-t5 --dev families/python-basics-dev --heldout families/python-basics-heldout --procedure procedure.md --adapter scripted:improver --out /tmp/t5.json
+          test "$(python3 -c 'import json;print(json.load(open("/tmp/t1.json"))["status"])')" = pass
+          test "$(python3 -c 'import json;print(json.load(open("/tmp/t5.json"))["status"])')" = partial

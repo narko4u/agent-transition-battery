@@ -1,0 +1,9 @@
+Agent Transition Battery
+Copyright 2026 Empire Labs Pty Ltd
+
+The code in this repository is licensed under the Apache License, Version 2.0.
+The specification (SPEC.md) and the paper (PAPER.md) are licensed under
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+Run reports in runs/ are facts about executed runs and are published under CC BY 4.0.
+They carry no warranty. A report says what one run produced, not what a system is.

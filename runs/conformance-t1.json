@@ -1,0 +1,172 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-26T13:10:48+00:00",
+    "changed": false,
+    "verifier_after": "sha256:ca94ab7f984845c09e770abffc7adca544e057a54d8222dddea827b1fb739463",
+    "verifier_before": "sha256:ca94ab7f984845c09e770abffc7adca544e057a54d8222dddea827b1fb739463"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0,
+  "wall_cap_s": 1800,
+  "wall_s": 3.0
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "python-basics",
+   "role": "family",
+   "tasks": 16,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:ca94ab7f984845c09e770abffc7adca544e057a54d8222dddea827b1fb739463"
+  }
+ ],
+ "finished_at": "2026-11-26T13:10:48+00:00",
+ "lineage": [],
+ "metrics": {
+  "block1": 0.6875,
+  "block2": 0.6875,
+  "control": 0.0,
+  "detail": {
+   "chunk": {
+    "adapter_error": null,
+    "code_sha256": "sha256:a431299a3364f1ac84b54a119dbf8c0f2cb30f6ee8e902e7bb6820723acd404f",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "clamp": {
+    "adapter_error": null,
+    "code_sha256": "sha256:ff03c4859290ef7c9ff9d32c10fcc4cd810c219521b8aa1d7416adb712b74280",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "dedupe": {
+    "adapter_error": null,
+    "code_sha256": "sha256:00efeb1fbeeecc859ea2f35a67bba99ed545a120271098f195137783e15cf60a",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "format_cents": {
+    "adapter_error": null,
+    "code_sha256": "sha256:5a494af9b9ee27b58dd7a77e25bf0f2c19e16cfbca21761e98d1122aca897c71",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "human_bytes": {
+    "adapter_error": null,
+    "code_sha256": "sha256:a2a507951ac029e719ff098ce543a9a554dc2349ceac09146d2541b4709e8dfa",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "is_palindrome": {
+    "adapter_error": null,
+    "code_sha256": "sha256:3b568ddddd72ed22a810b31d2adccb3364704940eeabb9db86b1d8474a5f8360",
+    "detail": "FAILED (errors=1)",
+    "pass": false,
+    "seconds": 0.06
+   },
+   "median": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f46b441df0a13800d70934865629737db6b400415d3e374c4fe2702ff7f7e590",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "merge_intervals": {
+    "adapter_error": null,
+    "code_sha256": "sha256:2d9cbbe752e1acb89dda8023b2052d2b895ffd09ea633c8e66a39d39d9e2897f",
+    "detail": "FAILED (errors=1)",
+    "pass": false,
+    "seconds": 0.06
+   },
+   "parse_duration": {
+    "adapter_error": null,
+    "code_sha256": "sha256:d4163573d09d7506f6cb2c54068432f6baecb9f3046449b3913387373ab9271f",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "parse_query": {
+    "adapter_error": null,
+    "code_sha256": "sha256:47555f28c3277d5716542ea3ef88ccc9da4d83d1c3fdc8c69f8833e425dd07d4",
+    "detail": "FAILED (errors=1)",
+    "pass": false,
+    "seconds": 0.06
+   },
+   "rle_decode": {
+    "adapter_error": null,
+    "code_sha256": "sha256:0650db6001ff6b6754283502cabb3b6907ef5f6d50fb7417e0c963dc88a25f85",
+    "detail": "FAILED (errors=1)",
+    "pass": false,
+    "seconds": 0.06
+   },
+   "rle_encode": {
+    "adapter_error": null,
+    "code_sha256": "sha256:b60c2f35dbbf74301450de0083f37fe58add97d632c2abed05fd6f549d2b958e",
+    "detail": "FAILED (errors=1)",
+    "pass": false,
+    "seconds": 0.06
+   },
+   "rotate": {
+    "adapter_error": null,
+    "code_sha256": "sha256:6c0eaacb3c322b6ffcf823bf5ea7576256ef36d926f3bc7f77b2dbedb28033d2",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "slugify": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f295b824db9c875fb4e4194638eb9a407dfc20d5356b01e0f90e77686b0b2da8",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "top_k": {
+    "adapter_error": null,
+    "code_sha256": "sha256:90323a6561dfed1077603b21b182291a5471dff26b5d41ecf8f067c733ba1056",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "word_freq": {
+    "adapter_error": null,
+    "code_sha256": "sha256:e8402a88319be32e98f123ba07ef8f10abf374af317f21313e18a8a3bb921cd7",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   }
+  },
+  "retention_ratio": 1.0
+ },
+ "notes": "",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "block2_must_beat_control": true,
+  "retention_ratio_min": 0.8
+ },
+ "report_id": "sha256:63a9ba73858dd2697769cc67695fab741cfc3b0e2a374e934cd7d00b02498258",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-26T13:10:45+00:00",
+ "status": "pass",
+ "system": {
+  "adapter": "scripted:learner",
+  "model": "none",
+  "name": "scripted",
+  "version": "0.1"
+ },
+ "test": "T1"
+}

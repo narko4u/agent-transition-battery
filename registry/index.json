@@ -1,0 +1,150 @@
+{
+ "schema": "ttb5/registry/0.1",
+ "operator": "Empire Labs Pty Ltd",
+ "updated": "2026-11-26",
+ "rows": [
+  {
+   "report": "runs/conformance-t1.json",
+   "report_sha256": "sha256:d55d9a963165b0ab3fe9cbd5c05dad3408f3f95f39712d7adbb9cf60ebb6fcf7",
+   "report_id": "sha256:63a9ba73858dd2697769cc67695fab741cfc3b0e2a374e934cd7d00b02498258",
+   "test": "T1",
+   "status": "pass",
+   "system": "none",
+   "adapter": "scripted:learner",
+   "families": [
+    "python-basics"
+   ],
+   "tasks_heldout": null,
+   "promoted": null,
+   "spend_usd": 0.0,
+   "date": "2026-11-26",
+   "notes": ""
+  },
+  {
+   "report": "runs/conformance-t5.json",
+   "report_sha256": "sha256:4934ae6619f0c57c20c20c0cc0eba9673c9b547497676a71207c48ad0169941a",
+   "report_id": "sha256:c48d266b9c1f34a1a0ad6e70ecb02daa65fda3106ffc8640b82f9038f9b7b15e",
+   "test": "T5",
+   "status": "partial",
+   "system": "none",
+   "adapter": "scripted:improver",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": true,
+   "spend_usd": 0.0,
+   "date": "2026-11-26",
+   "notes": ""
+  },
+  {
+   "report": "runs/t5-python-basics-a.json",
+   "report_sha256": "sha256:ddb6fc5a97a190c6c8cc7e36007aa2d3fdb28fb89f76c78b66376608162039c4",
+   "report_id": "sha256:e3394a53a07a7219623a04b6113701d7282d8fcf2359375757d4b6efd7b104ed",
+   "test": "T5",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": false,
+   "spend_usd": 0.0083,
+   "date": "2026-11-26",
+   "notes": "Single seed, 8 held-out tasks. A difference of one task is not evidence either way. This row demonstrates the gate, not the procedure's effect."
+  },
+  {
+   "report": "runs/t5-python-basics-b.json",
+   "report_sha256": "sha256:91644617865be0b99835e9fb36979df5565014e2e6df9c2a08554e15d6c9287c",
+   "report_id": "sha256:5d7794b0f4b483acbd9ba1eebf2fa7de6d921ce4a85e166c4091f2b5bbde57e8",
+   "test": "T5",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": false,
+   "spend_usd": 0.0095,
+   "date": "2026-11-26",
+   "notes": "Single seed, 8 held-out tasks. A difference of one task is not evidence either way. This row demonstrates the gate, not the procedure's effect."
+  },
+  {
+   "report": "runs/t5-python-basics-c.json",
+   "report_sha256": "sha256:8a75310556f966e2f19a111355b185e02ab3af2a68ebaab69fcd54d0ace129e5",
+   "report_id": "sha256:38c67a3704ec393e8354bdec36a64ed05be0b1584f7ee994a969857ef3315402",
+   "test": "T5",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": false,
+   "spend_usd": 0.0083,
+   "date": "2026-11-26",
+   "notes": "Single seed, 8 held-out tasks. A difference of one task is not evidence either way. This row demonstrates the gate, not the procedure's effect."
+  },
+  {
+   "report": "runs/t5-python-basics-d.json",
+   "report_sha256": "sha256:6d169689b99a43a50a718c22d195cdaea2531be05abe39f3cd0d746ba0f673bf",
+   "report_id": "sha256:988d90c8ec790c70b3c5df309756f5a0594e70108886b758e1b1c51f58ec2c60",
+   "test": "T5",
+   "status": "partial",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": true,
+   "spend_usd": 0.0087,
+   "date": "2026-11-26",
+   "notes": "Single seed, 8 held-out tasks. A difference of one task is not evidence either way. This row demonstrates the gate, not the procedure's effect."
+  },
+  {
+   "report": "runs/t5-python-basics-e.json",
+   "report_sha256": "sha256:735c4433ea20fc098351ce78c78c02660063f82e6e8537e41f7b44acf2dbecf9",
+   "report_id": "sha256:e9e9e2d2a78641987bdd8f524a907e2176146df531c22bb59b208c22311d47c3",
+   "test": "T5",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": false,
+   "spend_usd": 0.0089,
+   "date": "2026-11-26",
+   "notes": "Single seed, 8 held-out tasks. A difference of one task is not evidence either way. This row demonstrates the gate, not the procedure's effect."
+  },
+  {
+   "report": "runs/t5-python-basics-f.json",
+   "report_sha256": "sha256:6e7940ab7e18ed6186c9655283dc44202a4dab2bd6cfc1f216fbc9041c62c4a8",
+   "report_id": "sha256:8f2ca937ec50bda6a7ba95c566f9a0fbb721f439b0487398670c105d8b437863",
+   "test": "T5",
+   "status": "fail",
+   "system": "deepseek-flash",
+   "adapter": "deepseek",
+   "families": [
+    "python-basics-dev",
+    "python-basics-heldout"
+   ],
+   "tasks_heldout": 8,
+   "promoted": false,
+   "spend_usd": 0.0092,
+   "date": "2026-11-26",
+   "notes": "Single seed, 8 held-out tasks. A difference of one task is not evidence either way. This row demonstrates the gate, not the procedure's effect."
+  }
+ ]
+}

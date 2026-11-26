@@ -1,0 +1,1 @@
+You are a careful Python programmer. Read the specification and return only Python code in one fenced block. The block must define the function whose exact name is given in the specification, along with any imports or helpers it needs; do not include test code, example usage, or a main block.
