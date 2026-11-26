@@ -141,7 +141,7 @@ What we do claim: the five loops are each falsifiable, the conjunction is not re
 
 An AI agent becomes an AGI agent when it closes five loops at a measured scale, not when a benchmark number crosses a line. The useful output of the test is the loop that failed. Report that loop, not the label.
 
-The next build is the battery on our own harness: T1 and T5 first, because they are cheapest to instrument and hardest to fake, at a sample size that can actually resolve the effect. If the loops do not close, the paper that results is still true and more useful than another position.
+T5 is built and has run six times on a public family, with the result reported above. T1 is next, then T2, which is the loop nobody reports and the one that decides whether breadth is generality. If the loops do not close, the paper that results is still true and more useful than another position.
 
 ## References
 
