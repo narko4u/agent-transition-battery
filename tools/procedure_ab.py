@@ -23,6 +23,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from adapters.deepseek import DeepSeek  # noqa: E402
+from adapters.selfcheck import SelfCheck  # noqa: E402
+
+
+def make_adapter(kind: str):
+    return SelfCheck(DeepSeek()) if kind == "selfcheck" else DeepSeek()
 
 
 def load_tasks(family_dirs):
@@ -99,6 +104,7 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--samples", type=int, default=1)
     ap.add_argument("--partial", action="store_true")
+    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck"])
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
 
@@ -107,7 +113,8 @@ def main() -> int:
     tasks = load_tasks(a.families)
     arms = {}
     for name, proc in (("baseline", base_proc), ("candidate", cand_proc)):
-        adapter = DeepSeek()
+        kind = a.adapter if name == "candidate" else "deepseek"
+        adapter = make_adapter(kind)
         started = time.time()
         with ThreadPoolExecutor(max_workers=a.workers) as pool:
             rows = list(pool.map(lambda ft: run_one(ft[0], ft[1], adapter, proc, a.samples, a.partial), tasks))

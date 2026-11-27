@@ -29,10 +29,10 @@ MIN_SD = 0.02      # measured noise floor, so three rounds cannot invent a tiny 
 MIN_DELTA = 0.05   # below five points this suite cannot see, whatever the arithmetic says
 
 
-def run_round(baseline, candidate, families, samples, workers, out):
+def run_round(baseline, candidate, families, samples, workers, out, adapter="deepseek"):
     cmd = [sys.executable, str(ROOT / "tools" / "procedure_ab.py"),
            "--baseline", baseline, "--candidate", candidate,
-           "--families", *families, "--samples", str(samples),
+           "--families", *families, "--samples", str(samples), "--adapter", adapter,
            "--workers", str(workers), "--out", str(out)]
     if samples > 1:
         pass
@@ -66,6 +66,7 @@ def main() -> int:
     ap.add_argument("--rounds", type=int, default=3)
     ap.add_argument("--samples", type=int, default=3)
     ap.add_argument("--workers", type=int, default=10)
+    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck"])
     ap.add_argument("--out", default="")
     ap.add_argument("--from-reports", nargs="+")
     a = ap.parse_args()
@@ -80,7 +81,7 @@ def main() -> int:
             out = "runs/decide-round-%d.json" % (i + 1)
             print("round %d/%d" % (i + 1, a.rounds))
             reports.append(run_round(a.baseline, a.candidate, a.families, a.samples,
-                                     a.workers, out))
+                                     a.workers, out, a.adapter))
     v = verdict(reports)
     print(json.dumps(v, indent=1))
     if a.out:

@@ -1,0 +1,21 @@
+{
+ "at": "2026-11-27T10:03:42Z",
+ "rounds": 3,
+ "baseline_rounds": [
+  0.8,
+  0.82,
+  0.88
+ ],
+ "candidate_rounds": [
+  0.86,
+  0.84,
+  0.88
+ ],
+ "baseline_mean": 0.8333,
+ "baseline_sd": 0.0416,
+ "candidate_mean": 0.86,
+ "threshold": 0.9166,
+ "delta": 0.0267,
+ "verdict": "FAIL",
+ "spend_usd": 0.1042
+}
