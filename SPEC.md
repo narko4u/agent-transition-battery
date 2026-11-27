@@ -46,7 +46,10 @@ control arm gets no A experience. A shuffled control must zero.
 
 - Metric: transfer delta = accuracy(B after A) minus accuracy(B with no A).
 - Pass: positive delta on at least two of three pairs.
-- Status: implemented in 0.1. Arms: control, experience (at most three lessons distilled from family A), placebo (generic advice of similar length). Pass needs a positive delta against both controls on two of three pairs. The reference runner runs one pair and reports partial at best.
+- Status: implemented in 0.1 as `run-t2`. Arms: control, experience (at most three lessons
+  distilled from family A), placebo (generic advice of similar length). Pass needs a positive
+  delta against both controls on two of three pairs. The shipped runner runs one pair and reports
+  partial at best.
 
 ### T3, acquisition efficiency
 
@@ -54,7 +57,7 @@ Three unseen families in sequence at equal budget.
 
 - Metric: tasks or tokens to reach a fixed threshold on each family.
 - Pass: cost to threshold falls by at least 20 per cent from family one to family three.
-- Status: implemented in 0.1. Arms: control, experience (at most three lessons distilled from family A), placebo (generic advice of similar length). Pass needs a positive delta against both controls on two of three pairs. The reference runner runs one pair and reports partial at best.
+- Status: specified, not implemented. No cost-to-threshold runner exists in 0.1.
 
 ### T4, self-generated curriculum
 
@@ -63,7 +66,7 @@ failures, a static set.
 
 - Metric: held-out score after the budget.
 - Pass: the generated arm beats both controls on two seeds.
-- Status: implemented in 0.1. Arms: control, experience (at most three lessons distilled from family A), placebo (generic advice of similar length). Pass needs a positive delta against both controls on two of three pairs. The reference runner runs one pair and reports partial at best.
+- Status: specified, not implemented. No curriculum runner exists in 0.1.
 
 ### T5, bounded self-modification
 
@@ -118,5 +121,6 @@ Therefore:
 
 ## 7. Versioning
 
-0.1 implements T1 and T5, the report schema, the adversarial arm and the validator. T2, T3 and
-T4 are specified. A change to a pass rule is a new version of the spec, never an edit in place.
+0.1 implements T1, T2 and T5, the report schema, the adversarial arm and the validator. T3 and T4
+are specified and have no runner. A change to a pass rule is a new version of the spec, never an
+edit in place.
