@@ -1,0 +1,857 @@
+{
+ "schema": "ttb5/ab-report/0.1",
+ "at": "2026-11-27T12:57:23Z",
+ "model": "deepseek-flash",
+ "tasks": 200,
+ "samples_per_task": 1,
+ "baseline": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.655,
+  "passed": 131,
+  "spend_usd": 0.0545
+ },
+ "candidate": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.735,
+  "passed": 147,
+  "spend_usd": 0.1967
+ },
+ "paired": {
+  "b_improved": 21,
+  "c_regressed": 5,
+  "mcnemar_exact_p": 0.002494,
+  "flipped_to_pass": [
+   "mbpp_61",
+   "mbpp_63",
+   "mbpp_69",
+   "mbpp_74",
+   "mbpp_90",
+   "mbpp_91",
+   "mbpp_111",
+   "mbpp_113",
+   "mbpp_119",
+   "mbpp_125",
+   "mbpp_129",
+   "mbpp_244",
+   "mbpp_245",
+   "mbpp_252",
+   "mbpp_285",
+   "mbpp_291",
+   "mbpp_293",
+   "mbpp_299",
+   "mbpp_308",
+   "mbpp_390",
+   "mbpp_401"
+  ],
+  "flipped_to_fail": [
+   "mbpp_102",
+   "mbpp_103",
+   "mbpp_128",
+   "mbpp_137",
+   "mbpp_163"
+  ]
+ },
+ "results": {
+  "mbpp_2": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_3": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_4": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_6": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_7": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_8": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_9": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_11": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_12": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_14": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_16": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_17": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_18": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_19": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_20": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_56": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_57": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_58": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_59": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_61": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_62": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_63": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_64": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_65": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_66": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_67": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_68": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_69": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_70": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_71": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_72": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_74": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_75": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_77": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_79": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_80": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_82": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_83": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_84": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_85": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_86": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_87": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_88": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_89": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_90": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_91": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_92": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_93": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_94": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_95": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_96": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_97": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_98": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_99": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_100": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_101": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_102": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_103": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_104": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_105": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_106": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_108": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_109": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_111": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_113": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_115": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_116": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_117": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_118": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_119": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_120": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_123": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_124": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_125": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_126": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_127": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_128": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_129": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_130": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_131": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_132": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_133": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_135": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_137": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_138": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_139": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_140": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_141": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_142": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_143": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_145": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_160": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_161": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_162": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_163": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_164": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_165": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_166": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_167": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_168": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_170": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_171": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_172": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_222": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_223": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_224": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_226": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_227": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_228": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_229": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_230": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_232": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_233": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_234": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_235": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_237": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_238": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_239": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_240": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_242": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_244": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_245": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_246": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_247": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_248": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_249": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_250": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_251": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_252": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_253": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_255": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_256": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_257": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_259": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_260": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_261": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_262": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_264": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_265": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_266": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_267": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_268": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_269": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_270": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_271": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_272": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_273": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_274": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_276": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_277": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_278": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_279": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_280": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_281": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_282": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_283": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_284": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_285": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_286": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_287": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_290": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_291": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_292": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_293": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_294": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_295": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_296": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_297": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_299": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_300": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_301": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_304": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_305": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_306": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_307": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_308": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_309": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_310": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_311": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_312": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_388": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_389": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_390": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_391": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_392": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_393": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_394": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_395": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_396": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_397": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_398": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_399": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_400": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_401": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_404": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_405": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_406": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_407": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_408": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_409": {
+   "baseline": true,
+   "candidate": true
+  }
+ },
+ "total_spend_usd": 0.2512
+}

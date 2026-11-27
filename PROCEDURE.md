@@ -18,6 +18,17 @@ MBPP sanitized, 120 tasks fixed before the runs, one call per baseline task and 
 | 1 | 0.6917 | 0.7500 | +5.8 | 0.0923 |
 | 2 | 0.6750 | 0.7583 | +8.3 | 0.0063 |
 
+Confirmation on 200 tasks, 27 November, after the adoption:
+
+| Round | Baseline | Candidate | Delta | Paired p | Improved | Regressed |
+|---|---|---|---|---|---|---|
+| 1 | 0.6550 | 0.7350 | +8.0 | 0.0025 | 21 | 5 |
+| 2 | 0.6550 | 0.7600 | +10.5 | 0.0001 | 25 | 4 |
+
+The baseline scored 131 of 200 in both rounds, so at this size the run-to-run spread largely
+disappears and the effect is visible without statisticians squinting. Cost of the confirmation,
+0.51 USD.
+
 Mean delta plus 7.1 points. Gate threshold 0.7334, candidate mean 0.7541. Spend 0.301 USD.
 
 ## Provenance
