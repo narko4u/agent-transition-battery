@@ -1,0 +1,189 @@
+{
+ "id": "mbpp-sub20",
+ "verifier": "unittest",
+ "author": "Empire Labs Pty Ltd",
+ "source": "MBPP sanitized, CC-BY-4.0, Austin et al. 2021",
+ "note": "First 20 MBPP tasks, fixed subset chosen before the run.",
+ "tasks": [
+  {
+   "id": "mbpp_2",
+   "entry": "similar_elements",
+   "spec": "Write a function to find the shared elements from the given two lists.\n\nDefine the function as `similar_elements`.",
+   "reference": "def similar_elements(test_tup1, test_tup2):\n  res = tuple(set(test_tup1) & set(test_tup2))\n  return (res)\n",
+   "tests": "tests/test_mbpp_2.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_3",
+   "entry": "is_not_prime",
+   "spec": "Write a python function to identify non-prime numbers.\n\nDefine the function as `is_not_prime`.",
+   "reference": "import math\ndef is_not_prime(n):\n    result = False\n    for i in range(2,int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            result = True\n    return result\n",
+   "tests": "tests/test_mbpp_3.py",
+   "cases": 4,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_4",
+   "entry": "heap_queue_largest",
+   "spec": "Write a function to find the n largest integers from a given list of numbers, returned in descending order.\n\nDefine the function as `heap_queue_largest`.",
+   "reference": "import heapq as hq\ndef heap_queue_largest(nums,n):\n  largest_nums = hq.nlargest(n, nums)\n  return largest_nums\n",
+   "tests": "tests/test_mbpp_4.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_6",
+   "entry": "is_Power_Of_Two",
+   "spec": "Write a python function to check whether the two numbers differ at one bit position only or not.\n\nDefine the function as `is_Power_Of_Two`.",
+   "reference": "def is_Power_Of_Two (x): \n    return x and (not(x & (x - 1))) \ndef differ_At_One_Bit_Pos(a,b): \n    return is_Power_Of_Two(a ^ b)\n",
+   "tests": "tests/test_mbpp_6.py",
+   "cases": 6,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_7",
+   "entry": "find_char_long",
+   "spec": "Write a function to find all words which are at least 4 characters long in a string.\n\nDefine the function as `find_char_long`.",
+   "reference": "import re\ndef find_char_long(text):\n  return (re.findall(r\"\\b\\w{4,}\\b\", text))\n",
+   "tests": "tests/test_mbpp_7.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_8",
+   "entry": "square_nums",
+   "spec": "Write a function to find squares of individual elements in a list.\n\nDefine the function as `square_nums`.",
+   "reference": "def square_nums(nums):\n square_nums = list(map(lambda x: x ** 2, nums))\n return square_nums\n",
+   "tests": "tests/test_mbpp_8.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_9",
+   "entry": "find_Rotations",
+   "spec": "Write a python function to find the minimum number of rotations (greater than 0) required to get the same string.\n\nDefine the function as `find_Rotations`.",
+   "reference": "def find_Rotations(str): \n    tmp = str + str\n    n = len(str) \n    for i in range(1,n + 1): \n        substring = tmp[i: i+n] \n        if (str == substring): \n            return i \n    return n\n",
+   "tests": "tests/test_mbpp_9.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_11",
+   "entry": "remove_Occ",
+   "spec": "Write a python function to remove first and last occurrence of a given character from the string.\n\nDefine the function as `remove_Occ`.",
+   "reference": "def remove_Occ(s,ch): \n    for i in range(len(s)): \n        if (s[i] == ch): \n            s = s[0 : i] + s[i + 1:] \n            break\n    for i in range(len(s) - 1,-1,-1):  \n        if (s[i] == ch): \n            s = s[0 : i] + s[i + 1:] \n            break\n    return s\n",
+   "tests": "tests/test_mbpp_11.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_12",
+   "entry": "sort_matrix",
+   "spec": "Write a function to sort a given matrix in ascending order according to the sum of its rows.\n\nDefine the function as `sort_matrix`.",
+   "reference": "def sort_matrix(M):\n    result = sorted(M, key=sum)\n    return result\n",
+   "tests": "tests/test_mbpp_12.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_14",
+   "entry": "find_Volume",
+   "spec": "Write a python function to find the volume of a triangular prism.\n\nDefine the function as `find_Volume`.",
+   "reference": "def find_Volume(l,b,h) : \n    return ((l * b * h) / 2)\n",
+   "tests": "tests/test_mbpp_14.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_16",
+   "entry": "text_lowercase_underscore",
+   "spec": "Write a function to that returns true if the input string contains sequences of lowercase letters joined with an underscore and false otherwise.\n\nDefine the function as `text_lowercase_underscore`.",
+   "reference": "import re\ndef text_lowercase_underscore(text):\n        patterns = '^[a-z]+_[a-z]+$'\n        if re.search(patterns,  text):\n                return True\n        else:\n                return False\n",
+   "tests": "tests/test_mbpp_16.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_17",
+   "entry": "square_perimeter",
+   "spec": "Write a function that returns the perimeter of a square given its side length as input.\n\nDefine the function as `square_perimeter`.",
+   "reference": "def square_perimeter(a):\n  perimeter=4*a\n  return perimeter\n",
+   "tests": "tests/test_mbpp_17.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_18",
+   "entry": "str_to_list",
+   "spec": "Write a function to remove characters from the first string which are present in the second string.\n\nDefine the function as `str_to_list`.",
+   "reference": "NO_OF_CHARS = 256\ndef str_to_list(string): \n\ttemp = [] \n\tfor x in string: \n\t\ttemp.append(x) \n\treturn temp \ndef lst_to_string(List): \n\treturn ''.join(List) \ndef get_char_count_array(string): \n\tcount = [0] * NO_OF_CHARS \n\tfor i in string: \n\t\tcount[ord(i)] += 1\n\treturn count \ndef remove_dirty_chars(string, second_string): \n\tcount = get_char_count_array(second_string) \n\tip_ind = 0\n\tres_ind = 0\n\ttemp = '' \n\tstr_list = str_to_list(string) \n\twhile ip_ind != len(str_list): \n\t\ttemp = str_list[ip_ind] \n\t\tif count[ord(temp)] == 0: \n\t\t\tstr_list[res_ind] = str_list[ip_ind] \n\t\t\tres_ind += 1\n\t\tip_ind+=1\n\treturn lst_to_string(str_list[0:res_ind])\n",
+   "tests": "tests/test_mbpp_18.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_19",
+   "entry": "test_duplicate",
+   "spec": "Write a function to find whether a given array of integers contains any duplicate element.\n\nDefine the function as `test_duplicate`.",
+   "reference": "def test_duplicate(arraynums):\n    nums_set = set(arraynums)    \n    return len(arraynums) != len(nums_set)\n",
+   "tests": "tests/test_mbpp_19.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_20",
+   "entry": "is_woodall",
+   "spec": "Write a function to check if the given number is woodball or not.\n\nDefine the function as `is_woodall`.",
+   "reference": "def is_woodall(x): \n\tif (x % 2 == 0): \n\t\treturn False\n\tif (x == 1): \n\t\treturn True\n\tx = x + 1 \n\tp = 0\n\twhile (x % 2 == 0): \n\t\tx = x/2\n\t\tp = p + 1\n\t\tif (p == x): \n\t\t\treturn True\n\treturn False\n",
+   "tests": "tests/test_mbpp_20.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_56",
+   "entry": "rev",
+   "spec": "Write a python function to check if a given number is one less than twice its reverse.\n\nDefine the function as `rev`.",
+   "reference": "def rev(num):    \n    rev_num = 0\n    while (num > 0):  \n        rev_num = (rev_num * 10 + num % 10) \n        num = num // 10  \n    return rev_num  \ndef check(n):    \n    return (2 * rev(n) == n + 1)\n",
+   "tests": "tests/test_mbpp_56.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_57",
+   "entry": "find_Max_Num",
+   "spec": "Write a python function to find the largest number that can be formed with the given list of digits.\n\nDefine the function as `find_Max_Num`.",
+   "reference": "def find_Max_Num(arr) : \n    n = len(arr)\n    arr.sort(reverse = True) \n    num = arr[0] \n    for i in range(1,n) : \n        num = num * 10 + arr[i] \n    return num\n",
+   "tests": "tests/test_mbpp_57.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_58",
+   "entry": "opposite_Signs",
+   "spec": "Write a python function to check whether the given two integers have opposite sign or not.\n\nDefine the function as `opposite_Signs`.",
+   "reference": "def opposite_Signs(x,y): \n    return ((x ^ y) < 0);\n",
+   "tests": "tests/test_mbpp_58.py",
+   "cases": 4,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_59",
+   "entry": "is_octagonal",
+   "spec": "Write a function to find the nth octagonal number.\n\nDefine the function as `is_octagonal`.",
+   "reference": "def is_octagonal(n): \n\treturn 3 * n * n - 2 * n\n",
+   "tests": "tests/test_mbpp_59.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_61",
+   "entry": "count_Substrings",
+   "spec": "Write a python function to count the number of substrings with the sum of digits equal to their length.\n\nDefine the function as `count_Substrings`.",
+   "reference": "from collections import defaultdict\ndef count_Substrings(s):\n    n = len(s)\n    count,sum = 0,0\n    mp = defaultdict(lambda : 0)\n    mp[0] += 1\n    for i in range(n):\n        sum += ord(s[i]) - ord('0')\n        count += mp[sum - (i + 1)]\n        mp[sum - (i + 1)] += 1\n    return count\n",
+   "tests": "tests/test_mbpp_61.py",
+   "cases": 3,
+   "timeout_s": 30
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-27T11:12:19+00:00",
+    "changed": false,
+    "verifier_after": "sha256:1e823a3860ee56f44be02230f6ac840eb00ce27e31608f16d276eab658ab7c24",
+    "verifier_before": "sha256:1e823a3860ee56f44be02230f6ac840eb00ce27e31608f16d276eab658ab7c24"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0251,
+  "wall_cap_s": 1800,
+  "wall_s": 318.0
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub20",
+   "role": "dev",
+   "tasks": 20,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:1e823a3860ee56f44be02230f6ac840eb00ce27e31608f16d276eab658ab7c24"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub20",
+   "role": "held-out",
+   "tasks": 20,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:1e823a3860ee56f44be02230f6ac840eb00ce27e31608f16d276eab658ab7c24"
+  }
+ ],
+ "finished_at": "2026-11-27T11:12:19+00:00",
+ "lessons": "1. Define exactly the requested function name at module top level, and verify it can be imported before finishing.\n2. Follow the written specification and examples over a misleading function name or assumed common pattern.\n3. Test edge cases and expected behavior locally, including import/signature checks, rather than relying only on the implementation looking correct.\n",
+ "lineage": [],
+ "metrics": {
+  "control": 0.7,
+  "delta_experience": 0.0,
+  "delta_placebo": 0.0,
+  "experience": 0.7,
+  "experience_minus_placebo": 0.0,
+  "family_a": 0.75,
+  "placebo": 0.7
+ },
+ "notes": "Single pair, 20 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "pairs_required": 2,
+  "pairs_run": 1,
+  "positive_vs_control": true,
+  "positive_vs_placebo": true
+ },
+ "report_id": "sha256:5ded2fed5bcbebcfd4502f71dce76efbb9f2e25ad31417dffc58c5ea5c0daa77",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-27T11:07:01+00:00",
+ "status": "fail",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 81,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T2"
+}
