@@ -31,7 +31,8 @@ def make_adapter(kind: str):
     if kind == "selfcheck":
         return SelfCheck(DeepSeek())
     if kind.startswith("bon"):
-        return BestOfN(DeepSeek(), n=int(kind[3:] or 3))
+        digits = "".join(ch for ch in kind[3:] if ch.isdigit()) or "3"
+        return BestOfN(DeepSeek(), n=int(digits), repair=kind.endswith("r"))
     return DeepSeek()
 
 
@@ -109,7 +110,7 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--samples", type=int, default=1)
     ap.add_argument("--partial", action="store_true")
-    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck", "bon3", "bon5"])
+    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck", "bon3", "bon5", "bon3r"])
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
 

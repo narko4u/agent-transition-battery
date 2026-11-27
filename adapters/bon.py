@@ -35,9 +35,10 @@ print("%d/%d" % (passed, total))
 
 
 class BestOfN:
-    def __init__(self, inner, n=3, temperature=0.8):
+    def __init__(self, inner, n=3, temperature=0.8, repair=False):
         self.inner = inner
         self.n = n
+        self.repair = repair
         self.inner.temperature = temperature
 
     def describe(self):
@@ -75,7 +76,12 @@ class BestOfN:
             return cands[0]
         scored = [(self._score(c, tests), -len(c), i, c) for i, c in enumerate(cands)]
         scored.sort(reverse=True)
-        return scored[0][3]
+        best_pass, _, _, best_code = scored[0]
+        if self.repair and best_pass < self._total:
+            fixed = self._repair(task, entry, best_code, tests)
+            if fixed and self._score(fixed, tests) >= best_pass:
+                return fixed
+        return best_code
 
     def _tests(self, task, entry):
         user = ("Specification:\n%s\n\nWrite at most five assert statements testing the "
@@ -84,6 +90,16 @@ class BestOfN:
         out = self.inner._chat("You write terse, correct Python assertions.", user, max_tokens=400)
         lines = [l.strip() for l in out.splitlines() if l.strip().startswith("assert ")]
         return "\n".join(lines[:5])
+
+    def _repair(self, task, entry, code, tests):
+        user = ("Specification:\n%s\n\nYour implementation:\n```python\n%s\n```\n\nThese "
+                "assertions describe the spec and at least one fails:\n%s\n\nReturn only corrected "
+                "Python code in one fenced block defining `%s`."
+                % (task["spec"], code, tests, entry))
+        out = self.inner._chat("You fix Python code against failing assertions.", user, max_tokens=1600)
+        m = re.search(r"```(?:python)?\s*\n(.*?)```", out, re.S)
+        fixed = (m.group(1) if m else out).strip()
+        return fixed + "\n" if fixed else ""
 
     def _score(self, code, tests):
         with tempfile.TemporaryDirectory(prefix="bon-") as tmp:
@@ -95,4 +111,7 @@ class BestOfN:
             except subprocess.TimeoutExpired:
                 return 0
             m = re.search(r"(\d+)/(\d+)", p.stdout or "")
-            return int(m.group(1)) if m else 0
+            if not m:
+                return 0
+            self._total = int(m.group(2))
+            return int(m.group(1))

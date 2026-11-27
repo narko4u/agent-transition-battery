@@ -1,0 +1,278 @@
+{
+ "schema": "ttb5/ab-report/0.1",
+ "at": "2026-11-27T12:38:21Z",
+ "model": "deepseek-flash",
+ "tasks": 60,
+ "samples_per_task": 1,
+ "baseline": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.7833,
+  "passed": 47,
+  "spend_usd": 0.0159
+ },
+ "candidate": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.8,
+  "passed": 48,
+  "spend_usd": 0.0619
+ },
+ "paired": {
+  "b_improved": 4,
+  "c_regressed": 3,
+  "mcnemar_exact_p": 1.0,
+  "flipped_to_pass": [
+   "mbpp_61",
+   "mbpp_89",
+   "mbpp_100",
+   "mbpp_102"
+  ],
+  "flipped_to_fail": [
+   "mbpp_2",
+   "mbpp_74",
+   "mbpp_92"
+  ]
+ },
+ "results": {
+  "mbpp_2": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_3": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_4": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_6": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_7": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_8": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_9": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_11": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_12": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_14": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_16": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_17": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_18": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_19": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_20": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_56": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_57": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_58": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_59": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_61": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_62": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_63": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_64": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_65": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_66": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_67": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_68": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_69": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_70": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_71": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_72": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_74": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_75": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_77": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_79": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_80": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_82": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_83": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_84": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_85": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_86": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_87": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_88": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_89": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_90": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_91": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_92": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_93": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_94": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_95": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_96": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_97": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_98": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_99": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_100": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_101": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_102": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_103": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_104": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_105": {
+   "baseline": true,
+   "candidate": true
+  }
+ },
+ "total_spend_usd": 0.0778
+}
