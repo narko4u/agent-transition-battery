@@ -35,10 +35,11 @@ print("%d/%d" % (passed, total))
 
 
 class BestOfN:
-    def __init__(self, inner, n=3, temperature=0.8, repair=False):
+    def __init__(self, inner, n=3, temperature=0.8, repair=False, testsets=1):
         self.inner = inner
         self.n = n
         self.repair = repair
+        self.testsets = testsets
         self.inner.temperature = temperature
 
     def describe(self):
@@ -69,7 +70,7 @@ class BestOfN:
         if len(cands) == 1:
             return cands[0]
         try:
-            tests = self._tests(task, entry)
+            tests = "\n".join(self._tests(task, entry) for _ in range(self.testsets))
         except Exception:
             return cands[0]
         if not tests.strip():

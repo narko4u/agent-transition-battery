@@ -25,3 +25,9 @@ is roughly a seven point effect to clear the bar, at about 0.22 US dollars per d
 
 Anything smaller needs more tasks, not a cleverer statistic. Fifty tasks cannot see five points,
 and no amount of analysis changes that.
+
+## The adopted procedure is not immune
+
+On 27 November the same configuration, `bon3`, scored 0.8167 and 0.9000 on the same sixty tasks
+inside one hour. Eight points apart with nothing changed. Any comparison that treats a single
+run of a five point effect as a finding is measuring that spread, not the effect.

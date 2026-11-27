@@ -30,6 +30,8 @@ from adapters.bon import BestOfN  # noqa: E402
 def make_adapter(kind: str):
     if kind == "selfcheck":
         return SelfCheck(DeepSeek())
+    if kind == "codet":
+        return BestOfN(DeepSeek(), n=3, testsets=2)
     if kind.startswith("bon"):
         digits = "".join(ch for ch in kind[3:] if ch.isdigit()) or "3"
         return BestOfN(DeepSeek(), n=int(digits), repair=kind.endswith("r"))
@@ -110,7 +112,8 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--samples", type=int, default=1)
     ap.add_argument("--partial", action="store_true")
-    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck", "bon3", "bon5", "bon3r"])
+    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck", "bon3", "bon5", "bon3r", "codet"])
+    ap.add_argument("--baseline-adapter", default="deepseek", choices=["deepseek", "bon3", "codet"])
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
 
@@ -119,7 +122,7 @@ def main() -> int:
     tasks = load_tasks(a.families)
     arms = {}
     for name, proc in (("baseline", base_proc), ("candidate", cand_proc)):
-        kind = a.adapter if name == "candidate" else "deepseek"
+        kind = a.adapter if name == "candidate" else a.baseline_adapter
         adapter = make_adapter(kind)
         started = time.time()
         with ThreadPoolExecutor(max_workers=a.workers) as pool:
