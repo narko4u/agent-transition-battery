@@ -7,7 +7,7 @@ Version 0.1, 26 November 2026. Operator: Empire Labs Pty Ltd. Licence: CC BY 4.0
 The word AGI is used for two different things: an agent that scores well on a capability
 benchmark and an agent that closes its own improvement loops. The first is measured constantly.
 The second is asserted. This specification defines the second as five loops, each with a test
-that can fail, and fixes the report format so a result can be checked without trusting the
+that can fail and fixes the report format so a result can be checked without trusting the
 person who ran it.
 
 A system is an AGI-grade agent at a measured scale only when all five tests pass on families
@@ -106,7 +106,7 @@ One JSON report per run, schema `ttb5/run-report/0.1`, plus a log. Required fiel
 
 ## 6. Reproducibility
 
-Model APIs are not deterministic even at temperature zero and with a seed field, and most
+Model APIs are not deterministic even at temperature zero and with a seed field. Most
 providers do not honour a seed. Two identical T5 runs on `python-basics` produced baseline
 held-out scores of 0.625 and 0.875 on the same eight tasks.
 
@@ -117,7 +117,7 @@ Therefore:
 - Report the distribution across runs, not the best run.
 - The battery's own power note: on a 14-task paired judgement suite, a seven point difference
   needed roughly 330 paired tasks to resolve at 80 per cent power. Choose the family size before
-  the run, publish it, and do not add tasks after seeing the result.
+  the run, publish it and do not add tasks after seeing the result.
 
 ## 7. Versioning
 
