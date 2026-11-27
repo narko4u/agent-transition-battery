@@ -49,7 +49,7 @@ class DeepSeek:
     def _chat(self, system, user, max_tokens=1600):
         body = {"model": MODEL, "messages": [{"role": "system", "content": system},
                                              {"role": "user", "content": user}],
-                "max_tokens": max_tokens, "temperature": 0.0, "stream": False}
+                "max_tokens": max_tokens, "temperature": getattr(self, "temperature", 0.0), "stream": False}
         for attempt in range(3):
             try:
                 req = urllib.request.Request(

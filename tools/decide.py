@@ -66,7 +66,7 @@ def main() -> int:
     ap.add_argument("--rounds", type=int, default=3)
     ap.add_argument("--samples", type=int, default=3)
     ap.add_argument("--workers", type=int, default=10)
-    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck"])
+    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck", "bon3", "bon5"])
     ap.add_argument("--out", default="")
     ap.add_argument("--from-reports", nargs="+")
     a = ap.parse_args()

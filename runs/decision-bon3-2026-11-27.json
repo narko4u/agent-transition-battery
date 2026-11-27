@@ -1,0 +1,19 @@
+{
+ "at": "2026-11-27T10:20:11Z",
+ "rounds": 2,
+ "baseline_rounds": [
+  0.6917,
+  0.675
+ ],
+ "candidate_rounds": [
+  0.75,
+  0.7583
+ ],
+ "baseline_mean": 0.6834,
+ "baseline_sd": 0.02,
+ "candidate_mean": 0.7541,
+ "threshold": 0.7334,
+ "delta": 0.0708,
+ "verdict": "PASS",
+ "spend_usd": 0.301
+}

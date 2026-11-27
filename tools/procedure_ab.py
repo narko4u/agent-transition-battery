@@ -24,10 +24,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from adapters.deepseek import DeepSeek  # noqa: E402
 from adapters.selfcheck import SelfCheck  # noqa: E402
+from adapters.bon import BestOfN  # noqa: E402
 
 
 def make_adapter(kind: str):
-    return SelfCheck(DeepSeek()) if kind == "selfcheck" else DeepSeek()
+    if kind == "selfcheck":
+        return SelfCheck(DeepSeek())
+    if kind.startswith("bon"):
+        return BestOfN(DeepSeek(), n=int(kind[3:] or 3))
+    return DeepSeek()
 
 
 def load_tasks(family_dirs):
@@ -104,7 +109,7 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--samples", type=int, default=1)
     ap.add_argument("--partial", action="store_true")
-    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck"])
+    ap.add_argument("--adapter", default="deepseek", choices=["deepseek", "selfcheck", "bon3", "bon5"])
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
 
