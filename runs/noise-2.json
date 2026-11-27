@@ -1,0 +1,230 @@
+{
+ "schema": "ttb5/ab-report/0.1",
+ "at": "2026-11-27T09:22:10Z",
+ "model": "deepseek-flash",
+ "tasks": 50,
+ "baseline": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.86,
+  "passed": 43,
+  "spend_usd": 0.0121
+ },
+ "candidate": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.8,
+  "passed": 40,
+  "spend_usd": 0.013
+ },
+ "paired": {
+  "b_improved": 3,
+  "c_regressed": 5,
+  "mcnemar_exact_p": 0.726562,
+  "flipped_to_pass": [
+   "roman_to_int",
+   "wrap_text",
+   "title_case"
+  ],
+  "flipped_to_fail": [
+   "parse_duration",
+   "chunk",
+   "parse_query",
+   "rle_decode",
+   "pairs_sum"
+  ]
+ },
+ "results": {
+  "slugify": {
+   "baseline": true,
+   "candidate": true
+  },
+  "parse_duration": {
+   "baseline": true,
+   "candidate": false
+  },
+  "chunk": {
+   "baseline": true,
+   "candidate": false
+  },
+  "clamp": {
+   "baseline": true,
+   "candidate": true
+  },
+  "median": {
+   "baseline": true,
+   "candidate": true
+  },
+  "dedupe": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rotate": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_palindrome": {
+   "baseline": true,
+   "candidate": true
+  },
+  "human_bytes": {
+   "baseline": true,
+   "candidate": true
+  },
+  "parse_query": {
+   "baseline": true,
+   "candidate": false
+  },
+  "format_cents": {
+   "baseline": true,
+   "candidate": true
+  },
+  "merge_intervals": {
+   "baseline": true,
+   "candidate": true
+  },
+  "word_freq": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rle_encode": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rle_decode": {
+   "baseline": true,
+   "candidate": false
+  },
+  "top_k": {
+   "baseline": true,
+   "candidate": true
+  },
+  "roman_to_int": {
+   "baseline": false,
+   "candidate": true
+  },
+  "int_to_roman": {
+   "baseline": true,
+   "candidate": true
+  },
+  "flatten": {
+   "baseline": true,
+   "candidate": true
+  },
+  "caesar": {
+   "baseline": true,
+   "candidate": true
+  },
+  "binary_search_index": {
+   "baseline": true,
+   "candidate": true
+  },
+  "count_vowels": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_anagram": {
+   "baseline": true,
+   "candidate": true
+  },
+  "most_common": {
+   "baseline": false,
+   "candidate": false
+  },
+  "max_subarray_sum": {
+   "baseline": true,
+   "candidate": true
+  },
+  "transpose": {
+   "baseline": true,
+   "candidate": true
+  },
+  "valid_brackets": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mode_value": {
+   "baseline": true,
+   "candidate": true
+  },
+  "sum_digits": {
+   "baseline": true,
+   "candidate": true
+  },
+  "snake_case": {
+   "baseline": false,
+   "candidate": false
+  },
+  "initials": {
+   "baseline": true,
+   "candidate": true
+  },
+  "split_even": {
+   "baseline": true,
+   "candidate": true
+  },
+  "second_largest": {
+   "baseline": true,
+   "candidate": true
+  },
+  "cumulative_sum": {
+   "baseline": true,
+   "candidate": true
+  },
+  "zip_longest_pad": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_power_of_two": {
+   "baseline": true,
+   "candidate": true
+  },
+  "fizzbuzz_list": {
+   "baseline": true,
+   "candidate": true
+  },
+  "group_anagrams": {
+   "baseline": true,
+   "candidate": true
+  },
+  "pairs_sum": {
+   "baseline": true,
+   "candidate": false
+  },
+  "compress_ranges": {
+   "baseline": true,
+   "candidate": true
+  },
+  "wrap_text": {
+   "baseline": false,
+   "candidate": true
+  },
+  "csv_field": {
+   "baseline": true,
+   "candidate": true
+  },
+  "pluralise": {
+   "baseline": false,
+   "candidate": false
+  },
+  "fold_accents": {
+   "baseline": false,
+   "candidate": false
+  },
+  "title_case": {
+   "baseline": false,
+   "candidate": true
+  },
+  "ellipsize": {
+   "baseline": true,
+   "candidate": true
+  },
+  "parse_kv": {
+   "baseline": true,
+   "candidate": true
+  },
+  "anagram_key": {
+   "baseline": true,
+   "candidate": true
+  }
+ },
+ "total_spend_usd": 0.0251
+}
