@@ -1,0 +1,227 @@
+{
+ "schema": "ttb5/ab-report/0.1",
+ "at": "2026-11-27T09:27:25Z",
+ "model": "deepseek-flash",
+ "tasks": 50,
+ "samples_per_task": 3,
+ "baseline": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.84,
+  "passed": 42,
+  "spend_usd": 0.0364
+ },
+ "candidate": {
+  "sha256": "sha256:04b034ad0e0aee54bbcef84ddd6ae9eb85451edec9113e253ed2ac87e222930f",
+  "accuracy": 0.88,
+  "passed": 44,
+  "spend_usd": 0.0355
+ },
+ "paired": {
+  "b_improved": 3,
+  "c_regressed": 1,
+  "mcnemar_exact_p": 0.625,
+  "flipped_to_pass": [
+   "human_bytes",
+   "parse_query",
+   "snake_case"
+  ],
+  "flipped_to_fail": [
+   "rle_decode"
+  ]
+ },
+ "results": {
+  "slugify": {
+   "baseline": true,
+   "candidate": true
+  },
+  "parse_duration": {
+   "baseline": false,
+   "candidate": false
+  },
+  "chunk": {
+   "baseline": true,
+   "candidate": true
+  },
+  "clamp": {
+   "baseline": true,
+   "candidate": true
+  },
+  "median": {
+   "baseline": true,
+   "candidate": true
+  },
+  "dedupe": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rotate": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_palindrome": {
+   "baseline": true,
+   "candidate": true
+  },
+  "human_bytes": {
+   "baseline": false,
+   "candidate": true
+  },
+  "parse_query": {
+   "baseline": false,
+   "candidate": true
+  },
+  "format_cents": {
+   "baseline": true,
+   "candidate": true
+  },
+  "merge_intervals": {
+   "baseline": true,
+   "candidate": true
+  },
+  "word_freq": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rle_encode": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rle_decode": {
+   "baseline": true,
+   "candidate": false
+  },
+  "top_k": {
+   "baseline": true,
+   "candidate": true
+  },
+  "roman_to_int": {
+   "baseline": true,
+   "candidate": true
+  },
+  "int_to_roman": {
+   "baseline": true,
+   "candidate": true
+  },
+  "flatten": {
+   "baseline": true,
+   "candidate": true
+  },
+  "caesar": {
+   "baseline": true,
+   "candidate": true
+  },
+  "binary_search_index": {
+   "baseline": true,
+   "candidate": true
+  },
+  "count_vowels": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_anagram": {
+   "baseline": true,
+   "candidate": true
+  },
+  "most_common": {
+   "baseline": false,
+   "candidate": false
+  },
+  "max_subarray_sum": {
+   "baseline": true,
+   "candidate": true
+  },
+  "transpose": {
+   "baseline": true,
+   "candidate": true
+  },
+  "valid_brackets": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mode_value": {
+   "baseline": true,
+   "candidate": true
+  },
+  "sum_digits": {
+   "baseline": true,
+   "candidate": true
+  },
+  "snake_case": {
+   "baseline": false,
+   "candidate": true
+  },
+  "initials": {
+   "baseline": true,
+   "candidate": true
+  },
+  "split_even": {
+   "baseline": true,
+   "candidate": true
+  },
+  "second_largest": {
+   "baseline": true,
+   "candidate": true
+  },
+  "cumulative_sum": {
+   "baseline": true,
+   "candidate": true
+  },
+  "zip_longest_pad": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_power_of_two": {
+   "baseline": true,
+   "candidate": true
+  },
+  "fizzbuzz_list": {
+   "baseline": true,
+   "candidate": true
+  },
+  "group_anagrams": {
+   "baseline": true,
+   "candidate": true
+  },
+  "pairs_sum": {
+   "baseline": true,
+   "candidate": true
+  },
+  "compress_ranges": {
+   "baseline": true,
+   "candidate": true
+  },
+  "wrap_text": {
+   "baseline": true,
+   "candidate": true
+  },
+  "csv_field": {
+   "baseline": true,
+   "candidate": true
+  },
+  "pluralise": {
+   "baseline": false,
+   "candidate": false
+  },
+  "fold_accents": {
+   "baseline": false,
+   "candidate": false
+  },
+  "title_case": {
+   "baseline": false,
+   "candidate": false
+  },
+  "ellipsize": {
+   "baseline": true,
+   "candidate": true
+  },
+  "parse_kv": {
+   "baseline": true,
+   "candidate": true
+  },
+  "anagram_key": {
+   "baseline": true,
+   "candidate": true
+  }
+ },
+ "total_spend_usd": 0.0719
+}
