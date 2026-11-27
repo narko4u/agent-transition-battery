@@ -1,0 +1,340 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-27T08:14:29+00:00",
+    "changed": false,
+    "verifier_after": "sha256:96dd8cbb8d5491ed7cc4c6e21ce336a10b113263ce84d45b85e19be5687abae1",
+    "verifier_before": "sha256:96dd8cbb8d5491ed7cc4c6e21ce336a10b113263ce84d45b85e19be5687abae1"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0,
+  "wall_cap_s": 1800,
+  "wall_s": 6.7
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "python-basics40",
+   "role": "family",
+   "tasks": 40,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:96dd8cbb8d5491ed7cc4c6e21ce336a10b113263ce84d45b85e19be5687abae1"
+  }
+ ],
+ "finished_at": "2026-11-27T08:14:29+00:00",
+ "lineage": [],
+ "metrics": {
+  "block1": 1.0,
+  "block2": 1.0,
+  "control": 1.0,
+  "detail": {
+   "binary_search_index": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f2111e1e89382f32f58ac41608304a0bf5d7ce2897d63fe7f3b19560f17b92f4",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "caesar": {
+    "adapter_error": null,
+    "code_sha256": "sha256:73c6159fe9b4569d3deb9efae1731446f579bb72c22d867cab1b08684972fdea",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "chunk": {
+    "adapter_error": null,
+    "code_sha256": "sha256:a431299a3364f1ac84b54a119dbf8c0f2cb30f6ee8e902e7bb6820723acd404f",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "clamp": {
+    "adapter_error": null,
+    "code_sha256": "sha256:ff03c4859290ef7c9ff9d32c10fcc4cd810c219521b8aa1d7416adb712b74280",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "compress_ranges": {
+    "adapter_error": null,
+    "code_sha256": "sha256:cb918d5b08eea19dc2745267e3fe627d2fc3f644954d30573a18b10abf7df83f",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "count_vowels": {
+    "adapter_error": null,
+    "code_sha256": "sha256:e3d6247f2d465cb84faf1e89a4e3d528b21052e4332868a701f281f1b96b5e45",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "cumulative_sum": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f82943784dd5d34312ebd569fc90637415ef781eb41630ba9af1905d9d43de73",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "dedupe": {
+    "adapter_error": null,
+    "code_sha256": "sha256:00efeb1fbeeecc859ea2f35a67bba99ed545a120271098f195137783e15cf60a",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "fizzbuzz_list": {
+    "adapter_error": null,
+    "code_sha256": "sha256:be4c02d049773c48edfb49fe50d22b361c9f92ee5027ad32099a281ebf836752",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "flatten": {
+    "adapter_error": null,
+    "code_sha256": "sha256:5129b14a9dd6221dfa6488cd1d55de176311c778140d8907a449fcbbb88878c4",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "format_cents": {
+    "adapter_error": null,
+    "code_sha256": "sha256:5a494af9b9ee27b58dd7a77e25bf0f2c19e16cfbca21761e98d1122aca897c71",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "group_anagrams": {
+    "adapter_error": null,
+    "code_sha256": "sha256:d88b3fa8b0e0bc59bc0809f6ebc290eade0be0310443f05ba8a2fef8aa78f5b8",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "human_bytes": {
+    "adapter_error": null,
+    "code_sha256": "sha256:a2a507951ac029e719ff098ce543a9a554dc2349ceac09146d2541b4709e8dfa",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "initials": {
+    "adapter_error": null,
+    "code_sha256": "sha256:a06616b4504c919bd401dfbd229d437d9e971cd6ecf7ab651dad4ad60755535d",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "int_to_roman": {
+    "adapter_error": null,
+    "code_sha256": "sha256:3961ff942951ca5b0af22231f5fcfc9a9a8de862c28caa540ec07f6a010395af",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "is_anagram": {
+    "adapter_error": null,
+    "code_sha256": "sha256:6fd9fca19ab5aaab5a0f790f01f6f2bf10277239075192818217f2b59a967aaf",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "is_palindrome": {
+    "adapter_error": null,
+    "code_sha256": "sha256:5abef4188464bc6730a9ff693271a589326b1197d1858541ce32cb39f316a741",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "is_power_of_two": {
+    "adapter_error": null,
+    "code_sha256": "sha256:4401531b43dbdd09b30f32fd4f0c6566992b8b52df335ba7b22e32903a165bfa",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "max_subarray_sum": {
+    "adapter_error": null,
+    "code_sha256": "sha256:be0bc01217f26df01e48683834160d4893482b24c8784a768c7afd45e3fc6bf8",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "median": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f46b441df0a13800d70934865629737db6b400415d3e374c4fe2702ff7f7e590",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "merge_intervals": {
+    "adapter_error": null,
+    "code_sha256": "sha256:8366342477b2d8b7ee670695ca3f2c9c67d813718a922d7a96864d28c197499a",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "mode_value": {
+    "adapter_error": null,
+    "code_sha256": "sha256:94f53f69c5bbc573c6f67ad035c78308c9666a3d711eadd0dbcfe11235dadecc",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "most_common": {
+    "adapter_error": null,
+    "code_sha256": "sha256:4a35c8a40b993d9291aa88878757a2b96aa1cf43c231994cd741bc922932de21",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "pairs_sum": {
+    "adapter_error": null,
+    "code_sha256": "sha256:6e557b87f3811aea95074e29ac39a2a4f750578d4c55c9098b82f7fa0f6f8cad",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "parse_duration": {
+    "adapter_error": null,
+    "code_sha256": "sha256:d4163573d09d7506f6cb2c54068432f6baecb9f3046449b3913387373ab9271f",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "parse_query": {
+    "adapter_error": null,
+    "code_sha256": "sha256:7cc2f035fd9a970f07ae23973b75e817b2b6d9f82b7119e3daa589d7a3d84753",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "rle_decode": {
+    "adapter_error": null,
+    "code_sha256": "sha256:fafa68df9a677df220c460684c7b3c3e266fcbdf58d46fc52e577ce06fedb074",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "rle_encode": {
+    "adapter_error": null,
+    "code_sha256": "sha256:aee03b80c4657b86a2b7b38509c6ca31127e3b138196a09a249fc93b229c4040",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "roman_to_int": {
+    "adapter_error": null,
+    "code_sha256": "sha256:c1dbf69dde80758b2a5e88df9f57391c299e0c4e3872f4dde7ff13093fedf4c0",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "rotate": {
+    "adapter_error": null,
+    "code_sha256": "sha256:6c0eaacb3c322b6ffcf823bf5ea7576256ef36d926f3bc7f77b2dbedb28033d2",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "second_largest": {
+    "adapter_error": null,
+    "code_sha256": "sha256:d72f23dde79aba683efcd755dc6ed02ef9cbecdcf97a78e49733b59b16be116a",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "slugify": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f295b824db9c875fb4e4194638eb9a407dfc20d5356b01e0f90e77686b0b2da8",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "snake_case": {
+    "adapter_error": null,
+    "code_sha256": "sha256:133b0bda2bc3bd2e600ca81751217d1f5b228adb69f7ec2a0ad2212836825331",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "split_even": {
+    "adapter_error": null,
+    "code_sha256": "sha256:57d6d2beba001646d88d51fa0d48d83e1f4d3532b3bda49b23c7eea88bb49f59",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "sum_digits": {
+    "adapter_error": null,
+    "code_sha256": "sha256:54aa5bde4b181b51ba7937e4b9424efb1957c914cc7d1d8fb32be0bf7fc55ab5",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "top_k": {
+    "adapter_error": null,
+    "code_sha256": "sha256:90323a6561dfed1077603b21b182291a5471dff26b5d41ecf8f067c733ba1056",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "transpose": {
+    "adapter_error": null,
+    "code_sha256": "sha256:ae63d2fe5529854ffc6b35dcdeb6c758c0a5044c40d702892b975e77b83ac2e2",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "valid_brackets": {
+    "adapter_error": null,
+    "code_sha256": "sha256:9fd3ca2eff0af0fb83dfc500759a4520655f828b9a99e280b06ea7a9fbe9879f",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   },
+   "word_freq": {
+    "adapter_error": null,
+    "code_sha256": "sha256:e8402a88319be32e98f123ba07ef8f10abf374af317f21313e18a8a3bb921cd7",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.06
+   },
+   "zip_longest_pad": {
+    "adapter_error": null,
+    "code_sha256": "sha256:f0fc7ce6d992943d9b4445a67fa1fdbb36523f16abf0aad0ff0efde171a9b69e",
+    "detail": "",
+    "pass": true,
+    "seconds": 0.05
+   }
+  },
+  "retention_ratio": 1.0
+ },
+ "notes": "Ceiling: block 1 and the no-store control both scored 1.0, so the store cannot be separated from the baseline. The loop is not exercised.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "block2_must_beat_control": true,
+  "retention_ratio_min": 0.8
+ },
+ "report_id": "sha256:e042cbbf4afebd6cc71cb4cfadba665bc6a34442246b0b92bdefae211b794af4",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-27T08:14:22+00:00",
+ "status": "partial",
+ "system": {
+  "adapter": "scripted:reference",
+  "model": "none",
+  "name": "scripted",
+  "version": "0.1"
+ },
+ "test": "T1"
+}

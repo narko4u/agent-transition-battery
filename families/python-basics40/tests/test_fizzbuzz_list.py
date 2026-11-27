@@ -1,0 +1,17 @@
+import os
+import sys
+import unittest
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from solution import fizzbuzz_list
+
+
+class TestCase(unittest.TestCase):
+    def test_cases(self):
+        self.assertEqual(fizzbuzz_list(5), ["1", "2", "Fizz", "4", "Buzz"])
+        self.assertEqual(fizzbuzz_list(15)[-1], "FizzBuzz")
+        self.assertEqual(fizzbuzz_list(0), [])
+
+
+if __name__ == "__main__":
+    unittest.main()

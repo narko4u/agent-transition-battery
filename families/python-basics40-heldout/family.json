@@ -1,0 +1,168 @@
+{
+ "id": "python-basics40-heldout",
+ "verifier": "unittest",
+ "author": "Empire Labs Pty Ltd",
+ "note": "Held-out half, twenty tasks. The candidate never sees these.",
+ "tasks": [
+  {
+   "id": "human_bytes",
+   "entry": "human_bytes",
+   "spec": "Write human_bytes(n) -> str.\nBelow 1000 return \"<n> B\". Otherwise use KB, MB or GB at 1000 steps, one decimal place, and drop\na trailing \".0\". 1000 is \"1 KB\". 1500 is \"1.5 KB\". 1000000 is \"1 MB\".",
+   "reference": "def human_bytes(n):\n    if n < 1000:\n        return \"%d B\" % n\n    for unit in (\"KB\", \"MB\", \"GB\", \"TB\"):\n        n /= 1000.0\n        if n < 1000 or unit == \"TB\":\n            s = (\"%.1f\" % n).rstrip(\"0\").rstrip(\".\")\n            return \"%s %s\" % (s, unit)",
+   "tests": "tests/test_human_bytes.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "parse_query",
+   "entry": "parse_query",
+   "spec": "Write parse_query(qs) -> dict.\nSplit on \"&\", then on the first \"=\". A missing value is \"\". A repeated key keeps the last value.\nA plus becomes a space. An empty string returns {}.",
+   "reference": "def parse_query(qs):\n    out = {}\n    if not qs:\n        return out\n    for part in qs.split(\"&\"):\n        if part == \"\":\n            continue\n        k, _, v = part.partition(\"=\")\n        out[k.replace(\"+\", \" \")] = v.replace(\"+\", \" \")\n    return out",
+   "tests": "tests/test_parse_query.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "format_cents",
+   "entry": "format_cents",
+   "spec": "Write format_cents(c) -> str.\nFormat an integer number of cents as dollars with two decimals and commas in the whole part.\n123456 is \"$1,234.56\". Zero is \"$0.00\". A negative value puts the minus before the dollar sign:\n-123 is \"-$1.23\".",
+   "reference": "def format_cents(c):\n    sign = \"-\" if c < 0 else \"\"\n    c = abs(int(c))\n    return \"%s$%s.%02d\" % (sign, format(c // 100, \",\"), c % 100)",
+   "tests": "tests/test_format_cents.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "merge_intervals",
+   "entry": "merge_intervals",
+   "spec": "Write merge_intervals(intervals) -> list.\nEach interval is a two-item sequence [start, end] with start <= end. Merge overlapping and\ntouching intervals and return them sorted by start. [[1,3],[2,6],[8,10]] gives [[1,6],[8,10]].\n[[1,2],[2,3]] gives [[1,3]]. An empty list gives [].",
+   "reference": "def merge_intervals(intervals):\n    out = []\n    for s, e in sorted([list(x) for x in intervals]):\n        if out and s <= out[-1][1]:\n            out[-1][1] = max(out[-1][1], e)\n        else:\n            out.append([s, e])\n    return out",
+   "tests": "tests/test_merge_intervals.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "word_freq",
+   "entry": "word_freq",
+   "spec": "Write word_freq(text, n) -> list of (word, count).\nLowercase the text and split on every run of characters that are not ASCII letters. Ignore\nempty strings. Sort by count descending, then word ascending. Return at most n pairs. n <= 0\nreturns [].",
+   "reference": "import re\ndef word_freq(text, n):\n    if n <= 0:\n        return []\n    words = re.findall(r\"[a-z]+\", str(text).lower())\n    counts = {}\n    for w in words:\n        counts[w] = counts.get(w, 0) + 1\n    return sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:n]",
+   "tests": "tests/test_word_freq.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "rle_encode",
+   "entry": "rle_encode",
+   "spec": "Write rle_encode(s) -> str.\nRun-length encode: each run of one character becomes the character followed by its decimal\ncount, including runs of length one. \"aaabb\" is \"a3b2\". \"\" is \"\".",
+   "reference": "def rle_encode(s):\n    if not s:\n        return \"\"\n    out = []\n    prev = s[0]\n    n = 1\n    for ch in s[1:]:\n        if ch == prev:\n            n += 1\n        else:\n            out.append(\"%s%d\" % (prev, n))\n            prev, n = ch, 1\n    out.append(\"%s%d\" % (prev, n))\n    return \"\".join(out)",
+   "tests": "tests/test_rle_encode.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "rle_decode",
+   "entry": "rle_decode",
+   "spec": "Write rle_decode(s) -> str.\nInverse of rle_encode. A letter followed by a positive decimal count repeats the letter that\nmany times. \"a3b2\" is \"aaabb\". \"\" is \"\". A malformed string, including a missing count or a\ncount of zero, raises ValueError.",
+   "reference": "import re\ndef rle_decode(s):\n    if s == \"\":\n        return \"\"\n    parts = re.findall(r\"([A-Za-z])(\\d+)\", s)\n    if \"\".join(a + b for a, b in parts) != s:\n        raise ValueError(s)\n    out = []\n    for ch, num in parts:\n        n = int(num)\n        if n <= 0:\n            raise ValueError(s)\n        out.append(ch * n)\n    return \"\".join(out)",
+   "tests": "tests/test_rle_decode.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "top_k",
+   "entry": "top_k",
+   "spec": "Write top_k(nums, k) -> list.\nReturn the k largest numbers in descending order. k <= 0 returns []. If k exceeds the length,\nreturn every number sorted descending.",
+   "reference": "def top_k(nums, k):\n    if k <= 0:\n        return []\n    return sorted(nums, reverse=True)[:k]",
+   "tests": "tests/test_top_k.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "sum_digits",
+   "entry": "sum_digits",
+   "spec": "Write sum_digits(n) -> int. Sum the decimal digits of the absolute value of an integer.",
+   "reference": "def sum_digits(n):\n    return sum(int(c) for c in str(abs(int(n))))",
+   "tests": "tests/test_sum_digits.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "snake_case",
+   "entry": "snake_case",
+   "spec": "Write snake_case(text) -> str. Lowercase, replace every run of non-alphanumeric characters with a\nsingle underscore, strip leading and trailing underscores.",
+   "reference": "import re\ndef snake_case(text):\n    s = re.sub(r\"[^a-z0-9]+\", \"_\", str(text).lower())\n    return s.strip(\"_\")",
+   "tests": "tests/test_snake_case.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "initials",
+   "entry": "initials",
+   "spec": "Write initials(name) -> str. Take the first letter of each whitespace-separated word, uppercase\nit and join with a dot, ending with a dot. \"Ada Lovelace\" gives \"A.L.\".",
+   "reference": "def initials(name):\n    parts = [p for p in str(name).split() if p]\n    return \"\".join(p[0].upper() + \".\" for p in parts)",
+   "tests": "tests/test_initials.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "split_even",
+   "entry": "split_even",
+   "spec": "Write split_even(nums) -> tuple of two lists. First the even numbers in order, then the odd ones\nin order. Treat 0 as even.",
+   "reference": "def split_even(nums):\n    evens, odds = [], []\n    for x in nums:\n        (evens if x % 2 == 0 else odds).append(x)\n    return evens, odds",
+   "tests": "tests/test_split_even.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "second_largest",
+   "entry": "second_largest",
+   "spec": "Write second_largest(nums) -> int. Return the second largest distinct value. Raise ValueError\nwhen there are fewer than two distinct values.",
+   "reference": "def second_largest(nums):\n    values = sorted(set(nums))\n    if len(values) < 2:\n        raise ValueError(\"need two distinct values\")\n    return values[-2]",
+   "tests": "tests/test_second_largest.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "cumulative_sum",
+   "entry": "cumulative_sum",
+   "spec": "Write cumulative_sum(nums) -> list of ints. Each element is the sum of the input up to that\nposition.",
+   "reference": "def cumulative_sum(nums):\n    out, total = [], 0\n    for x in nums:\n        total += x\n        out.append(total)\n    return out",
+   "tests": "tests/test_cumulative_sum.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "zip_longest_pad",
+   "entry": "zip_longest_pad",
+   "spec": "Write zip_longest_pad(a, b, fill) -> list of tuples. Pair elements by position, padding the\nshorter sequence with fill.",
+   "reference": "def zip_longest_pad(a, b, fill):\n    a, b = list(a), list(b)\n    out = []\n    for i in range(max(len(a), len(b))):\n        out.append((a[i] if i < len(a) else fill, b[i] if i < len(b) else fill))\n    return out",
+   "tests": "tests/test_zip_longest_pad.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "is_power_of_two",
+   "entry": "is_power_of_two",
+   "spec": "Write is_power_of_two(n) -> bool. True for 1, 2, 4, 8 and so on. False for 0 and negatives.",
+   "reference": "def is_power_of_two(n):\n    return isinstance(n, int) and n > 0 and (n & (n - 1)) == 0",
+   "tests": "tests/test_is_power_of_two.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "fizzbuzz_list",
+   "entry": "fizzbuzz_list",
+   "spec": "Write fizzbuzz_list(n) -> list of str for 1..n inclusive. Multiples of 3 give \"Fizz\", of 5 give\n\"Buzz\", of both give \"FizzBuzz\", otherwise the number as a string.",
+   "reference": "def fizzbuzz_list(n):\n    out = []\n    for i in range(1, n + 1):\n        if i % 15 == 0:\n            out.append(\"FizzBuzz\")\n        elif i % 3 == 0:\n            out.append(\"Fizz\")\n        elif i % 5 == 0:\n            out.append(\"Buzz\")\n        else:\n            out.append(str(i))\n    return out",
+   "tests": "tests/test_fizzbuzz_list.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "group_anagrams",
+   "entry": "group_anagrams",
+   "spec": "Write group_anagrams(words) -> dict. Key is the letters of the word lowercased and sorted, value\nis the sorted list of original words in that group. Empty input gives an empty dict.",
+   "reference": "def group_anagrams(words):\n    out = {}\n    for w in words:\n        key = \"\".join(sorted(str(w).lower()))\n        out.setdefault(key, []).append(str(w))\n    for key in out:\n        out[key].sort()\n    return out",
+   "tests": "tests/test_group_anagrams.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "pairs_sum",
+   "entry": "pairs_sum",
+   "spec": "Write pairs_sum(nums, target) -> tuple or None. Return the first pair of indices i < j whose\nvalues add to target, as a tuple. Return None when there is no such pair.",
+   "reference": "def pairs_sum(nums, target):\n    seen = {}\n    for i, x in enumerate(nums):\n        if target - x in seen:\n            return (seen[target - x], i)\n        seen.setdefault(x, i)\n    return None",
+   "tests": "tests/test_pairs_sum.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "compress_ranges",
+   "entry": "compress_ranges",
+   "spec": "Write compress_ranges(nums) -> str. Given ascending unique ints, compress consecutive runs as\n\"a-b\" and single values as \"a\", joined by commas. Empty input gives \"\".",
+   "reference": "def compress_ranges(nums):\n    nums = list(nums)\n    if not nums:\n        return \"\"\n    out, start, prev = [], nums[0], nums[0]\n    for x in nums[1:]:\n        if x == prev + 1:\n            prev = x\n            continue\n        out.append(str(start) if start == prev else \"%d-%d\" % (start, prev))\n        start = prev = x\n    out.append(str(start) if start == prev else \"%d-%d\" % (start, prev))\n    return \",\".join(out)",
+   "tests": "tests/test_compress_ranges.py",
+   "timeout_s": 30
+  }
+ ]
+}

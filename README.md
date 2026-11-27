@@ -39,6 +39,17 @@ A system is named for the loop it closed. It does not get the label.
 The `scripted` adapters exist to prove the machinery. They are deterministic and they are
 labelled as conformance runs, never as capability results.
 
+`python-basics` is frozen at sixteen tasks, because the published run reports pin its hash. The
+forty-task expansion ships beside it rather than replacing it:
+
+    python3 families/build_family40.py
+    python3 ttb.py run-t1 --family families/python-basics40 --adapter scripted:reference \
+        --out runs/conformance-t1-40-reference.json
+
+`python-basics40` is forty tasks with a twenty and twenty split. It exists because at eight
+held-out tasks the spread between identical runs is wider than any change worth promoting, so
+the gate could not tell a gain from noise.
+
 For a real run, set `DEEPSEEK_API_KEY` and use `--adapter deepseek`. Any OpenAI-compatible
 endpoint works with `TTB_BASE_URL` and `TTB_MODEL`.
 

@@ -1,0 +1,18 @@
+import os
+import sys
+import unittest
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from solution import rle_encode
+
+
+class TestCase(unittest.TestCase):
+    def test_cases(self):
+        self.assertEqual(rle_encode("aaabb"), "a3b2")
+        self.assertEqual(rle_encode("abc"), "a1b1c1")
+        self.assertEqual(rle_encode(""), "")
+        self.assertEqual(rle_encode("a"), "a1")
+
+
+if __name__ == "__main__":
+    unittest.main()
