@@ -1,0 +1,121 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0101,
+  "wall_cap_s": 1800,
+  "wall_s": 131.5
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "text-basics",
+   "role": "acquisition",
+   "tasks": 10,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:a85a9e082c431885f28c9c104941b5a69708bb3840d343411f8557ea9cec51f6"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "list-basics",
+   "role": "acquisition",
+   "tasks": 10,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:31e52b6cb813b84a3bef4a139c737403b94d3c20fdba0df1bc072387af8e12d6"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "python-basics40-dev",
+   "role": "acquisition",
+   "tasks": 10,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:157b990c1f2af0104ad834067d35e18b98fa4b8ad935294d50aaede38812c2f4"
+  }
+ ],
+ "finished_at": "2026-11-27T09:50:32+00:00",
+ "lessons": "1. Verify every required function is actually defined and importable from the submitted module before finishing.\n2. Treat validation and error behavior as core requirements: cover empty, malformed, repeated, out-of-range, and wrong-type inputs exactly as specified.\n3. For paired or related tasks, implement and cross-check both sides against boundary cases to catch omissions and inconsistencies.\n",
+ "lineage": [],
+ "metrics": {
+  "cost_first": 4,
+  "cost_last": 4,
+  "families": [
+   {
+    "cost_to_threshold": 4,
+    "curve": [
+     {
+      "after": 4,
+      "probe": 1.0
+     },
+     {
+      "after": 8,
+      "probe": 1.0
+     }
+    ],
+    "family": "text-basics",
+    "probe": 2,
+    "stream": 8
+   },
+   {
+    "cost_to_threshold": 4,
+    "curve": [
+     {
+      "after": 4,
+      "probe": 1.0
+     },
+     {
+      "after": 8,
+      "probe": 1.0
+     }
+    ],
+    "family": "list-basics",
+    "probe": 2,
+    "stream": 8
+   },
+   {
+    "cost_to_threshold": 4,
+    "curve": [
+     {
+      "after": 4,
+      "probe": 1.0
+     },
+     {
+      "after": 8,
+      "probe": 1.0
+     }
+    ],
+    "family": "python-basics40-dev",
+    "probe": 2,
+    "stream": 8
+   }
+  ],
+  "improvement": 0.0,
+  "min_drop": 0.2,
+  "threshold": 0.8
+ },
+ "notes": "One sequence, one seed, three families of different sizes and surfaces, so difficulty is not controlled. A family that never reaches the threshold is recorded as null, not as zero.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "min_drop": 0.2,
+  "pairs_required": 2,
+  "pairs_run": 1
+ },
+ "report_id": "sha256:b706758bafd5c77126ec9e07f5bbfdb831f84fa317a54c67078f383832b27cd1",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-27T09:48:20+00:00",
+ "status": "partial",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 39,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T3"
+}

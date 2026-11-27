@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """ttb, reference runner for the transition test battery.
 
-Implements T1 (retention across context loss) and T5 (bounded self-modification)
-from SPEC.md. T2, T3 and T4 are specified and not implemented in 0.1. The runner
-reports that rather than pretending otherwise.
+Implements T1 (retention across context loss), T2 (transfer), T3 (acquisition
+efficiency) and T5 (bounded self-modification) from SPEC.md. T4 is specified and
+not implemented. The runner reports what it has not done rather than pretending.
 
 A family is a directory with family.json and a tests/ directory. Every task is a
 spec plus one executable test file. The verifier is the test file: if it returns
@@ -325,6 +325,58 @@ def run_t2(args, adapter) -> dict:
     return finish(rep, Path(args.out), log, adapter)
 
 
+def run_t3(args, adapter) -> dict:
+    """Acquisition efficiency: three families in sequence, cost to a fixed probe threshold."""
+    fams = [load_family(Path(x)) for x in args.family]
+    if getattr(args, "max_tasks", 0):
+        for f in fams:
+            f["tasks"] = f["tasks"][:args.max_tasks]
+    procedure = Path(args.procedure).read_text() if args.procedure else ""
+    t0 = time.time()
+    rep = base_report("T3", adapter.describe(),
+                      [family_record(f, "acquisition") for f in fams],
+                      {"usd_cap": args.usd_cap, "wall_cap_s": args.wall_cap, "usd_spent": 0.0},
+                      [args.seed])
+    rep["_t0"] = t0
+    store = Path(tempfile.mkdtemp(prefix="ttb-t3-"))
+    log, per = [], []
+    adapter.forget()
+    adapter.reset_context()
+    for f in fams:
+        tasks = f["tasks"]
+        probe_n = min(args.probe, max(1, len(tasks) // 3))
+        probe, stream = tasks[-probe_n:], tasks[:-probe_n]
+
+        def shim(ts, _f=f):
+            return {"id": _f["id"], "_dir": _f["_dir"], "tasks": ts}
+
+        curve, cost, results = [], None, {}
+        for i, t in enumerate(stream, 1):
+            r = evaluate(shim([t]), adapter, procedure, store=store)
+            results.update(r["results"])
+            if i % args.check_every == 0 or i == len(stream):
+                pr = evaluate(shim(probe), adapter, procedure, store=store)
+                curve.append({"after": i, "probe": round(pr["accuracy"], 4)})
+                if cost is None and pr["accuracy"] >= args.threshold:
+                    cost = i
+        per.append({"family": f["id"], "stream": len(stream), "probe": probe_n,
+                    "cost_to_threshold": cost, "curve": curve})
+        adapter.remember(f, {"results": results}, store)
+        log.append("%s cost=%s final=%s" % (f["id"], cost, curve[-1]["probe"] if curve else None))
+    c1, c3 = per[0]["cost_to_threshold"], per[-1]["cost_to_threshold"]
+    rep["metrics"] = {"families": per, "cost_first": c1, "cost_last": c3,
+                      "improvement": (round(1 - c3 / c1, 4) if c1 and c3 else None),
+                      "min_drop": args.min_drop, "threshold": args.threshold}
+    rep["pass_rules"] = {"min_drop": args.min_drop, "pairs_required": 2, "pairs_run": 1}
+    rep["status"] = "partial"
+    rep["notes"] = ("One sequence, one seed, three families of different sizes and surfaces, so "
+                    "difficulty is not controlled. A family that never reaches the threshold is "
+                    "recorded as null, not as zero.")
+    rep["lessons"] = ((store / "lessons.md").read_text()
+                      if (store / "lessons.md").exists() else "")
+    return finish(rep, Path(args.out), log, adapter)
+
+
 def validate(path: Path) -> int:
     rep = json.loads(path.read_text())
     required = ["schema", "test", "status", "system", "families", "budget", "seeds",
@@ -335,7 +387,7 @@ def validate(path: Path) -> int:
         problems.append("schema %r" % rep.get("schema"))
     if missing:
         problems.append("missing " + ", ".join(missing))
-    if rep.get("test") not in ("T1", "T2", "T5"):
+    if rep.get("test") not in ("T1", "T2", "T3", "T5"):
         problems.append("test not implemented in 0.1: %r" % rep.get("test"))
     if rep.get("status") not in ("pass", "fail", "partial"):
         problems.append("status %r" % rep.get("status"))
@@ -402,6 +454,20 @@ def main() -> int:
     t2p.add_argument("--wall-cap", type=int, default=1800)
     t2p.add_argument("--seed", type=int, default=0)
 
+    t3p = sub.add_parser("run-t3")
+    t3p.add_argument("--family", nargs="+", required=True)
+    t3p.add_argument("--procedure", default="")
+    t3p.add_argument("--adapter", default="scripted:reference")
+    t3p.add_argument("--out", required=True)
+    t3p.add_argument("--probe", type=int, default=3)
+    t3p.add_argument("--max-tasks", type=int, default=0)
+    t3p.add_argument("--threshold", type=float, default=0.8)
+    t3p.add_argument("--check-every", type=int, default=2)
+    t3p.add_argument("--min-drop", type=float, default=0.2)
+    t3p.add_argument("--usd-cap", type=float, default=1.0)
+    t3p.add_argument("--wall-cap", type=int, default=1800)
+    t3p.add_argument("--seed", type=int, default=0)
+
     v = sub.add_parser("validate")
     v.add_argument("report")
 
@@ -418,6 +484,8 @@ def main() -> int:
         rep = run_t1(a, adapter)
     elif a.cmd == "run-t2":
         rep = run_t2(a, adapter)
+    elif a.cmd == "run-t3":
+        rep = run_t3(a, adapter)
     else:
         rep = run_t5(a, adapter)
     print(json.dumps({"test": rep["test"], "status": rep["status"], "metrics": rep["metrics"]}, indent=1))

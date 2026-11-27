@@ -1,0 +1,88 @@
+{
+ "id": "list-basics",
+ "verifier": "unittest",
+ "author": "Empire Labs Pty Ltd",
+ "note": "Ten sequence tasks. Third surface, used for T3.",
+ "tasks": [
+  {
+   "id": "interleave",
+   "entry": "interleave",
+   "spec": "Write interleave(a, b) -> list. Take elements alternately from a then b, and append whatever is\nleft of the longer sequence at the end.",
+   "reference": "def interleave(a, b):\n    a, b = list(a), list(b)\n    out = []\n    for i in range(max(len(a), len(b))):\n        if i < len(a):\n            out.append(a[i])\n        if i < len(b):\n            out.append(b[i])\n    return out",
+   "tests": "tests/test_interleave.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "dedupe_adjacent",
+   "entry": "dedupe_adjacent",
+   "spec": "Write dedupe_adjacent(seq) -> list. Remove consecutive duplicates, keeping the first of each run.\nNon-consecutive repeats stay.",
+   "reference": "def dedupe_adjacent(seq):\n    out = []\n    for x in seq:\n        if not out or out[-1] != x:\n            out.append(x)\n    return out",
+   "tests": "tests/test_dedupe_adjacent.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "longest_run",
+   "entry": "longest_run",
+   "spec": "Write longest_run(seq) -> int. Return the length of the longest run of identical consecutive\nvalues. An empty sequence is 0.",
+   "reference": "def longest_run(seq):\n    best = run = 0\n    prev = None\n    for x in seq:\n        if run and x == prev:\n            run += 1\n        else:\n            run = 1\n        prev = x\n        best = max(best, run)\n    return best",
+   "tests": "tests/test_longest_run.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "sliding_max",
+   "entry": "sliding_max",
+   "spec": "Write sliding_max(nums, k) -> list. For each window of k consecutive values return the largest.\nRaise ValueError when k is not positive or larger than the list.",
+   "reference": "def sliding_max(nums, k):\n    nums = list(nums)\n    if not isinstance(k, int) or k <= 0 or k > len(nums):\n        raise ValueError(k)\n    return [max(nums[i:i + k]) for i in range(len(nums) - k + 1)]",
+   "tests": "tests/test_sliding_max.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "partition",
+   "entry": "partition",
+   "spec": "Write partition(nums, threshold) -> tuple of two lists. First the values below threshold, then the\nvalues at or above it, each in their original order.",
+   "reference": "def partition(nums, threshold):\n    low, high = [], []\n    for x in nums:\n        (low if x < threshold else high).append(x)\n    return low, high",
+   "tests": "tests/test_partition.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "flatten_depth",
+   "entry": "flatten_depth",
+   "spec": "Write flatten_depth(seq, depth) -> list. Flatten nested lists and tuples up to depth levels.\ndepth 0 returns the input as a list. Negative depth raises ValueError.",
+   "reference": "def flatten_depth(seq, depth):\n    if not isinstance(depth, int) or depth < 0:\n        raise ValueError(depth)\n    out = []\n    for x in seq:\n        if depth > 0 and isinstance(x, (list, tuple)):\n            out.extend(flatten_depth(x, depth - 1))\n        else:\n            out.append(x)\n    return out",
+   "tests": "tests/test_flatten_depth.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "remove_dupes_keep_last",
+   "entry": "remove_dupes_keep_last",
+   "spec": "Write remove_dupes_keep_last(seq) -> list. Keep only the last occurrence of each value, preserving\nthe order of those last occurrences.",
+   "reference": "def remove_dupes_keep_last(seq):\n    seq = list(seq)\n    seen = set()\n    out = []\n    for x in reversed(seq):\n        if x not in seen:\n            seen.add(x)\n            out.append(x)\n    return list(reversed(out))",
+   "tests": "tests/test_remove_dupes_keep_last.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "paired_diffs",
+   "entry": "paired_diffs",
+   "spec": "Write paired_diffs(nums) -> list. Return the difference between each value and the one before it.\nThe result is one shorter than the input, and empty when the input has fewer than two values.",
+   "reference": "def paired_diffs(nums):\n    nums = list(nums)\n    return [nums[i] - nums[i - 1] for i in range(1, len(nums))]",
+   "tests": "tests/test_paired_diffs.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "chunk_by_sign",
+   "entry": "chunk_by_sign",
+   "spec": "Write chunk_by_sign(nums) -> list of lists. Group consecutive values by sign, where negative,\nzero and positive are three different groups. Each group is a list in original order.",
+   "reference": "def chunk_by_sign(nums):\n    def kind(x):\n        return -1 if x < 0 else (1 if x > 0 else 0)\n    out = []\n    for x in nums:\n        if out and kind(out[-1][0]) == kind(x):\n            out[-1].append(x)\n        else:\n            out.append([x])\n    return out",
+   "tests": "tests/test_chunk_by_sign.py",
+   "timeout_s": 30
+  },
+  {
+   "id": "running_max",
+   "entry": "running_max",
+   "spec": "Write running_max(nums) -> list. Each element is the largest value seen so far. Empty input gives\nan empty list.",
+   "reference": "def running_max(nums):\n    out, best = [], None\n    for x in nums:\n        best = x if best is None else max(best, x)\n        out.append(best)\n    return out",
+   "tests": "tests/test_running_max.py",
+   "timeout_s": 30
+  }
+ ]
+}

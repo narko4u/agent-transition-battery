@@ -57,7 +57,10 @@ Three unseen families in sequence at equal budget.
 
 - Metric: tasks or tokens to reach a fixed threshold on each family.
 - Pass: cost to threshold falls by at least 20 per cent from family one to family three.
-- Status: specified, not implemented. No cost-to-threshold runner exists in 0.1.
+- Status: runner `run-t3` added in 0.2. The first sequence, three ten-task families, reached the
+  probe threshold at the first checkpoint in every family, so cost to threshold was 4 for all
+  three and the metric is unproven. Larger probes and harder families are needed before this loop
+  can be read.
 
 ### T4, self-generated curriculum
 
@@ -121,6 +124,7 @@ Therefore:
 
 ## 7. Versioning
 
-0.1 implements T1, T2 and T5, the report schema, the adversarial arm and the validator. T3 and T4
-are specified and have no runner. A change to a pass rule is a new version of the spec, never an
-edit in place.
+0.1 is the published record: T1, T2 and T5, the report schema, the adversarial arm and the
+validator. 0.2 adds T3 as `run-t3`, the `list-basics` family and the T3 report shape. It is not
+published. T4 remains specified with no runner. A change to a pass rule is a new version of the
+spec, never an edit in place.
