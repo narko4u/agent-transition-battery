@@ -1,0 +1,73 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-27T11:18:41+00:00",
+    "changed": false,
+    "verifier_after": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393",
+    "verifier_before": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0466,
+  "wall_cap_s": 1800,
+  "wall_s": 81.6
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub40",
+   "role": "dev",
+   "tasks": 40,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub40",
+   "role": "held-out",
+   "tasks": 40,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393"
+  }
+ ],
+ "finished_at": "2026-11-27T11:18:41+00:00",
+ "lessons": "1. Define functions with the exact name given in the spec (including capitalization and underscores); a mismatch causes ImportError and zero credit even if the logic is correct. Briefly verify the module imports and exposes that name before finishing.\n\n2. Run a couple of quick self-checks with representative and boundary inputs rather than only writing the function; several failures were runtime errors or off-by-one/modulo edge cases that a single test call would have caught.\n\n3. Read the spec literally and handle edge cases it implies (empty inputs, single elements, negative numbers, zero) instead of assuming the common case; ensure the returned type and shape match what's expected.\n",
+ "lineage": [],
+ "metrics": {
+  "control": 0.8,
+  "delta_experience": -0.075,
+  "delta_placebo": 0.025,
+  "experience": 0.725,
+  "experience_minus_placebo": -0.1,
+  "family_a": 0.75,
+  "placebo": 0.825
+ },
+ "notes": "Single pair, 40 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "pairs_required": 2,
+  "pairs_run": 1,
+  "positive_vs_control": true,
+  "positive_vs_placebo": true
+ },
+ "report_id": "sha256:811ccb7eec424036209c564ee4c35fb01e9bb49540928989870cf31d8a7be002",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-27T11:17:20+00:00",
+ "status": "fail",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 161,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T2"
+}

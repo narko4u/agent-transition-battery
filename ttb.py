@@ -20,6 +20,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 import os
@@ -69,11 +70,12 @@ def load_family(d: Path) -> dict:
     return meta
 
 
-def evaluate(family: dict, adapter, procedure: str, store: Path | None = None) -> dict:
-    """Run every task in a fresh temp dir. Returns per-task results and accuracy."""
+def evaluate(family: dict, adapter, procedure: str, store: Path | None = None,
+             workers: int = 0) -> dict:
+    """Run every task in a fresh temp dir, concurrently. Returns per-task results and accuracy."""
     fam = Path(family["_dir"])
-    results = {}
-    for t in family["tasks"]:
+
+    def one(t):
         code = ""
         err = None
         started = time.time()
@@ -96,10 +98,19 @@ def evaluate(family: dict, adapter, procedure: str, store: Path | None = None) -
                 detail = detail[-1][:300] if detail else ""
             except subprocess.TimeoutExpired:
                 ok, detail = False, "timeout"
-        results[t["id"]] = {"pass": ok, "detail": detail if not ok else "",
-                            "code_sha256": sha_bytes((code or "").encode()),
-                            "seconds": round(time.time() - started, 2),
-                            "adapter_error": err}
+        return t["id"], {"pass": ok, "detail": detail if not ok else "",
+                         "code_sha256": sha_bytes((code or "").encode()),
+                         "seconds": round(time.time() - started, 2),
+                         "adapter_error": err}
+
+    n = workers or int(os.environ.get("TTB_WORKERS", "8"))
+    tasks = family["tasks"]
+    if n <= 1:
+        pairs = [one(t) for t in tasks]
+    else:
+        with ThreadPoolExecutor(max_workers=n) as pool:
+            pairs = list(pool.map(one, tasks))
+    results = dict(pairs)
     passed = sum(1 for r in results.values() if r["pass"])
     return {"results": results, "passed": passed, "of": len(results),
             "accuracy": round(passed / max(1, len(results)), 4)}
