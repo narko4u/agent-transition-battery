@@ -1,0 +1,73 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [
+   {
+    "at": "2026-11-27T13:06:58+00:00",
+    "changed": false,
+    "verifier_after": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393",
+    "verifier_before": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393"
+   }
+  ],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0449,
+  "wall_cap_s": 1800,
+  "wall_s": 102.2
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub40",
+   "role": "dev",
+   "tasks": 40,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub40",
+   "role": "held-out",
+   "tasks": 40,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:62dc0e7ff6d8b827d7eef0e08532e961912e7744885ca53ca36c022980cfa393"
+  }
+ ],
+ "finished_at": "2026-11-27T13:06:58+00:00",
+ "lessons": "\n",
+ "lineage": [],
+ "metrics": {
+  "control": 0.775,
+  "delta_experience": 0.025,
+  "delta_placebo": -0.075,
+  "experience": 0.8,
+  "experience_minus_placebo": 0.1,
+  "family_a": 0.775,
+  "placebo": 0.7
+ },
+ "notes": "Single pair, 40 tasks, single seed. A one-task difference is not a result. The placebo arm carries generic advice of similar length.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "pairs_required": 2,
+  "pairs_run": 1,
+  "positive_vs_control": true,
+  "positive_vs_placebo": true
+ },
+ "report_id": "sha256:0104c12ff61cabeb15f381220f3e2f30710b26cc8471971295106791214eb6f7",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-27T13:05:15+00:00",
+ "status": "partial",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 161,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T2"
+}

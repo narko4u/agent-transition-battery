@@ -1,0 +1,549 @@
+{
+ "id": "mbpp-test60",
+ "verifier": "unittest",
+ "author": "Empire Labs Pty Ltd",
+ "source": "MBPP sanitized, CC-BY-4.0, Austin et al. 2021",
+ "note": "MBPP tasks 61-120, held out from the practice block. Fixed before the run.",
+ "tasks": [
+  {
+   "id": "mbpp_106",
+   "entry": "add_lists",
+   "spec": "Write a function to append the given list to the given tuples.\n\nDefine the function as `add_lists`.",
+   "reference": "def add_lists(test_list, test_tup):\n  res = tuple(list(test_tup) + test_list)\n  return (res)\n",
+   "tests": "tests/test_mbpp_106.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_108",
+   "entry": "merge_sorted_list",
+   "spec": "Write a function to merge three lists into a single sorted list.\n\nDefine the function as `merge_sorted_list`.",
+   "reference": "import heapq\ndef merge_sorted_list(num1,num2,num3):\n  num1=sorted(num1)\n  num2=sorted(num2)\n  num3=sorted(num3)\n  result = heapq.merge(num1,num2,num3)\n  return list(result)\n",
+   "tests": "tests/test_mbpp_108.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_109",
+   "entry": "odd_Equivalent",
+   "spec": "Write a python function to find the number of numbers with an odd value when rotating a binary string the given number of times.\n\nDefine the function as `odd_Equivalent`.",
+   "reference": "def odd_Equivalent(s,n): \n    count=0\n    for i in range(0,n): \n        if (s[i] == '1'): \n            count = count + 1\n    return count\n",
+   "tests": "tests/test_mbpp_109.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_111",
+   "entry": "common_in_nested_lists",
+   "spec": "Write a function to find the common elements in given nested lists.\n\nDefine the function as `common_in_nested_lists`.",
+   "reference": "def common_in_nested_lists(nestedlist):\n    result = list(set.intersection(*map(set, nestedlist)))\n    return result\n",
+   "tests": "tests/test_mbpp_111.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_113",
+   "entry": "check_integer",
+   "spec": "Write a function to check if a string represents an integer or not.\n\nDefine the function as `check_integer`.",
+   "reference": "def check_integer(text):\n text = text.strip()\n if len(text) < 1:\n    return None\n else:\n     if all(text[i] in \"0123456789\" for i in range(len(text))):\n          return True\n     elif (text[0] in \"+-\") and \\\n         all(text[i] in \"0123456789\" for i in range(1,len(text))):\n         return True\n     else:\n        return False\n",
+   "tests": "tests/test_mbpp_113.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_115",
+   "entry": "empty_dit",
+   "spec": "Write a function to check whether all dictionaries in a list are empty or not.\n\nDefine the function as `empty_dit`.",
+   "reference": "def empty_dit(list1):\n empty_dit=all(not d for d in list1)\n return empty_dit\n",
+   "tests": "tests/test_mbpp_115.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_116",
+   "entry": "tuple_to_int",
+   "spec": "Write a function to convert a given tuple of positive integers into a single integer.\n\nDefine the function as `tuple_to_int`.",
+   "reference": "def tuple_to_int(nums):\n    result = int(''.join(map(str,nums)))\n    return result\n",
+   "tests": "tests/test_mbpp_116.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_117",
+   "entry": "list_to_float",
+   "spec": "Write a function to convert all possible convertible elements in a list of lists to floats.\n\nDefine the function as `list_to_float`.",
+   "reference": "def list_to_float(test_list):\n  res = []\n  for tup in test_list:\n    temp = []\n    for ele in tup:\n      if ele.isalpha():\n        temp.append(ele)\n      else:\n        temp.append(float(ele))\n    res.append((temp[0],temp[1])) \n  return res\n",
+   "tests": "tests/test_mbpp_117.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_118",
+   "entry": "string_to_list",
+   "spec": "Write a function to convert a string to a list of strings split on the space character.\n\nDefine the function as `string_to_list`.",
+   "reference": "def string_to_list(string): \n    lst = list(string.split(\" \")) \n    return lst\n",
+   "tests": "tests/test_mbpp_118.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_119",
+   "entry": "search",
+   "spec": "Write a python function to find the element that appears only once in a sorted array.\n\nDefine the function as `search`.",
+   "reference": "def search(arr):\n    n = len(arr)\n    XOR = 0\n    for i in range(n) :\n        XOR = XOR ^ arr[i]\n    return (XOR)\n",
+   "tests": "tests/test_mbpp_119.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_120",
+   "entry": "max_product_tuple",
+   "spec": "Write a function to find the maximum absolute product between numbers in pairs of tuples within a given list.\n\nDefine the function as `max_product_tuple`.",
+   "reference": "def max_product_tuple(list1):\n    result_max = max([abs(x * y) for x, y in list1] )\n    return result_max\n",
+   "tests": "tests/test_mbpp_120.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_123",
+   "entry": "amicable_numbers_sum",
+   "spec": "Write a function to sum all amicable numbers from 1 to a specified number.\n\nDefine the function as `amicable_numbers_sum`.",
+   "reference": "def amicable_numbers_sum(limit):\n    if not isinstance(limit, int):\n        return \"Input is not an integer!\"\n    if limit < 1:\n        return \"Input must be bigger than 0!\"\n    amicables = set()\n    for num in range(2, limit+1):\n        if num in amicables:\n            continue\n        sum_fact = sum([fact for fact in range(1, num) if num % fact == 0])\n        sum_fact2 = sum([fact for fact in range(1, sum_fact) if sum_fact % fact == 0])\n        if num == sum_fact2 and num != sum_fact:\n            amicables.add(num)\n            amicables.add(sum_fact2)\n    return sum(amicables)\n",
+   "tests": "tests/test_mbpp_123.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_124",
+   "entry": "angle_complex",
+   "spec": "Write a function to get the angle of a complex number.\n\nDefine the function as `angle_complex`.",
+   "reference": "import cmath\ndef angle_complex(a,b):\n  cn=complex(a,b)\n  angle=cmath.phase(a+b)\n  return angle\n",
+   "tests": "tests/test_mbpp_124.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_125",
+   "entry": "find_length",
+   "spec": "Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string.\n\nDefine the function as `find_length`.",
+   "reference": "def find_length(string): \n\tn = len(string)\n\tcurrent_sum = 0\n\tmax_sum = 0\n\tfor i in range(n): \n\t\tcurrent_sum += (1 if string[i] == '0' else -1) \n\t\tif current_sum < 0: \n\t\t\tcurrent_sum = 0\n\t\tmax_sum = max(current_sum, max_sum) \n\treturn max_sum if max_sum else 0\n",
+   "tests": "tests/test_mbpp_125.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_126",
+   "entry": "sum",
+   "spec": "Write a python function to find the sum of common divisors of two given numbers.\n\nDefine the function as `sum`.",
+   "reference": "def sum(a,b): \n    sum = 0\n    for i in range (1,min(a,b)): \n        if (a % i == 0 and b % i == 0): \n            sum += i \n    return sum\n",
+   "tests": "tests/test_mbpp_126.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_127",
+   "entry": "multiply_int",
+   "spec": "Write a function to multiply two integers.\n\nDefine the function as `multiply_int`.",
+   "reference": "def multiply_int(x, y):\n    if y < 0:\n        return -multiply_int(x, -y)\n    elif y == 0:\n        return 0\n    elif y == 1:\n        return x\n    else:\n        return x + multiply_int(x, y - 1)\n",
+   "tests": "tests/test_mbpp_127.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_128",
+   "entry": "long_words",
+   "spec": "Write a function to find words that are longer than n characters from a given list of words.\n\nDefine the function as `long_words`.",
+   "reference": "def long_words(n, str):\n    word_len = []\n    txt = str.split(\" \")\n    for x in txt:\n        if len(x) > n:\n            word_len.append(x)\n    return word_len\n",
+   "tests": "tests/test_mbpp_128.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_129",
+   "entry": "magic_square_test",
+   "spec": "Write a function to calculate whether the matrix is a magic square.\n\nDefine the function as `magic_square_test`.",
+   "reference": "def magic_square_test(my_matrix):\n    iSize = len(my_matrix[0])\n    sum_list = []\n    sum_list.extend([sum (lines) for lines in my_matrix])   \n    for col in range(iSize):\n        sum_list.append(sum(row[col] for row in my_matrix))\n    result1 = 0\n    for i in range(0,iSize):\n        result1 +=my_matrix[i][i]\n    sum_list.append(result1)      \n    result2 = 0\n    for i in range(iSize-1,-1,-1):\n        result2 +=my_matrix[i][i]\n    sum_list.append(result2)\n    if len(set(sum_list))>1:\n        return False\n    return True\n",
+   "tests": "tests/test_mbpp_129.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_130",
+   "entry": "max_occurrences",
+   "spec": "Write a function to find the item with maximum frequency in a given list.\n\nDefine the function as `max_occurrences`.",
+   "reference": "from collections import defaultdict\ndef max_occurrences(nums):\n    dict = defaultdict(int)\n    for i in nums:\n        dict[i] += 1\n    result = max(dict.items(), key=lambda x: x[1]) \n    return result[0]\n",
+   "tests": "tests/test_mbpp_130.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_131",
+   "entry": "reverse_vowels",
+   "spec": "Write a python function to reverse only the vowels of a given string (where y is not a vowel).\n\nDefine the function as `reverse_vowels`.",
+   "reference": "def reverse_vowels(str1):\n\tvowels = \"\"\n\tfor char in str1:\n\t\tif char in \"aeiouAEIOU\":\n\t\t\tvowels += char\n\tresult_string = \"\"\n\tfor char in str1:\n\t\tif char in \"aeiouAEIOU\":\n\t\t\tresult_string += vowels[-1]\n\t\t\tvowels = vowels[:-1]\n\t\telse:\n\t\t\tresult_string += char\n\treturn result_string\n",
+   "tests": "tests/test_mbpp_131.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_132",
+   "entry": "tup_string",
+   "spec": "Write a function to convert a tuple to a string.\n\nDefine the function as `tup_string`.",
+   "reference": "def tup_string(tup1):\n  str =  ''.join(tup1)\n  return str\n",
+   "tests": "tests/test_mbpp_132.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_133",
+   "entry": "sum_negativenum",
+   "spec": "Write a function to calculate the sum of the negative numbers of a given list of numbers.\n\nDefine the function as `sum_negativenum`.",
+   "reference": "def sum_negativenum(nums):\n  sum_negativenum = list(filter(lambda nums:nums<0,nums))\n  return sum(sum_negativenum)\n",
+   "tests": "tests/test_mbpp_133.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_135",
+   "entry": "hexagonal_num",
+   "spec": "Write a function to find the nth hexagonal number.\n\nDefine the function as `hexagonal_num`.",
+   "reference": "def hexagonal_num(n): \n\treturn n*(2*n - 1)\n",
+   "tests": "tests/test_mbpp_135.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_137",
+   "entry": "zero_count",
+   "spec": "Write a function to find the ratio of zeroes to non-zeroes in an array of integers.\n\nDefine the function as `zero_count`.",
+   "reference": "from array import array\ndef zero_count(nums):\n    n = len(nums)\n    n1 = 0\n    for x in nums:\n        if x == 0:\n            n1 += 1\n        else:\n          None\n    return n1/(n-n1)\n",
+   "tests": "tests/test_mbpp_137.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_138",
+   "entry": "is_Sum_Of_Powers_Of_Two",
+   "spec": "Write a python function to check whether the given number can be represented as sum of non-zero powers of 2 or not.\n\nDefine the function as `is_Sum_Of_Powers_Of_Two`.",
+   "reference": "def is_Sum_Of_Powers_Of_Two(n): \n    if (n % 2 == 1): \n        return False\n    else: \n        return True\n",
+   "tests": "tests/test_mbpp_138.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_139",
+   "entry": "circle_circumference",
+   "spec": "Write a function to find the circumference of a circle.\n\nDefine the function as `circle_circumference`.",
+   "reference": "def circle_circumference(r):\n  perimeter=2*3.1415*r\n  return perimeter\n",
+   "tests": "tests/test_mbpp_139.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_140",
+   "entry": "extract_singly",
+   "spec": "Write a function to flatten the list of lists into a single set of numbers.\n\nDefine the function as `extract_singly`.",
+   "reference": "def extract_singly(test_list):\n  res = []\n  temp = set()\n  for inner in test_list:\n    for ele in inner:\n      if not ele in temp:\n        temp.add(ele)\n        res.append(ele)\n  return (res)\n",
+   "tests": "tests/test_mbpp_140.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_141",
+   "entry": "pancake_sort",
+   "spec": "Write a function to sort a list of elements.\n\nDefine the function as `pancake_sort`.",
+   "reference": "def pancake_sort(nums):\n    arr_len = len(nums)\n    while arr_len > 1:\n        mi = nums.index(max(nums[0:arr_len]))\n        nums = nums[mi::-1] + nums[mi+1:len(nums)]\n        nums = nums[arr_len-1::-1] + nums[arr_len:len(nums)]\n        arr_len -= 1\n    return nums\n",
+   "tests": "tests/test_mbpp_141.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_142",
+   "entry": "count_samepair",
+   "spec": "Write a function to count number items that are identical in the same position of three given lists.\n\nDefine the function as `count_samepair`.",
+   "reference": "def count_samepair(list1,list2,list3):\n    result = sum(m == n == o for m, n, o in zip(list1,list2,list3))\n    return result\n",
+   "tests": "tests/test_mbpp_142.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_143",
+   "entry": "find_lists",
+   "spec": "Write a function to find number of lists present in the given tuple.\n\nDefine the function as `find_lists`.",
+   "reference": "def find_lists(Input): \n\tif isinstance(Input, list): \n\t\treturn 1\n\telse: \n\t\treturn len(Input)\n",
+   "tests": "tests/test_mbpp_143.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_145",
+   "entry": "max_Abs_Diff",
+   "spec": "Write a python function to find the maximum difference between any two elements in a given array.\n\nDefine the function as `max_Abs_Diff`.",
+   "reference": "def max_Abs_Diff(arr): \n    n = len(arr)\n    minEle = arr[0] \n    maxEle = arr[0] \n    for i in range(1, n): \n        minEle = min(minEle,arr[i]) \n        maxEle = max(maxEle,arr[i]) \n    return (maxEle - minEle)\n",
+   "tests": "tests/test_mbpp_145.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_160",
+   "entry": "find_solution",
+   "spec": "Write a function that returns integers x and y that satisfy ax + by = n as a tuple, or return None if no solution exists.\n\nDefine the function as `find_solution`.",
+   "reference": "def find_solution(a, b, n):\n\ti = 0\n\twhile i * a <= n:\n\t\tif (n - (i * a)) % b == 0: \n\t\t\treturn (i, (n - (i * a)) // b)\n\t\ti = i + 1\n\treturn None\n",
+   "tests": "tests/test_mbpp_160.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_161",
+   "entry": "remove_elements",
+   "spec": "Write a function to remove all elements from a given list present in another list.\n\nDefine the function as `remove_elements`.",
+   "reference": "def remove_elements(list1, list2):\n    result = [x for x in list1 if x not in list2]\n    return result\n",
+   "tests": "tests/test_mbpp_161.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_162",
+   "entry": "sum_series",
+   "spec": "Write a function to calculate the sum (n - 2*i) from i=0 to n // 2, for instance n + (n-2) + (n-4)... (until n-x =< 0).\n\nDefine the function as `sum_series`.",
+   "reference": "def sum_series(n):\n  if n < 1:\n    return 0\n  else:\n    return n + sum_series(n - 2)\n",
+   "tests": "tests/test_mbpp_162.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_163",
+   "entry": "area_polygon",
+   "spec": "Write a function to calculate the area of a regular polygon given the length and number of its sides.\n\nDefine the function as `area_polygon`.",
+   "reference": "from math import tan, pi\ndef area_polygon(s, l):\n  area = s * (l ** 2) / (4 * tan(pi / s))\n  return area\n",
+   "tests": "tests/test_mbpp_163.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_164",
+   "entry": "div_sum",
+   "spec": "Write a function to determine if the sum of the divisors of two integers are the same.\n\nDefine the function as `div_sum`.",
+   "reference": "import math \ndef div_sum(n): \n  total = 1\n  i = 2\n\n  while i * i <= n:\n    if (n % i == 0):\n      total = (total + i + math.floor(n / i))\n    i += 1\n\n  return total\n\ndef are_equivalent(num1, num2): \n    return div_sum(num1) == div_sum(num2);\n",
+   "tests": "tests/test_mbpp_164.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_165",
+   "entry": "count_char_position",
+   "spec": "Write a function to count the number of characters in a string that occur at the same position in the string as in the English alphabet (case insensitive).\n\nDefine the function as `count_char_position`.",
+   "reference": "def count_char_position(str1): \n    count_chars = 0\n    for i in range(len(str1)):\n        if ((i == ord(str1[i]) - ord('A')) or \n            (i == ord(str1[i]) - ord('a'))): \n            count_chars += 1\n    return count_chars\n",
+   "tests": "tests/test_mbpp_165.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_166",
+   "entry": "find_even_pair",
+   "spec": "Write a function that counts the number of pairs of integers in a list that xor to an even number.\n\nDefine the function as `find_even_pair`.",
+   "reference": "def find_even_pair(A): \n  count = 0\n  for i in range(0, len(A)): \n    for j in range(i+1, len(A)): \n        if ((A[i] ^ A[j]) % 2 == 0): \n          count += 1\n\n  return count\n",
+   "tests": "tests/test_mbpp_166.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_167",
+   "entry": "next_power_of_2",
+   "spec": "Write a python function to find the smallest power of 2 greater than or equal to n.\n\nDefine the function as `next_power_of_2`.",
+   "reference": "def next_power_of_2(n): \n  if n and not n & (n - 1):\n    return n\n\n  count = 0\n  while n != 0: \n    n >>= 1\n    count += 1\n\n  return 1 << count;\n",
+   "tests": "tests/test_mbpp_167.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_168",
+   "entry": "frequency",
+   "spec": "Write a function to count the number of occurrences of a number in a given list.\n\nDefine the function as `frequency`.",
+   "reference": "def frequency(a,x): \n    count = 0  \n    for i in a: \n      if i == x: \n        count += 1\n\n    return count\n",
+   "tests": "tests/test_mbpp_168.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_170",
+   "entry": "sum_range_list",
+   "spec": "Write a function to find the sum of numbers in a list within a range specified by two indices.\n\nDefine the function as `sum_range_list`.",
+   "reference": "def sum_range_list(list1, m, n):                                                                                                                                                                                                \n    sum_range = 0                                                                                                                                                                                                         \n    for i in range(m, n+1, 1):                                                                                                                                                                                        \n        sum_range += list1[i]                                                                                                                                                                                                  \n    return sum_range\n",
+   "tests": "tests/test_mbpp_170.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_171",
+   "entry": "perimeter_pentagon",
+   "spec": "Write a function to find the perimeter of a regular pentagon from the length of its sides.\n\nDefine the function as `perimeter_pentagon`.",
+   "reference": "import math\ndef perimeter_pentagon(a):\n  perimeter=(5*a)\n  return perimeter\n",
+   "tests": "tests/test_mbpp_171.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_172",
+   "entry": "count_occurance",
+   "spec": "Write a function to count the number of occurence of the string 'std' in a given string.\n\nDefine the function as `count_occurance`.",
+   "reference": "def count_occurance(s):\n  count = 0\n  for i in range(len(s) - 2):\n    if (s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd'):\n      count = count + 1\n  return count\n",
+   "tests": "tests/test_mbpp_172.py",
+   "cases": 5,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_222",
+   "entry": "check_type",
+   "spec": "Write a function to check if all the elements in tuple have same data type or not.\n\nDefine the function as `check_type`.",
+   "reference": "def check_type(test_tuple):\n  res = True\n  for ele in test_tuple:\n    if not isinstance(ele, type(test_tuple[0])):\n      res = False\n      break\n  return (res)\n",
+   "tests": "tests/test_mbpp_222.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_223",
+   "entry": "is_majority",
+   "spec": "Write a function that takes in a sorted array, its length (n), and an element and returns whether the element is the majority element in the given sorted array. (The majority element is the element that occurs more than n/2 times.)\n\nDefine the function as `is_majority`.",
+   "reference": "def is_majority(arr, n, x):\n\ti = binary_search(arr, 0, n-1, x)\n\tif i == -1:\n\t\treturn False\n\tif ((i + n//2) <= (n -1)) and arr[i + n//2] == x:\n\t\treturn True\n\telse:\n\t\treturn False\ndef binary_search(arr, low, high, x):\n\tif high >= low:\n\t\tmid = (low + high)//2 \n\t\tif (mid == 0 or x > arr[mid-1]) and (arr[mid] == x):\n\t\t\treturn mid\n\t\telif x > arr[mid]:\n\t\t\treturn binary_search(arr, (mid + 1), high, x)\n\t\telse:\n\t\t\treturn binary_search(arr, low, (mid -1), x)\n\treturn -1\n",
+   "tests": "tests/test_mbpp_223.py",
+   "cases": 4,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_224",
+   "entry": "count_Set_Bits",
+   "spec": "Write a python function to count the number of set bits (binary digits with value 1) in a given number.\n\nDefine the function as `count_Set_Bits`.",
+   "reference": "def count_Set_Bits(n): \n    count = 0\n    while (n): \n        count += n & 1\n        n >>= 1\n    return count\n",
+   "tests": "tests/test_mbpp_224.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_226",
+   "entry": "odd_values_string",
+   "spec": "Write a python function to remove the characters which have odd index values of a given string.\n\nDefine the function as `odd_values_string`.",
+   "reference": "def odd_values_string(str):\n  result = \"\" \n  for i in range(len(str)):\n    if i % 2 == 0:\n      result = result + str[i]\n  return result\n",
+   "tests": "tests/test_mbpp_226.py",
+   "cases": 4,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_227",
+   "entry": "min_of_three",
+   "spec": "Write a function to find minimum of three numbers.\n\nDefine the function as `min_of_three`.",
+   "reference": "def min_of_three(a,b,c): \n      if (a <= b) and (a <= c): \n        smallest = a \n      elif (b <= a) and (b <= c): \n        smallest = b \n      else: \n        smallest = c \n      return smallest\n",
+   "tests": "tests/test_mbpp_227.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_228",
+   "entry": "all_Bits_Set_In_The_Given_Range",
+   "spec": "Write a python function to check whether all the bits are unset in the given range or not.\n\nDefine the function as `all_Bits_Set_In_The_Given_Range`.",
+   "reference": "def all_Bits_Set_In_The_Given_Range(n,l,r):  \n    num = (((1 << r) - 1) ^ ((1 << (l - 1)) - 1)) \n    new_num = n & num\n    if (new_num == 0): \n        return True\n    return False\n",
+   "tests": "tests/test_mbpp_228.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_229",
+   "entry": "re_arrange_array",
+   "spec": "Write a function that takes in an array and an integer n, and re-arranges the first n elements of the given array so that all negative elements appear before positive ones, and where the relative order among negative and positive elements is preserved.\n\nDefine the function as `re_arrange_array`.",
+   "reference": "def re_arrange_array(arr, n):\n  j=0\n  for i in range(0, n):\n    if (arr[i] < 0):\n      temp = arr[i]\n      arr[i] = arr[j]\n      arr[j] = temp\n      j = j + 1\n  return arr\n",
+   "tests": "tests/test_mbpp_229.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_230",
+   "entry": "replace_blank",
+   "spec": "Write a function that takes in a string and character, replaces blank spaces in the string with the character, and returns the string.\n\nDefine the function as `replace_blank`.",
+   "reference": "def replace_blank(str1,char):\n str2 = str1.replace(' ', char)\n return str2\n",
+   "tests": "tests/test_mbpp_230.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_232",
+   "entry": "larg_nnum",
+   "spec": "Write a function that takes in a list and an integer n and returns a list containing the n largest items from the list.\n\nDefine the function as `larg_nnum`.",
+   "reference": "import heapq\ndef larg_nnum(list1,n):\n largest=heapq.nlargest(n,list1)\n return largest\n",
+   "tests": "tests/test_mbpp_232.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_233",
+   "entry": "lateralsuface_cylinder",
+   "spec": "Write a function to find the lateral surface area of a cylinder.\n\nDefine the function as `lateralsuface_cylinder`.",
+   "reference": "def lateralsuface_cylinder(r,h):\n  lateralsurface= 2*3.1415*r*h\n  return lateralsurface\n",
+   "tests": "tests/test_mbpp_233.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_234",
+   "entry": "volume_cube",
+   "spec": "Write a function to find the volume of a cube given its side length.\n\nDefine the function as `volume_cube`.",
+   "reference": "def volume_cube(l):\n  volume = l * l * l\n  return volume\n",
+   "tests": "tests/test_mbpp_234.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_235",
+   "entry": "even_bit_set_number",
+   "spec": "Write a python function to set all even bits of a given number.\n\nDefine the function as `even_bit_set_number`.",
+   "reference": "def even_bit_set_number(n): \n    count = 0;res = 0;temp = n \n    while(temp > 0): \n        if (count % 2 == 1): \n            res |= (1 << count)\n        count+=1\n        temp >>= 1\n    return (n | res)\n",
+   "tests": "tests/test_mbpp_235.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_237",
+   "entry": "check_occurences",
+   "spec": "Write a function that takes in a list of tuples and returns a dictionary mapping each unique tuple to the number of times it occurs in the list.\n\nDefine the function as `check_occurences`.",
+   "reference": "from collections import Counter \ndef check_occurences(test_list):\n  res = dict(Counter(tuple(ele) for ele in map(sorted, test_list)))\n  return  (res)\n",
+   "tests": "tests/test_mbpp_237.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_238",
+   "entry": "number_of_substrings",
+   "spec": "Write a python function to count the number of non-empty substrings of a given string.\n\nDefine the function as `number_of_substrings`.",
+   "reference": "def number_of_substrings(str): \n\tstr_len = len(str); \n\treturn int(str_len * (str_len + 1) / 2);\n",
+   "tests": "tests/test_mbpp_238.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_239",
+   "entry": "get_total_number_of_sequences",
+   "spec": "Write a function that takes in positive integers m and n and finds the number of possible sequences of length n, such that each element is a positive integer and is greater than or equal to twice the previous element but less than or equal to m.\n\nDefine the function as `get_total_number_of_sequences`.",
+   "reference": "def get_total_number_of_sequences(m,n): \n\tT=[[0 for i in range(n+1)] for i in range(m+1)] \n\tfor i in range(m+1): \n\t\tfor j in range(n+1): \n\t\t\tif i==0 or j==0: \n\t\t\t\tT[i][j]=0\n\t\t\telif i<j: \n\t\t\t\tT[i][j]=0\n\t\t\telif j==1: \n\t\t\t\tT[i][j]=i \n\t\t\telse: \n\t\t\t\tT[i][j]=T[i-1][j]+T[i//2][j-1] \n\treturn T[m][n]\n",
+   "tests": "tests/test_mbpp_239.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_240",
+   "entry": "replace_list",
+   "spec": "Write a function that takes in two lists and replaces the last element of the first list with the elements of the second list.\n\nDefine the function as `replace_list`.",
+   "reference": "def replace_list(list1,list2):\n list1[-1:] = list2\n replace_list=list1\n return replace_list\n",
+   "tests": "tests/test_mbpp_240.py",
+   "cases": 3,
+   "timeout_s": 30
+  },
+  {
+   "id": "mbpp_242",
+   "entry": "count_charac",
+   "spec": "Write a function to count the total number of characters in a string.\n\nDefine the function as `count_charac`.",
+   "reference": "def count_charac(str1):\n total = 0\n for i in str1:\n    total = total + 1\n return total\n",
+   "tests": "tests/test_mbpp_242.py",
+   "cases": 3,
+   "timeout_s": 30
+  }
+ ]
+}

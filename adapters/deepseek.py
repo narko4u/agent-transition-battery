@@ -125,9 +125,12 @@ class DeepSeek:
                 lines.append("- %s: fail. Spec: %s Error: %s" %
                              (t["id"], t["spec"][:400].replace("\n", " "),
                               (r.get("detail") or "")[:150]))
-        user = ("A programmer just attempted these tasks.\n\n%s\n\nWrite at most three short, "
-                "general lessons that would help on the next batch of similar programming tasks. "
-                "No task-specific answers, no code. Return a numbered list only." % "\n".join(lines))
+        user = ("A programmer just attempted these tasks. Each failure shows the spec and the actual "
+                "error output from running the tests.\n\n%s\n\nWrite at most three lessons. Rules:\n"
+                "1. Each lesson must quote the specific error or assertion that caused a failure.\n"
+                "2. Each lesson must name a check the programmer can run before submitting.\n"
+                "3. No task-specific answers, no code.\n"
+                "Return a numbered list only." % "\n".join(lines))
         lessons = self._chat("You extract reusable engineering lessons from a run.",
                              user, max_tokens=500).strip()
         (Path(store) / "lessons.md").write_text(lessons + "\n")
