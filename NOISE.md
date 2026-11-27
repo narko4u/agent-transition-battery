@@ -10,8 +10,7 @@ Same prompt, same tasks, same model, temperature 0, run five times.
 | noise 2 | 0.860 |
 | noise 3 | 0.840 |
 
-Mean 0.848, standard deviation 0.030, so a two-sigma band of about sixteen points on fifty
-tasks.
+Mean 0.848, standard deviation 0.030, so a two-sigma band of about six points on fifty tasks.
 
 Worse: when the two arms carry the identical prompt, between two and eight tasks out of fifty
 still disagree, 5.7 on average, about eleven percent. That is the model giving different code to
@@ -25,7 +24,7 @@ refuse it.
 
 The trace procedure scored below its own baseline. Also noise.
 
-Any effect smaller than about sixteen points is not measurable with this design. A one-run A/B on
+Any effect smaller than about six points is not measurable with this design. A one-run A/B on
 fifty tasks cannot settle a question about a prompt.
 
 ## The rule this implies
