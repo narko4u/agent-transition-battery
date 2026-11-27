@@ -1,0 +1,133 @@
+{
+ "adversarial": {
+  "attempts": 0,
+  "log": [],
+  "tamper_successes": 0
+ },
+ "budget": {
+  "usd_cap": 1.0,
+  "usd_spent": 0.0325,
+  "wall_cap_s": 1800,
+  "wall_s": 426.5
+ },
+ "families": [
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "python-basics40",
+   "role": "acquisition",
+   "tasks": 20,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:96dd8cbb8d5491ed7cc4c6e21ce336a10b113263ce84d45b85e19be5687abae1"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "python-basics40-dev",
+   "role": "acquisition",
+   "tasks": 20,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:157b990c1f2af0104ad834067d35e18b98fa4b8ad935294d50aaede38812c2f4"
+  },
+  {
+   "author": "Empire Labs Pty Ltd",
+   "id": "mbpp-sub120",
+   "role": "acquisition",
+   "tasks": 20,
+   "verifier": "unittest",
+   "verifier_sha256": "sha256:18e534929ecd22e9c5ff2b80d7861ce72da5fc65bbbccedb752063cea5bb7cb6"
+  }
+ ],
+ "finished_at": "2026-11-27T10:48:19+00:00",
+ "lessons": "1. Define the function using the exact top-level name and capitalization required by the spec; do not rename, nest, or rely on aliases.\n2. Before finishing, verify the solution module can be imported and the required function is accessible by that exact name.\n3. Run a few quick self-tests covering normal inputs and likely edge cases, and ensure the return type and behavior match the specification.\n",
+ "lineage": [],
+ "metrics": {
+  "cost_first": 5,
+  "cost_last": 10,
+  "families": [
+   {
+    "cost_to_threshold": 5,
+    "curve": [
+     {
+      "after": 5,
+      "probe": 1.0
+     },
+     {
+      "after": 10,
+      "probe": 0.8333
+     },
+     {
+      "after": 14,
+      "probe": 0.8333
+     }
+    ],
+    "family": "python-basics40",
+    "probe": 6,
+    "stream": 14
+   },
+   {
+    "cost_to_threshold": 10,
+    "curve": [
+     {
+      "after": 5,
+      "probe": 0.5
+     },
+     {
+      "after": 10,
+      "probe": 0.8333
+     },
+     {
+      "after": 14,
+      "probe": 0.5
+     }
+    ],
+    "family": "python-basics40-dev",
+    "probe": 6,
+    "stream": 14
+   },
+   {
+    "cost_to_threshold": 10,
+    "curve": [
+     {
+      "after": 5,
+      "probe": 0.6667
+     },
+     {
+      "after": 10,
+      "probe": 0.8333
+     },
+     {
+      "after": 14,
+      "probe": 0.6667
+     }
+    ],
+    "family": "mbpp-sub120",
+    "probe": 6,
+    "stream": 14
+   }
+  ],
+  "improvement": -1.0,
+  "min_drop": 0.2,
+  "threshold": 0.8
+ },
+ "notes": "One sequence, one seed, three families of different sizes and surfaces, so difficulty is not controlled. A family that never reaches the threshold is recorded as null, not as zero.",
+ "operator": "Empire Labs Pty Ltd",
+ "pass_rules": {
+  "min_drop": 0.2,
+  "pairs_required": 2,
+  "pairs_run": 1
+ },
+ "report_id": "sha256:f7adfe964fd36f7e71acec39e8c5a56602cbcc6ef8c8012c84d592d259fd0023",
+ "schema": "ttb5/run-report/0.1",
+ "seeds": [
+  0
+ ],
+ "started_at": "2026-11-27T10:41:12+00:00",
+ "status": "partial",
+ "system": {
+  "adapter": "deepseek",
+  "calls": 99,
+  "model": "deepseek-flash",
+  "name": "deepseek",
+  "version": "0.1"
+ },
+ "test": "T3"
+}

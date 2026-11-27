@@ -65,7 +65,7 @@ class DeepSeek:
                 return raw["choices"][0]["message"].get("content") or ""
             except urllib.error.HTTPError as exc:
                 if exc.code in (429, 500, 502, 503) and attempt < 2:
-                    time.sleep(2 * (attempt + 1))
+                    time.sleep(5 * (attempt + 1))
                     continue
                 raise RuntimeError("HTTP %d" % exc.code)
             except Exception:

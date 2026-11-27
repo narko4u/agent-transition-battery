@@ -1,0 +1,43 @@
+{
+  "kind": "t2-retrieval",
+  "date": "2026-11-28",
+  "practice": "families/mbpp-practice60",
+  "test": "families/mbpp-test60",
+  "k": 2,
+  "seed": 0,
+  "practice_result": {
+    "passed": 45,
+    "of": 60
+  },
+  "examples": 45,
+  "arms": {
+    "control": {
+      "passed": 40,
+      "of": 60,
+      "accuracy": 0.6667
+    },
+    "similar": {
+      "passed": 37,
+      "of": 60,
+      "accuracy": 0.6167
+    },
+    "random": {
+      "passed": 41,
+      "of": 60,
+      "accuracy": 0.6833
+    }
+  },
+  "similar_vs_control": {
+    "improved": 0,
+    "regressed": 3,
+    "delta": -0.05
+  },
+  "similar_vs_random": {
+    "improved": 2,
+    "regressed": 6,
+    "delta": -0.0666
+  },
+  "spend_usd": 0.0701,
+  "seconds": 235.1,
+  "status": "fail"
+}

@@ -71,7 +71,7 @@ def load_family(d: Path) -> dict:
 
 
 def evaluate(family: dict, adapter, procedure: str, store: Path | None = None,
-             workers: int = 0) -> dict:
+             workers: int = 0, keep_code: bool = False) -> dict:
     """Run every task in a fresh temp dir, concurrently. Returns per-task results and accuracy."""
     fam = Path(family["_dir"])
 
@@ -98,10 +98,13 @@ def evaluate(family: dict, adapter, procedure: str, store: Path | None = None,
                 detail = detail[-1][:300] if detail else ""
             except subprocess.TimeoutExpired:
                 ok, detail = False, "timeout"
-        return t["id"], {"pass": ok, "detail": detail if not ok else "",
+        out = {"pass": ok, "detail": detail if not ok else "",
                          "code_sha256": sha_bytes((code or "").encode()),
-                         "seconds": round(time.time() - started, 2),
-                         "adapter_error": err}
+               "seconds": round(time.time() - started, 2),
+               "adapter_error": err}
+        if keep_code:
+            out["code"] = code or ""
+        return t["id"], out
 
     n = workers or int(os.environ.get("TTB_WORKERS", "8"))
     tasks = family["tasks"]
@@ -111,6 +114,10 @@ def evaluate(family: dict, adapter, procedure: str, store: Path | None = None,
         with ThreadPoolExecutor(max_workers=n) as pool:
             pairs = list(pool.map(one, tasks))
     results = dict(pairs)
+    errs = [k for k, r in results.items() if r.get("adapter_error")]
+    if len(errs) > max(3, int(0.2 * len(results))):
+        raise SystemExit("infrastructure failure: %d of %d tasks had adapter errors, first: %s"
+                         % (len(errs), len(results), results[errs[0]]["adapter_error"]))
     passed = sum(1 for r in results.values() if r["pass"])
     return {"results": results, "passed": passed, "of": len(results),
             "accuracy": round(passed / max(1, len(results)), 4)}
