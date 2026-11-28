@@ -39,11 +39,24 @@ class Meter:
         self.calls = 0
         self.prompt_tokens = 0
         self.completion_tokens = 0
+        self.empties = 0
         self.key = api_key()
 
-    def chat(self, system, user, max_tokens=900, temperature=0.0):
+    def chat(self, system, user, max_tokens=2500, temperature=0.0):
+        """One completion. Retries once with a bigger budget when the model spends
+        the whole allocation on internal reasoning and returns no content, which
+        DeepSeek does at small max_tokens and which silently reads as a wrong answer."""
         if self.usd >= self.cap:
             raise SystemExit("spend cap reached: $%.4f" % self.usd)
+        content, finished = self._once(system, user, max_tokens, temperature)
+        if not content.strip():
+            self.empties += 1
+            content, finished = self._once(system, user, min(max_tokens * 3, 6000), temperature)
+            if not content.strip():
+                self.empties += 1
+        return content
+
+    def _once(self, system, user, max_tokens, temperature):
         body = json.dumps({
             "model": MODEL,
             "messages": [{"role": "system", "content": system},
@@ -72,4 +85,5 @@ class Meter:
         self.completion_tokens += u.get("completion_tokens", 0)
         self.usd = (self.prompt_tokens * IN_PER_M + self.completion_tokens * OUT_PER_M) / 1e6
         self.calls += 1
-        return d["choices"][0]["message"]["content"]
+        ch = d["choices"][0]
+        return (ch["message"].get("content") or ""), ch.get("finish_reason")

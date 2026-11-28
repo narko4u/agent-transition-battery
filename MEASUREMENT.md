@@ -151,3 +151,34 @@ the honest reading is "no detectable transfer", not "slightly better".
 This is the third route to give the same shape: supervised weights (+3.3 on 120, p 0.557), RLVR
 weights (-1.7, 0 of 60 improved), and now reflective prompt evolution (+2.5 on 120, p 0.629).
 Every gain has been on the surface being optimised and has not crossed to the surface being tested.
+
+## Correction: P-004 was optimised on the evaluation family
+
+Recorded 2026-11-28, after the run and before publication.
+
+`families/mbpp-practice60` is `families/mbpp-hold60`: identical task ids, identical order,
+sixty of sixty. I had verified that the *weight training pool* was disjoint from the evaluation
+families and reported that as if it also covered the GEPA dev family. It did not.
+
+Consequences, stated plainly:
+
+- The GEPA dev score and the hold60 result are the same sixty tasks. The hold60 arm is in-sample.
+- The only genuinely held-out family in P-004 was test60, where the evolved instruction went
+  36/60 to 38/60, +3.3, five up and three down, exact p 0.7266.
+- Therefore P-004 is void as a transfer test and must not be quoted as one. The surviving claim
+  is narrower and still negative: on the only unseen family, the gain was 3.3 points and not
+  significant.
+
+Second defect found in the same audit: DeepSeek Flash spends its whole allocation on internal
+reasoning at small `max_tokens` and returns an empty completion with `finish_reason=length`.
+At 900 tokens, 16 of 60 base failures and 17 of 60 test60 base failures were import errors, which
+is what an empty answer looks like once it reaches the scorer. Both arms in P-004 were affected
+equally, so the comparison survived, but the absolute rates were depressed and the noise inflated.
+
+Fixes now in the tooling: `tools/lm.py` retries once at triple budget when content is empty and
+counts the retries; every report carries `empty_completions`; dev families must be compared by
+task id against every evaluation family before a run, not after.
+
+The new dev pool is `families/mbpp-devpool`, built from MBPP tasks 120 and above in mbpp-basics,
+307 tasks, verified zero overlap with hold60 and test60. It is scored once with the seed
+instruction so that tasks the model already solves can be filtered before any search.

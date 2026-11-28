@@ -1,0 +1,13 @@
+{
+ "id": "P-005",
+ "written_at": "2026-11-28T11:09:24Z",
+ "commit": "cff54ca3c9d36ec0615b9b737428622e117e2084",
+ "family": "families/mbpp-hold60",
+ "hypothesis": "P-004 failed because the metric, split and lever were wrong, not because reflective search is wrong: dense per-assertion credit, a 40/20 internal split, two text components and a ceiling filter will produce a gain that survives on hold60",
+ "primary_metric": "mean per-assertion score",
+ "decision_rule": "hold60 tuned >= base + 0.05 with exact McNemar p < 0.05 on the binary pass outcome, and test60 not worse than base by more than 0.02",
+ "spend_cap_usd": 1.2,
+ "predictions": "hold60 between 0.66 and 0.72, test60 within 3 points of hold60",
+ "known_confounds": "dense scoring may reward partially correct code that still fails the task; the final judgement is binary pass, not the dense score",
+ "protocol_id": "sha256:b467c42c7fe5dd1d915a91831bfd825527588162aec6ebebd69a0b4354460a9f"
+}
