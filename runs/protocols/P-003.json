@@ -1,0 +1,13 @@
+{
+ "id": "P-003",
+ "written_at": "2026-11-28T08:00:24Z",
+ "commit": "d21b347ba3584daa9721cbd1b41ee4f4954d1ce1",
+ "family": "families/mbpp-hold60",
+ "hypothesis": "the P-002 gain is real but under-powered: three passes over the same 200 tasks (roughly 300 update steps instead of 100) will hold the gain with significance, and it will carry to the untouched sixty",
+ "primary_metric": "accuracy",
+ "decision_rule": "tuned >= base + 0.05 AND exact McNemar p < 0.05 on hold60, and tuned >= base on test60 (no sign flip)",
+ "spend_cap_usd": 0.0,
+ "predictions": "hold60 between 0.63 and 0.68, test60 within 2 points of base",
+ "known_confounds": "three epochs on 200 tasks risks fitting those tasks; the test60 family and the forgetting check are the guards",
+ "protocol_id": "sha256:09700533da96eb8d2e96e0919667e41ff8d5ab7d20a86eb5349dbb6855ec0c25"
+}
