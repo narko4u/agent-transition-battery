@@ -1,0 +1,13 @@
+{
+ "id": "P-004",
+ "written_at": "2026-11-28T09:29:14Z",
+ "commit": "5406a8873b6dc9e51ee396f1559942405f1b3fb0",
+ "family": "families/mbpp-hold60",
+ "hypothesis": "an instruction evolved by GEPA against executed tests on the dev family beats our hand-written procedure on both untouched sixties, because reflective search replaces my guesses about wording",
+ "primary_metric": "accuracy",
+ "decision_rule": "hold60 tuned >= base + 0.05 AND exact McNemar p < 0.05, and test60 not worse than base by more than 0.02",
+ "spend_cap_usd": 1.0,
+ "predictions": "hold60 between 0.60 and 0.70, test60 within 3 points of hold60",
+ "known_confounds": "GEPA may find wording that fits the dev family's style rather than code behaviour; test60 and the forgetting test on python-basics40-dev are the guards",
+ "protocol_id": "sha256:6ccf9c09c471d8562e863845ea3d504f65f38677e014a97fedc9edaff6da456c"
+}

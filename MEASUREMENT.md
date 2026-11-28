@@ -127,3 +127,27 @@ the real limit at this budget: 18 update steps is not training, it is a nudge.
 To get a real test we need update steps in the hundreds. The Colab T4 run at 200 tasks produces roughly
 100. Anything beyond that means multiple epochs over the mixed-outcome tasks, or a reward that is not
 binary pass/fail so that more samples carry signal.
+
+## P-004: GEPA prompt evolution, dev to held-out
+
+GEPA (MIT, `gepa-ai/gepa`) evolved the solver instruction against executed tests on
+`mbpp-practice60`, a dev family with zero overlap with the training pool, hold60 or test60.
+Seed 0.6333, best 0.7333 after 933 calls, 47 minutes, $0.2567. The evolved text is output
+hygiene: no fences, no prose, exact function name, never empty.
+
+| family | base | tuned | delta | up | down | exact p |
+|---|---|---|---|---|---|---|
+| practice60 (dev, optimised) | 38/60 | 44/60 | +10.0 | - | - | - |
+| mbpp-hold60 | 38/60 | 39/60 | +1.7 | 5 | 4 | 1.0000 |
+| mbpp-test60 | 36/60 | 38/60 | +3.3 | 5 | 3 | 0.7266 |
+| combined held-out | 74/120 | 77/120 | +2.5 | 10 | 7 | 0.6291 |
+
+Verdict under P-004: **fail**. It needed +5 points and p < 0.05 on hold60.
+
+The decay is six to one. Ten points on the family it optimised, one and a half points on a sibling
+sixty from the same benchmark. Both held-out directions are positive and neither is significant, so
+the honest reading is "no detectable transfer", not "slightly better".
+
+This is the third route to give the same shape: supervised weights (+3.3 on 120, p 0.557), RLVR
+weights (-1.7, 0 of 60 improved), and now reflective prompt evolution (+2.5 on 120, p 0.629).
+Every gain has been on the surface being optimised and has not crossed to the surface being tested.

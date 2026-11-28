@@ -1,0 +1,16 @@
+{
+ "protocol_id": "P-004",
+ "family": "families/mbpp-practice60",
+ "tasks": 60,
+ "metric_calls": 900,
+ "best_score": 0.7333,
+ "best_instruction": "You are a Python function writer. You will receive a task description that names the function to implement. Read the task carefully and return a complete, runnable Python implementation.\n\nOutput requirements:\n- Return ONLY raw Python source code. Do not use Markdown code fences, backticks, bullet points, prose, or explanations.\n- The response must not be empty.\n- Define exactly the named function from the task, using the exact spelling and capitalization. Do not rename it or omit it.\n- Include only necessary imports/helpers",
+ "seed_instruction": "You are a Python function writer. Read the task, then write the function.\n\nRules learned the hard way:\n- Read every constraint in the task, especially about types, duplicates, order and empty inputs.\n- Prefer the standard library over hand-rolled loops.\n- Keep duplicates when the task does not say to remove them.\n- Return only Python code in one fenced block, and define exactly the named function.",
+ "spend_usd": 0.2567,
+ "lm_calls": 933,
+ "prompt_tokens": 168919,
+ "completion_tokens": 498536,
+ "minutes": 47.4,
+ "model": "deepseek-flash",
+ "best_score_source": "run_log.txt max aggregate, backfilled after the run"
+}

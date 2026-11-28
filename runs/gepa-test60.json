@@ -1,0 +1,510 @@
+{
+ "kind": "procedure",
+ "date": "2026-11-28",
+ "model": "deepseek-flash",
+ "family": "families/mbpp-test60",
+ "order": "base-first",
+ "base": {
+  "passed": 36,
+  "of": 60,
+  "accuracy": 0.6
+ },
+ "tuned": {
+  "passed": 38,
+  "of": 60,
+  "accuracy": 0.6333
+ },
+ "delta": 0.0333,
+ "improved": 5,
+ "regressed": 3,
+ "mcnemar_exact_p": 0.7266,
+ "protocol_id": "P-004",
+ "spend_usd": 0.0312,
+ "minutes": 1.9,
+ "results": {
+  "base": {
+   "mbpp_106": {
+    "pass": false,
+    "err": "):\n  File \"/home/vault/.hermes/cache/scratch/ie-1j5s7t3b/test_mbpp_106.py\", line 7, in <module>\n    from solution import add_lists  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'add_lists' from 'solution' (/home/vault/.hermes/cache/scratch/ie-1j5s7t3b/solution.py)\n"
+   },
+   "mbpp_108": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_109": {
+    "pass": false,
+    "err": "e/vault/.hermes/cache/scratch/ie-6d58kqdk/test_mbpp_109.py\", line 7, in <module>\n    from solution import odd_Equivalent  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'odd_Equivalent' from 'solution' (/home/vault/.hermes/cache/scratch/ie-6d58kqdk/solution.py)\n"
+   },
+   "mbpp_111": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_113": {
+    "pass": false,
+    "err": "home/vault/.hermes/cache/scratch/ie-gvcg9vbk/test_mbpp_113.py\", line 7, in <module>\n    from solution import check_integer  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'check_integer' from 'solution' (/home/vault/.hermes/cache/scratch/ie-gvcg9vbk/solution.py)\n"
+   },
+   "mbpp_115": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_116": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_117": {
+    "pass": false,
+    "err": "6.45), (7.32, 8.0), (4.0, 8.0)]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_118": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_119": {
+    "pass": false,
+    "err": "call last):\n  File \"/home/vault/.hermes/cache/scratch/ie-3p8lop61/test_mbpp_119.py\", line 7, in <module>\n    from solution import search  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'search' from 'solution' (/home/vault/.hermes/cache/scratch/ie-3p8lop61/solution.py)\n"
+   },
+   "mbpp_120": {
+    "pass": false,
+    "err": "hermes/cache/scratch/ie-5wrwfqgq/test_mbpp_120.py\", line 7, in <module>\n    from solution import max_product_tuple  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'max_product_tuple' from 'solution' (/home/vault/.hermes/cache/scratch/ie-5wrwfqgq/solution.py)\n"
+   },
+   "mbpp_123": {
+    "pass": false,
+    "err": "che/scratch/ie-0mm4nghl/test_mbpp_123.py\", line 7, in <module>\n    from solution import amicable_numbers_sum  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'amicable_numbers_sum' from 'solution' (/home/vault/.hermes/cache/scratch/ie-0mm4nghl/solution.py)\n"
+   },
+   "mbpp_124": {
+    "pass": false,
+    "err": "rt math.isclose(angle_complex(0,1j), 1.5707963267948966, rel_tol=0.001)\n                        ~~~~~~~~~~~~~^^^^^^\nTypeError: angle_complex() takes 1 positional argument but 2 were given\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_125": {
+    "pass": false,
+    "err": "ile \"/home/vault/.hermes/cache/scratch/ie-cbqaled7/test_mbpp_125.py\", line 7, in <module>\n    from solution import find_length  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'find_length' from 'solution' (/home/vault/.hermes/cache/scratch/ie-cbqaled7/solution.py)\n"
+   },
+   "mbpp_126": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_127": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_128": {
+    "pass": false,
+    "err": "che/scratch/ie-8i1zdpzf/solution.py\", line 2, in long_words\n    return [word for word in words if len(word) > n]\n                             ^^^^^\nTypeError: 'int' object is not iterable\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_129": {
+    "pass": false,
+    "err": "all last):\n  File \"/home/vault/.hermes/cache/scratch/ie-vpk82ylu/test_mbpp_129.py\", line 6, in <module>\n    from solution import *  # noqa: F401,F403\n    ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/vault/.hermes/cache/scratch/ie-vpk82ylu/solution.py\", line 1\n    ```python\n    ^\nSyntaxError: invalid syntax\n"
+   },
+   "mbpp_130": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_131": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_132": {
+    "pass": false,
+    "err": "  File \"/home/vault/.hermes/cache/scratch/ie-4s6kv7g3/test_mbpp_132.py\", line 7, in <module>\n    from solution import tup_string  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'tup_string' from 'solution' (/home/vault/.hermes/cache/scratch/ie-4s6kv7g3/solution.py)\n"
+   },
+   "mbpp_133": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_135": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_137": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_138": {
+    "pass": false,
+    "err": "ch/ie-ilsr_5zt/test_mbpp_138.py\", line 7, in <module>\n    from solution import is_Sum_Of_Powers_Of_Two  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'is_Sum_Of_Powers_Of_Two' from 'solution' (/home/vault/.hermes/cache/scratch/ie-ilsr_5zt/solution.py)\n"
+   },
+   "mbpp_139": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_140": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_141": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_142": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_143": {
+    "pass": false,
+    "err": "/ie-wd6s13ya/test_mbpp_143.py\", line 15, in test_cases\n    assert find_lists(([9, 8, 7, 6, 5, 4, 3, 2, 1])) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_145": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_160": {
+    "pass": false,
+    "err": "home/vault/.hermes/cache/scratch/ie-2ospxf9g/test_mbpp_160.py\", line 7, in <module>\n    from solution import find_solution  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'find_solution' from 'solution' (/home/vault/.hermes/cache/scratch/ie-2ospxf9g/solution.py)\n"
+   },
+   "mbpp_161": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_162": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_163": {
+    "pass": false,
+    "err": "t_mbpp_163.py\", line 13, in test_cases\n    assert math.isclose(area_polygon(4, 20), 400., rel_tol=0.001)\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_164": {
+    "pass": false,
+    "err": "l last):\n  File \"/home/vault/.hermes/cache/scratch/ie-pozbq9ee/test_mbpp_164.py\", line 7, in <module>\n    from solution import div_sum  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'div_sum' from 'solution' (/home/vault/.hermes/cache/scratch/ie-pozbq9ee/solution.py)\n"
+   },
+   "mbpp_165": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_166": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_167": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_168": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_170": {
+    "pass": false,
+    "err": "e/vault/.hermes/cache/scratch/ie-707qeect/test_mbpp_170.py\", line 7, in <module>\n    from solution import sum_range_list  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'sum_range_list' from 'solution' (/home/vault/.hermes/cache/scratch/ie-707qeect/solution.py)\n"
+   },
+   "mbpp_171": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_172": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_222": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_223": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_224": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_226": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_227": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_228": {
+    "pass": false,
+    "err": "_228.py\", line 7, in <module>\n    from solution import all_Bits_Set_In_The_Given_Range  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'all_Bits_Set_In_The_Given_Range' from 'solution' (/home/vault/.hermes/cache/scratch/ie-cnczqons/solution.py)\n"
+   },
+   "mbpp_229": {
+    "pass": false,
+    "err": "t/.hermes/cache/scratch/ie-whkyv271/test_mbpp_229.py\", line 7, in <module>\n    from solution import re_arrange_array  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 're_arrange_array' from 'solution' (/home/vault/.hermes/cache/scratch/ie-whkyv271/solution.py)\n"
+   },
+   "mbpp_230": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_232": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_233": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_234": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_235": {
+    "pass": false,
+    "err": "/cache/scratch/ie-6tpfa3s5/test_mbpp_235.py\", line 7, in <module>\n    from solution import even_bit_set_number  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'even_bit_set_number' from 'solution' (/home/vault/.hermes/cache/scratch/ie-6tpfa3s5/solution.py)\n"
+   },
+   "mbpp_237": {
+    "pass": false,
+    "err": "(2, 5), (5, 2), (6, 3)] ) == {(1, 3): 2, (2, 5): 2, (3, 6): 1}\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_238": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_239": {
+    "pass": false,
+    "err": "t_mbpp_239.py\", line 7, in <module>\n    from solution import get_total_number_of_sequences  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'get_total_number_of_sequences' from 'solution' (/home/vault/.hermes/cache/scratch/ie-gr_dggvr/solution.py)\n"
+   },
+   "mbpp_240": {
+    "pass": false,
+    "err": " \"/home/vault/.hermes/cache/scratch/ie-oje1yjy2/test_mbpp_240.py\", line 7, in <module>\n    from solution import replace_list  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'replace_list' from 'solution' (/home/vault/.hermes/cache/scratch/ie-oje1yjy2/solution.py)\n"
+   },
+   "mbpp_242": {
+    "pass": true,
+    "err": ""
+   }
+  },
+  "tuned": {
+   "mbpp_106": {
+    "pass": false,
+    "err": "):\n  File \"/home/vault/.hermes/cache/scratch/ie-6q30gppv/test_mbpp_106.py\", line 7, in <module>\n    from solution import add_lists  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'add_lists' from 'solution' (/home/vault/.hermes/cache/scratch/ie-6q30gppv/solution.py)\n"
+   },
+   "mbpp_108": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_109": {
+    "pass": false,
+    "err": "e/vault/.hermes/cache/scratch/ie-rtbdvbps/test_mbpp_109.py\", line 7, in <module>\n    from solution import odd_Equivalent  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'odd_Equivalent' from 'solution' (/home/vault/.hermes/cache/scratch/ie-rtbdvbps/solution.py)\n"
+   },
+   "mbpp_111": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_113": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_115": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_116": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_117": {
+    "pass": false,
+    "err": "6.45), (7.32, 8.0), (4.0, 8.0)]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_118": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_119": {
+    "pass": false,
+    "err": "call last):\n  File \"/home/vault/.hermes/cache/scratch/ie-5b4le36g/test_mbpp_119.py\", line 7, in <module>\n    from solution import search  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'search' from 'solution' (/home/vault/.hermes/cache/scratch/ie-5b4le36g/solution.py)\n"
+   },
+   "mbpp_120": {
+    "pass": false,
+    "err": "hermes/cache/scratch/ie-duo9vf9v/test_mbpp_120.py\", line 7, in <module>\n    from solution import max_product_tuple  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'max_product_tuple' from 'solution' (/home/vault/.hermes/cache/scratch/ie-duo9vf9v/solution.py)\n"
+   },
+   "mbpp_123": {
+    "pass": false,
+    "err": "che/scratch/ie-c6e3wd38/test_mbpp_123.py\", line 7, in <module>\n    from solution import amicable_numbers_sum  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'amicable_numbers_sum' from 'solution' (/home/vault/.hermes/cache/scratch/ie-c6e3wd38/solution.py)\n"
+   },
+   "mbpp_124": {
+    "pass": false,
+    "err": "rt math.isclose(angle_complex(0,1j), 1.5707963267948966, rel_tol=0.001)\n                        ~~~~~~~~~~~~~^^^^^^\nTypeError: angle_complex() takes 1 positional argument but 2 were given\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_125": {
+    "pass": false,
+    "err": "ile \"/home/vault/.hermes/cache/scratch/ie-7xfswb7r/test_mbpp_125.py\", line 7, in <module>\n    from solution import find_length  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'find_length' from 'solution' (/home/vault/.hermes/cache/scratch/ie-7xfswb7r/solution.py)\n"
+   },
+   "mbpp_126": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_127": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_128": {
+    "pass": false,
+    "err": "che/scratch/ie-a2401kq3/solution.py\", line 2, in long_words\n    return [word for word in words if len(word) > n]\n                             ^^^^^\nTypeError: 'int' object is not iterable\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_129": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_130": {
+    "pass": false,
+    "err": "ault/.hermes/cache/scratch/ie-ukchdypa/test_mbpp_130.py\", line 7, in <module>\n    from solution import max_occurrences  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'max_occurrences' from 'solution' (/home/vault/.hermes/cache/scratch/ie-ukchdypa/solution.py)\n"
+   },
+   "mbpp_131": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_132": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_133": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_135": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_137": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_138": {
+    "pass": false,
+    "err": "ch/ie-wlqxtg5y/test_mbpp_138.py\", line 7, in <module>\n    from solution import is_Sum_Of_Powers_Of_Two  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'is_Sum_Of_Powers_Of_Two' from 'solution' (/home/vault/.hermes/cache/scratch/ie-wlqxtg5y/solution.py)\n"
+   },
+   "mbpp_139": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_140": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_141": {
+    "pass": false,
+    "err": "\n  File \"/home/vault/.hermes/cache/scratch/ie-7j133zzj/test_mbpp_141.py\", line 6, in <module>\n    from solution import *  # noqa: F401,F403\n    ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/vault/.hermes/cache/scratch/ie-7j133zzj/solution.py\", line 11\n    max_idx =\n             ^\nSyntaxError: invalid syntax\n"
+   },
+   "mbpp_142": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_143": {
+    "pass": false,
+    "err": "/ie-lg91mxcw/test_mbpp_143.py\", line 15, in test_cases\n    assert find_lists(([9, 8, 7, 6, 5, 4, 3, 2, 1])) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_145": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_160": {
+    "pass": false,
+    "err": "home/vault/.hermes/cache/scratch/ie-q7vb0o3s/test_mbpp_160.py\", line 7, in <module>\n    from solution import find_solution  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'find_solution' from 'solution' (/home/vault/.hermes/cache/scratch/ie-q7vb0o3s/solution.py)\n"
+   },
+   "mbpp_161": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_162": {
+    "pass": false,
+    "err": "  File \"/home/vault/.hermes/cache/scratch/ie-xru1jz0w/test_mbpp_162.py\", line 7, in <module>\n    from solution import sum_series  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'sum_series' from 'solution' (/home/vault/.hermes/cache/scratch/ie-xru1jz0w/solution.py)\n"
+   },
+   "mbpp_163": {
+    "pass": false,
+    "err": "t_mbpp_163.py\", line 13, in test_cases\n    assert math.isclose(area_polygon(4, 20), 400., rel_tol=0.001)\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_164": {
+    "pass": false,
+    "err": "es/cache/scratch/ie-r6g1qvwz/test_mbpp_164.py\", line 13, in test_cases\n    assert are_equivalent(36, 57) == False\n           ^^^^^^^^^^^^^^\nNameError: name 'are_equivalent' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_165": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_166": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_167": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_168": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_170": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_171": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_172": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_222": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_223": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_224": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_226": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_227": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_228": {
+    "pass": false,
+    "err": "_228.py\", line 7, in <module>\n    from solution import all_Bits_Set_In_The_Given_Range  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'all_Bits_Set_In_The_Given_Range' from 'solution' (/home/vault/.hermes/cache/scratch/ie-c35ka16s/solution.py)\n"
+   },
+   "mbpp_229": {
+    "pass": false,
+    "err": "t/.hermes/cache/scratch/ie-ued_alh9/test_mbpp_229.py\", line 7, in <module>\n    from solution import re_arrange_array  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 're_arrange_array' from 'solution' (/home/vault/.hermes/cache/scratch/ie-ued_alh9/solution.py)\n"
+   },
+   "mbpp_230": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_232": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_233": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_234": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_235": {
+    "pass": false,
+    "err": "/cache/scratch/ie-kxj8bgx1/test_mbpp_235.py\", line 7, in <module>\n    from solution import even_bit_set_number  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'even_bit_set_number' from 'solution' (/home/vault/.hermes/cache/scratch/ie-kxj8bgx1/solution.py)\n"
+   },
+   "mbpp_237": {
+    "pass": false,
+    "err": "(2, 5), (5, 2), (6, 3)] ) == {(1, 3): 2, (2, 5): 2, (3, 6): 1}\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_238": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_239": {
+    "pass": false,
+    "err": "t_mbpp_239.py\", line 7, in <module>\n    from solution import get_total_number_of_sequences  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'get_total_number_of_sequences' from 'solution' (/home/vault/.hermes/cache/scratch/ie-a72vh6gv/solution.py)\n"
+   },
+   "mbpp_240": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_242": {
+    "pass": true,
+    "err": ""
+   }
+  }
+ }
+}
