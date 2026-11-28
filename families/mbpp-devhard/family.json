@@ -1,0 +1,608 @@
+{
+ "name": "mbpp-devhard",
+ "source": "families/mbpp-devpool, tasks the seed instruction fails, verified disjoint from families/mbpp-hold60, families/mbpp-test60",
+ "n": 60,
+ "seed_pass_rate": 0.0,
+ "tasks": [
+  {
+   "id": "mbpp_248",
+   "entry": "harmonic_sum",
+   "spec": "Write a function that takes in an integer n and calculates the harmonic sum of n-1.\n\nDefine the function as `harmonic_sum`.",
+   "reference": "def harmonic_sum(n):\n  if n < 2:\n    return 1\n  else:\n    return 1 / n + (harmonic_sum(n - 1))\n",
+   "tests": "tests/test_mbpp_248.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_259",
+   "entry": "maximize_elements",
+   "spec": "Write a function to maximize the given two tuples.\n\nDefine the function as `maximize_elements`.",
+   "reference": "def maximize_elements(test_tup1, test_tup2):\n  res = tuple(tuple(max(a, b) for a, b in zip(tup1, tup2))\n   for tup1, tup2 in zip(test_tup1, test_tup2))\n  return (res)\n",
+   "tests": "tests/test_mbpp_259.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_260",
+   "entry": "newman_prime",
+   "spec": "Write a function to find the nth newman\u2013shanks\u2013williams prime number.\n\nDefine the function as `newman_prime`.",
+   "reference": "def newman_prime(n): \n\tif n == 0 or n == 1: \n\t\treturn 1\n\treturn 2 * newman_prime(n - 1) + newman_prime(n - 2)\n",
+   "tests": "tests/test_mbpp_260.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_264",
+   "entry": "dog_age",
+   "spec": "Write a function to calculate a dog's age in dog's years.\n\nDefine the function as `dog_age`.",
+   "reference": "def dog_age(h_age):\n if h_age < 0:\n \texit()\n elif h_age <= 2:\n\t d_age = h_age * 10.5\n else:\n\t d_age = 21 + (h_age - 2)*4\n return d_age\n",
+   "tests": "tests/test_mbpp_264.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_265",
+   "entry": "list_split",
+   "spec": "Write a function that takes in a list and an integer n and splits a list for every nth element, returning a list of the resulting lists.\n\nDefine the function as `list_split`.",
+   "reference": "def list_split(S, step):\n    return [S[i::step] for i in range(step)]\n",
+   "tests": "tests/test_mbpp_265.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_286",
+   "entry": "max_sub_array_sum_repeated",
+   "spec": "Write a function to find the largest sum of a contiguous array in the modified array which is formed by repeating the given array k times.\n\nDefine the function as `max_sub_array_sum_repeated`.",
+   "reference": "def max_sub_array_sum_repeated(a, n, k): \n\tmax_so_far = -2147483648\n\tmax_ending_here = 0\n\tfor i in range(n*k): \n\t\tmax_ending_here = max_ending_here + a[i%n] \n\t\tif (max_so_far < max_ending_here): \n\t\t\tmax_so_far = max_ending_here \n\t\tif (max_ending_here < 0): \n\t\t\tmax_ending_here = 0\n\treturn max_so_far\n",
+   "tests": "tests/test_mbpp_286.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_290",
+   "entry": "max_length",
+   "spec": "Write a function to find the list of maximum length in a list of lists.\n\nDefine the function as `max_length`.",
+   "reference": "def max_length(list1):\n    max_length = max(len(x) for x in  list1 )  \n    max_list = max((x) for x in   list1)\n    return(max_length, max_list)\n",
+   "tests": "tests/test_mbpp_290.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_295",
+   "entry": "sum_div",
+   "spec": "Write a function to return the sum of all divisors of a number.\n\nDefine the function as `sum_div`.",
+   "reference": "def sum_div(number):\n    divisors = [1]\n    for i in range(2, number):\n        if (number % i)==0:\n            divisors.append(i)\n    return sum(divisors)\n",
+   "tests": "tests/test_mbpp_295.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_299",
+   "entry": "max_aggregate",
+   "spec": "Write a function to calculate the maximum aggregate from the list of tuples.\n\nDefine the function as `max_aggregate`.",
+   "reference": "from collections import defaultdict\ndef max_aggregate(stdata):\n    temp = defaultdict(int)\n    for name, marks in stdata:\n        temp[name] += marks\n    return max(temp.items(), key=lambda x: x[1])\n",
+   "tests": "tests/test_mbpp_299.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_301",
+   "entry": "dict_depth",
+   "spec": "Write a function to find the depth of a dictionary.\n\nDefine the function as `dict_depth`.",
+   "reference": "def dict_depth(d):\n    if isinstance(d, dict):\n        return 1 + (max(map(dict_depth, d.values())) if d else 0)\n    return 0\n",
+   "tests": "tests/test_mbpp_301.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_305",
+   "entry": "start_withp",
+   "spec": "Write a function to return two words from a list of words starting with letter 'p'.\n\nDefine the function as `start_withp`.",
+   "reference": "import re\ndef start_withp(words):\n for w in words:\n        m = re.match(\"(P\\w+)\\W(P\\w+)\", w)\n        if m:\n            return m.groups()\n",
+   "tests": "tests/test_mbpp_305.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_307",
+   "entry": "colon_tuplex",
+   "spec": "Write a function to get a colon of a tuple.\n\nDefine the function as `colon_tuplex`.",
+   "reference": "from copy import deepcopy\ndef colon_tuplex(tuplex,m,n):\n  tuplex_colon = deepcopy(tuplex)\n  tuplex_colon[m].append(n)\n  return tuplex_colon\n",
+   "tests": "tests/test_mbpp_307.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_310",
+   "entry": "string_to_tuple",
+   "spec": "Write a function to convert a given string to a tuple of characters.\n\nDefine the function as `string_to_tuple`.",
+   "reference": "def string_to_tuple(str1):\n    result = tuple(x for x in str1 if not x.isspace()) \n    return result\n",
+   "tests": "tests/test_mbpp_310.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_391",
+   "entry": "convert_list_dictionary",
+   "spec": "Write a function to convert more than one list to nested dictionary.\n\nDefine the function as `convert_list_dictionary`.",
+   "reference": "def convert_list_dictionary(l1, l2, l3):\n     result = [{x: {y: z}} for (x, y, z) in zip(l1, l2, l3)]\n     return result\n",
+   "tests": "tests/test_mbpp_391.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_393",
+   "entry": "max_length_list",
+   "spec": "Write a function to find the list with maximum length.\n\nDefine the function as `max_length_list`.",
+   "reference": "def max_length_list(input_list):\n    max_length = max(len(x) for x in input_list )   \n    max_list = max(input_list, key = lambda i: len(i))    \n    return(max_length, max_list)\n",
+   "tests": "tests/test_mbpp_393.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_396",
+   "entry": "check_char",
+   "spec": "Write a function to check whether the given string starts and ends with the same character or not.\n\nDefine the function as `check_char`.",
+   "reference": "import re  \nregex = r'^[a-z]$|^([a-z]).*\\1$'\ndef check_char(string): \n\tif(re.search(regex, string)): \n\t\treturn \"Valid\" \n\telse: \n\t\treturn \"Invalid\"\n",
+   "tests": "tests/test_mbpp_396.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_398",
+   "entry": "sum_of_digits",
+   "spec": "Write a function to compute the sum of digits of each number of a given list.\n\nDefine the function as `sum_of_digits`.",
+   "reference": "def sum_of_digits(nums):\n    return sum(int(el) for n in nums for el in str(n) if el.isdigit())\n",
+   "tests": "tests/test_mbpp_398.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_400",
+   "entry": "extract_freq",
+   "spec": "Write a function to extract the number of unique tuples in the given list.\n\nDefine the function as `extract_freq`.",
+   "reference": "def extract_freq(test_list):\n  res = len(list(set(tuple(sorted(sub)) for sub in test_list)))\n  return (res)\n",
+   "tests": "tests/test_mbpp_400.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_410",
+   "entry": "min_val",
+   "spec": "Write a function to find the minimum value in a given heterogeneous list.\n\nDefine the function as `min_val`.",
+   "reference": "def min_val(listval):\n     min_val = min(i for i in listval if isinstance(i, int))\n     return min_val\n",
+   "tests": "tests/test_mbpp_410.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_411",
+   "entry": "snake_to_camel",
+   "spec": "Write a function to convert the given snake case string to camel case string.\n\nDefine the function as `snake_to_camel`.",
+   "reference": "import re\ndef snake_to_camel(word):\n  return ''.join(x.capitalize() or '_' for x in word.split('_'))\n",
+   "tests": "tests/test_mbpp_411.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_417",
+   "entry": "group_tuples",
+   "spec": "Write a function to find common first element in given list of tuple.\n\nDefine the function as `group_tuples`.",
+   "reference": "def group_tuples(Input): \n\tout = {} \n\tfor elem in Input: \n\t\ttry: \n\t\t\tout[elem[0]].extend(elem[1:]) \n\t\texcept KeyError: \n\t\t\tout[elem[0]] = list(elem) \n\treturn [tuple(values) for values in out.values()]\n",
+   "tests": "tests/test_mbpp_417.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_419",
+   "entry": "round_and_sum",
+   "spec": "Write a function to round every number of a given list of numbers and print the total sum multiplied by the length of the list.\n\nDefine the function as `round_and_sum`.",
+   "reference": "def round_and_sum(list1):\n  lenght=len(list1)\n  round_and_sum=sum(list(map(round,list1))* lenght)\n  return round_and_sum\n",
+   "tests": "tests/test_mbpp_419.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_421",
+   "entry": "concatenate_tuple",
+   "spec": "Write a function to concatenate each element of tuple by the delimiter.\n\nDefine the function as `concatenate_tuple`.",
+   "reference": "def concatenate_tuple(test_tup):\n    delim = \"-\"\n    res = ''.join([str(ele) + delim for ele in test_tup])\n    res = res[ : len(res) - len(delim)]\n    return (str(res))\n",
+   "tests": "tests/test_mbpp_421.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_424",
+   "entry": "extract_rear",
+   "spec": "Write a function to extract only the rear index element of each string in the given tuple.\n\nDefine the function as `extract_rear`.",
+   "reference": "def extract_rear(test_tuple):\n  res = list(sub[len(sub) - 1] for sub in test_tuple)\n  return (res)\n",
+   "tests": "tests/test_mbpp_424.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_430",
+   "entry": "parabola_directrix",
+   "spec": "Write a function to find the directrix of a parabola.\n\nDefine the function as `parabola_directrix`.",
+   "reference": "def parabola_directrix(a, b, c): \n  directrix=((int)(c - ((b * b) + 1) * 4 * a ))\n  return directrix\n",
+   "tests": "tests/test_mbpp_430.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_432",
+   "entry": "median_trapezium",
+   "spec": "Write a function to find the median length of a trapezium.\n\nDefine the function as `median_trapezium`.",
+   "reference": "def median_trapezium(base1,base2,height):\n median = 0.5 * (base1+ base2)\n return median\n",
+   "tests": "tests/test_mbpp_432.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_433",
+   "entry": "check_greater",
+   "spec": "Write a function to check whether the entered number is greater than the elements of the given array.\n\nDefine the function as `check_greater`.",
+   "reference": "def check_greater(arr, number):\n  arr.sort()\n  return number > arr[-1]\n",
+   "tests": "tests/test_mbpp_433.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_437",
+   "entry": "remove_odd",
+   "spec": "Write a function to remove odd characters in a string.\n\nDefine the function as `remove_odd`.",
+   "reference": "def remove_odd(str1):\n str2 = ''\n for i in range(1, len(str1) + 1):\n    if(i % 2 == 0):\n        str2 = str2 + str1[i - 1]\n return str2\n",
+   "tests": "tests/test_mbpp_437.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_440",
+   "entry": "find_adverb_position",
+   "spec": "Write a function to find the first adverb and their positions in a given sentence.\n\nDefine the function as `find_adverb_position`.",
+   "reference": "import re\ndef find_adverb_position(text):\n for m in re.finditer(r\"\\w+ly\", text):\n    return (m.start(), m.end(), m.group(0))\n",
+   "tests": "tests/test_mbpp_440.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_442",
+   "entry": "positive_count",
+   "spec": "Write a function to find the ration of positive numbers in an array of integers.\n\nDefine the function as `positive_count`.",
+   "reference": "from array import array\ndef positive_count(nums):\n    n = len(nums)\n    n1 = 0\n    for x in nums:\n        if x > 0:\n            n1 += 1\n        else:\n          None\n    return round(n1/n,2)\n",
+   "tests": "tests/test_mbpp_442.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_443",
+   "entry": "largest_neg",
+   "spec": "Write a python function to find the largest negative number from the given list.\n\nDefine the function as `largest_neg`.",
+   "reference": "def largest_neg(list1): \n    max = list1[0] \n    for x in list1: \n        if x < max : \n             max = x  \n    return max\n",
+   "tests": "tests/test_mbpp_443.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_444",
+   "entry": "trim_tuple",
+   "spec": "Write a function to trim each tuple by k in the given tuple list.\n\nDefine the function as `trim_tuple`.",
+   "reference": "def trim_tuple(test_list, K):\n  res = []\n  for ele in test_list:\n    N = len(ele)\n    res.append(tuple(list(ele)[K: N - K]))\n  return (str(res))\n",
+   "tests": "tests/test_mbpp_444.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_445",
+   "entry": "index_multiplication",
+   "spec": "Write a function to perform index wise multiplication of tuple elements in the given two tuples.\n\nDefine the function as `index_multiplication`.",
+   "reference": "def index_multiplication(test_tup1, test_tup2):\n  res = tuple(tuple(a * b for a, b in zip(tup1, tup2))\n   for tup1, tup2 in zip(test_tup1, test_tup2))\n  return (res)\n",
+   "tests": "tests/test_mbpp_445.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_446",
+   "entry": "count_Occurrence",
+   "spec": "Write a python function to count the occurence of all elements of list in a tuple.\n\nDefine the function as `count_Occurrence`.",
+   "reference": "from collections import Counter \ndef count_Occurrence(tup, lst): \n    count = 0\n    for item in tup: \n        if item in lst: \n            count+= 1 \n    return count\n",
+   "tests": "tests/test_mbpp_446.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_448",
+   "entry": "cal_sum",
+   "spec": "Write a function to calculate the sum of perrin numbers.\n\nDefine the function as `cal_sum`.",
+   "reference": "def cal_sum(n): \n\ta = 3\n\tb = 0\n\tc = 2\n\tif (n == 0): \n\t\treturn 3\n\tif (n == 1): \n\t\treturn 3\n\tif (n == 2): \n\t\treturn 5\n\tsum = 5\n\twhile (n > 2): \n\t\td = a + b \n\t\tsum = sum + d \n\t\ta = b \n\t\tb = c \n\t\tc = d \n\t\tn = n-1\n\treturn sum\n",
+   "tests": "tests/test_mbpp_448.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_452",
+   "entry": "loss_amount",
+   "spec": "Write a function that gives loss amount on a sale if the given amount has loss else return 0.\n\nDefine the function as `loss_amount`.",
+   "reference": "def loss_amount(actual_cost,sale_amount): \n  if(sale_amount > actual_cost):\n    amount = sale_amount - actual_cost\n    return amount\n  else:\n    return 0\n",
+   "tests": "tests/test_mbpp_452.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_461",
+   "entry": "upper_ctr",
+   "spec": "Write a python function to count the upper case characters in a given string.\n\nDefine the function as `upper_ctr`.",
+   "reference": "def upper_ctr(str):\n    upper_ctr = 0\n    for i in range(len(str)):\n          if str[i] >= 'A' and str[i] <= 'Z': upper_ctr += 1\n          return upper_ctr\n",
+   "tests": "tests/test_mbpp_461.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_462",
+   "entry": "combinations_list",
+   "spec": "Write a function to find all possible combinations of the elements of a given list.\n\nDefine the function as `combinations_list`.",
+   "reference": "def combinations_list(list1):\n    if len(list1) == 0:\n        return [[]]\n    result = []\n    for el in combinations_list(list1[1:]):\n        result += [el, el+[list1[0]]]\n    return result\n",
+   "tests": "tests/test_mbpp_462.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_464",
+   "entry": "check_value",
+   "spec": "Write a function to check if all values are same in a dictionary.\n\nDefine the function as `check_value`.",
+   "reference": "def check_value(dict, n):\n    result = all(x == n for x in dict.values()) \n    return result\n",
+   "tests": "tests/test_mbpp_464.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_468",
+   "entry": "max_product",
+   "spec": "Write a function to find the maximum product formed by multiplying numbers of an increasing subsequence of that array.\n\nDefine the function as `max_product`.",
+   "reference": "def max_product(arr):   \n  n = len(arr)\n  mpis = arr[:]\n  for i in range(n): \n    current_prod = arr[i]\n    j = i + 1\n    while j < n:\n      if arr[j-1] > arr[j]: \n        break\n      current_prod *= arr[j]\n      if current_prod > mpis[j]:\n        mpis[j] = current_prod \n      j = j + 1\n  return max(mpis)\n",
+   "tests": "tests/test_mbpp_468.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_473",
+   "entry": "tuple_intersection",
+   "spec": "Write a function to find the tuple intersection of elements in the given tuple list irrespective of their order.\n\nDefine the function as `tuple_intersection`.",
+   "reference": "def tuple_intersection(test_list1, test_list2):\n  res = set([tuple(sorted(ele)) for ele in test_list1]) & set([tuple(sorted(ele)) for ele in test_list2])\n  return (res)\n",
+   "tests": "tests/test_mbpp_473.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_475",
+   "entry": "sort_counter",
+   "spec": "Write a function to sort a dictionary by value.\n\nDefine the function as `sort_counter`.",
+   "reference": "from collections import Counter\ndef sort_counter(dict1):\n x = Counter(dict1)\n sort_counter=x.most_common()\n return sort_counter\n",
+   "tests": "tests/test_mbpp_475.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_556",
+   "entry": "find_Odd_Pair",
+   "spec": "Write a python function to count the number of pairs whose xor value is odd.\n\nDefine the function as `find_Odd_Pair`.",
+   "reference": "def find_Odd_Pair(A,N) : \n    oddPair = 0\n    for i in range(0,N) :  \n        for j in range(i+1,N) :  \n            if ((A[i] ^ A[j]) % 2 != 0):  \n                oddPair+=1  \n    return oddPair\n",
+   "tests": "tests/test_mbpp_556.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_559",
+   "entry": "max_sub_array_sum",
+   "spec": "Write a function to find the sum of the largest contiguous sublist in the given list.\n\nDefine the function as `max_sub_array_sum`.",
+   "reference": "def max_sub_array_sum(a, size):\n  max_so_far = 0\n  max_ending_here = 0\n  for i in range(0, size):\n    max_ending_here = max_ending_here + a[i]\n    if max_ending_here < 0:\n      max_ending_here = 0\n    elif (max_so_far < max_ending_here):\n      max_so_far = max_ending_here\n  return max_so_far\n",
+   "tests": "tests/test_mbpp_559.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_564",
+   "entry": "count_Pairs",
+   "spec": "Write a python function which takes a list of integers and counts the number of possible unordered pairs where both elements are unequal.\n\nDefine the function as `count_Pairs`.",
+   "reference": "def count_Pairs(arr,n): \n    cnt = 0; \n    for i in range(n): \n        for j in range(i + 1,n): \n            if (arr[i] != arr[j]): \n                cnt += 1; \n    return cnt;\n",
+   "tests": "tests/test_mbpp_564.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_572",
+   "entry": "two_unique_nums",
+   "spec": "Write a python function to remove duplicate numbers from a given number of lists.\n\nDefine the function as `two_unique_nums`.",
+   "reference": "def two_unique_nums(nums):\n  return [i for i in nums if nums.count(i)==1]\n",
+   "tests": "tests/test_mbpp_572.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_574",
+   "entry": "surfacearea_cylinder",
+   "spec": "Write a function to find the surface area of a cylinder.\n\nDefine the function as `surfacearea_cylinder`.",
+   "reference": "def surfacearea_cylinder(r,h):\n  surfacearea=((2*3.1415*r*r) +(2*3.1415*r*h))\n  return surfacearea\n",
+   "tests": "tests/test_mbpp_574.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_580",
+   "entry": "even_ele",
+   "spec": "Write a function to remove uneven elements in the nested mixed tuple.\n\nDefine the function as `even_ele`.",
+   "reference": "def even_ele(test_tuple, even_fnc): \n\tres = tuple() \n\tfor ele in test_tuple: \n\t\tif isinstance(ele, tuple): \n\t\t\tres += (even_ele(ele, even_fnc), ) \n\t\telif even_fnc(ele): \n\t\t\tres += (ele, ) \n\treturn res \ndef extract_even(test_tuple):\n  res = even_ele(test_tuple, lambda x: x % 2 == 0)\n  return (res)\n",
+   "tests": "tests/test_mbpp_580.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_581",
+   "entry": "surface_Area",
+   "spec": "Write a python function to find the surface area of a square pyramid with a given base edge and height.\n\nDefine the function as `surface_Area`.",
+   "reference": "def surface_Area(b,s): \n    return 2 * b * s + pow(b,2)\n",
+   "tests": "tests/test_mbpp_581.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_584",
+   "entry": "find_adverbs",
+   "spec": "Write a function to find the first adverb ending with ly and its positions in a given string.\n\nDefine the function as `find_adverbs`.",
+   "reference": "import re\ndef find_adverbs(text):\n  for m in re.finditer(r\"\\w+ly\", text):\n    return ('%d-%d: %s' % (m.start(), m.end(), m.group(0)))\n",
+   "tests": "tests/test_mbpp_584.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_590",
+   "entry": "polar_rect",
+   "spec": "Write a function to convert polar coordinates to rectangular coordinates.\n\nDefine the function as `polar_rect`.",
+   "reference": "import cmath\ndef polar_rect(x,y):\n cn = complex(x,y)\n cn=cmath.polar(cn)\n cn1 = cmath.rect(2, cmath.pi)\n return (cn,cn1)\n",
+   "tests": "tests/test_mbpp_590.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_592",
+   "entry": "binomial_Coeff",
+   "spec": "Write a python function to find the sum of the product of consecutive binomial co-efficients.\n\nDefine the function as `binomial_Coeff`.",
+   "reference": "def binomial_Coeff(n,k): \n    C = [0] * (k + 1); \n    C[0] = 1; # nC0 is 1 \n    for i in range(1,n + 1):  \n        for j in range(min(i, k),0,-1): \n            C[j] = C[j] + C[j - 1]; \n    return C[k]; \ndef sum_Of_product(n): \n    return binomial_Coeff(2 * n,n - 1);\n",
+   "tests": "tests/test_mbpp_592.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_594",
+   "entry": "diff_even_odd",
+   "spec": "Write a function to find the difference of the first even and first odd number of a given list.\n\nDefine the function as `diff_even_odd`.",
+   "reference": "def diff_even_odd(list1):\n    first_even = next((el for el in list1 if el%2==0),-1)\n    first_odd = next((el for el in list1 if el%2!=0),-1)\n    return (first_even-first_odd)\n",
+   "tests": "tests/test_mbpp_594.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_603",
+   "entry": "get_ludic",
+   "spec": "Write a function to get all lucid numbers smaller than or equal to a given integer.\n\nDefine the function as `get_ludic`.",
+   "reference": "def get_ludic(n):\n\tludics = []\n\tfor i in range(1, n + 1):\n\t\tludics.append(i)\n\tindex = 1\n\twhile(index != len(ludics)):\n\t\tfirst_ludic = ludics[index]\n\t\tremove_index = index + first_ludic\n\t\twhile(remove_index < len(ludics)):\n\t\t\tludics.remove(ludics[remove_index])\n\t\t\tremove_index = remove_index + first_ludic - 1\n\t\tindex += 1\n\treturn ludics\n",
+   "tests": "tests/test_mbpp_603.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_614",
+   "entry": "cummulative_sum",
+   "spec": "Write a function to find the cumulative sum of all the values that are present in the given tuple list.\n\nDefine the function as `cummulative_sum`.",
+   "reference": "def cummulative_sum(test_list):\n  res = sum(map(sum, test_list))\n  return (res)\n",
+   "tests": "tests/test_mbpp_614.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_615",
+   "entry": "average_tuple",
+   "spec": "Write a function which takes a tuple of tuples and returns the average value for each tuple as a list.\n\nDefine the function as `average_tuple`.",
+   "reference": "def average_tuple(nums):\n    result = [sum(x) / len(x) for x in zip(*nums)]\n    return result\n",
+   "tests": "tests/test_mbpp_615.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_617",
+   "entry": "min_Jumps",
+   "spec": "Write a function to check for the number of jumps required of given length to reach a point of form (d, 0) from origin in a 2d plane.\n\nDefine the function as `min_Jumps`.",
+   "reference": "def min_Jumps(steps, d): \n    (a, b) = steps\n    temp = a \n    a = min(a, b) \n    b = max(temp, b) \n    if (d >= b): \n        return (d + b - 1) / b \n    if (d == 0): \n        return 0\n    if (d == a): \n        return 1\n    else:\n        return 2\n",
+   "tests": "tests/test_mbpp_617.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_620",
+   "entry": "largest_subset",
+   "spec": "Write a function to find the size of the largest subset of a list of numbers so that every pair is divisible.\n\nDefine the function as `largest_subset`.",
+   "reference": "def largest_subset(a):\n\tn = len(a)\n\tdp = [0 for i in range(n)]\n\tdp[n - 1] = 1; \n\tfor i in range(n - 2, -1, -1):\n\t\tmxm = 0;\n\t\tfor j in range(i + 1, n):\n\t\t\tif a[j] % a[i] == 0 or a[i] % a[j] == 0:\n\t\t\t\tmxm = max(mxm, dp[j])\n\t\tdp[i] = 1 + mxm\n\treturn max(dp)\n",
+   "tests": "tests/test_mbpp_620.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_622",
+   "entry": "get_median",
+   "spec": "Write a function to find the median of two sorted lists of same size.\n\nDefine the function as `get_median`.",
+   "reference": "def get_median(arr1, arr2, n):\n  i = 0\n  j = 0\n  m1 = -1\n  m2 = -1\n  count = 0\n  while count < n + 1:\n    count += 1\n    if i == n:\n      m1 = m2\n      m2 = arr2[0]\n      break\n    elif j == n:\n      m1 = m2\n      m2 = arr1[0]\n      break\n    if arr1[i] <= arr2[j]:\n      m1 = m2\n      m2 = arr1[i]\n      i += 1\n    else:\n      m1 = m2\n      m2 = arr2[j]\n      j += 1\n  return (m1 + m2)/2\n",
+   "tests": "tests/test_mbpp_622.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  },
+  {
+   "id": "mbpp_626",
+   "entry": "triangle_area",
+   "spec": "Write a python function to find the area of the largest triangle that can be inscribed in a semicircle with a given radius.\n\nDefine the function as `triangle_area`.",
+   "reference": "def triangle_area(r) :  \n    if r < 0 : \n        return None\n    return r * r\n",
+   "tests": "tests/test_mbpp_626.py",
+   "cases": 3,
+   "timeout_s": 30,
+   "seed_dense": 0.0
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "P-004R",
+ "written_at": "2026-11-28T11:41:50Z",
+ "commit": "57e42dda058ab286b90ebb74f9f89285e17fb766",
+ "family": "families/mbpp-hold60",
+ "hypothesis": "the P-004 null was an artefact of empty completions, not a real absence of transfer: with the solver budget raised so the model always emits code, the GEPA-evolved instruction will beat the seed on the same two frozen families",
+ "primary_metric": "accuracy",
+ "decision_rule": "identical to P-004: hold60 tuned >= base + 0.05 AND exact McNemar p < 0.05, and test60 not worse than base by more than 0.02",
+ "spend_cap_usd": 0.25,
+ "predictions": "both arms rise against P-004; the difference stays within 3 points; null replicated",
+ "known_confounds": "only the generation budget changes, so a gain now would mean P-004 measured the instrument and not the optimiser; hold60 was the P-004 dev family and is reported as in-sample, test60 alone is held out",
+ "protocol_id": "sha256:bbded8afefcb99a1a6e0c9331f264822fd624580c4df74e6f0dd4dc342eb17f5"
+}

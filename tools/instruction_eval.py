@@ -29,7 +29,7 @@ def run_one(meter, instruction, task, fam_dir):
             "Return only Python code in one fenced block."
             % (task["spec"], task.get("entry", task["id"])))
     try:
-        code = extract_code(meter.chat(instruction, user, max_tokens=900))
+        code = extract_code(meter.chat(instruction, user, max_tokens=3000))
     except SystemExit:
         raise
     except Exception as e:
