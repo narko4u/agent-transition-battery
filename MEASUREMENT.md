@@ -48,3 +48,18 @@ gain and is not one; that is the same small-sample trap as the earlier sixty-tas
 it is the reason the second set was run before anything was claimed.
 
 Reproduction needs no API spend: `python3 tools/eval_local.py --family families/mbpp-hold60`.
+
+### Counterbalanced replication (Senti's defect 2)
+
+The first run loaded and scored the base arm before the tuned arm, so cache warm-up and load order
+could have favoured one side. Repeated on tasks 0 to 59 with the order reversed, tuned arm first, in
+a fresh process:
+
+| Order | Base | Tuned | Delta |
+|---|---|---|---|
+| base first | 26/60 | 27/60 | +1.7 |
+| tuned first | 26/60 | 27/60 | +1.7 |
+
+Identical to the task. The order effect is zero on this set, the measurement is order-invariant, and
+the null stands on both orderings. A replication that returns the same numbers is the only cheap
+defence against an order confound, and it costs nothing here because the model already ships.

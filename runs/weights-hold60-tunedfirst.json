@@ -1,0 +1,508 @@
+{
+  "kind": "weights",
+  "date": "2026-11-28",
+  "model": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+  "adapter": "/home/vault/work/lora-mbpp",
+  "family": "families/mbpp-hold60",
+  "order": "tuned-first",
+  "base": {
+    "passed": 26,
+    "of": 60,
+    "accuracy": 0.4333
+  },
+  "tuned": {
+    "passed": 27,
+    "of": 60,
+    "accuracy": 0.45
+  },
+  "delta": 0.0167,
+  "improved": 6,
+  "regressed": 5,
+  "verdict": "fail",
+  "results": {
+    "base": {
+      "mbpp_2": {
+        "pass": true,
+        "code_sha256": "4819fa41cd910e2c6741fde0b5de8c44abb939584fa0b6335c390686477e85cf"
+      },
+      "mbpp_3": {
+        "pass": false,
+        "code_sha256": "cd6f9628b5046424e28ed44a22c695adc137e667b43833ac7c3bb87a42ca0cf1"
+      },
+      "mbpp_4": {
+        "pass": false,
+        "code_sha256": "b0581b7f81bbecbfcabe87173e084f68f6bd581a1366260caba54a29953ab5d4"
+      },
+      "mbpp_6": {
+        "pass": false,
+        "code_sha256": "1453d6fc62b5b4cbfcbbcb8649736aad3896ce5a6a1230d87364bcef3568118e"
+      },
+      "mbpp_7": {
+        "pass": true,
+        "code_sha256": "769fa44cca5eec1719b689face61b2001cce0744b01a1201ae080cb5dc34289a"
+      },
+      "mbpp_8": {
+        "pass": true,
+        "code_sha256": "e4db67c5940c980b77e9b70af959d324cf7245fcf860ee1ea5c941695c559073"
+      },
+      "mbpp_9": {
+        "pass": false,
+        "code_sha256": "672e719f37f6a8cbf4d2eae3bde2a6a7197aeac8e81081810005e4f789e3a41b"
+      },
+      "mbpp_11": {
+        "pass": false,
+        "code_sha256": "c99bc753a9b3664f9ce1733e4b7fb9f8b3fc27b2b0c04fde395d0ce87ee22d1b"
+      },
+      "mbpp_12": {
+        "pass": false,
+        "code_sha256": "783b3e7267b833bb34baedcb8262d11a1fe6fbefaf11508d5ac6e6ecc43567e2"
+      },
+      "mbpp_14": {
+        "pass": false,
+        "code_sha256": "14147a19b6d704abb1a2095d2fbad6393675070c02ddeb13ddebbe047d1975c0"
+      },
+      "mbpp_16": {
+        "pass": false,
+        "code_sha256": "a1b3320e6af3132a2463d1fa5688020315abf0f35a3184733a129a3ee86a9a92"
+      },
+      "mbpp_17": {
+        "pass": true,
+        "code_sha256": "282c09ac57af3d10b67dfb19ec3096dadee334a4aed3d73ec5b375cea59195a6"
+      },
+      "mbpp_18": {
+        "pass": false,
+        "code_sha256": "2b94496303bbb4ade43fee11d0a7f2fc3066cc5e13b93ec92f23698af403d278"
+      },
+      "mbpp_19": {
+        "pass": true,
+        "code_sha256": "f63568c769a1224183a95dc370da8866eaae9a1ff6e5e9fdf19f5d824d0f1401"
+      },
+      "mbpp_20": {
+        "pass": false,
+        "code_sha256": "0bdd199804539b381684dc7048b4d69bc47e9b5a27e189833a40b77d1d934352"
+      },
+      "mbpp_56": {
+        "pass": false,
+        "code_sha256": "a5fb28b12d4334c4d64904779a1a0e7728b30b37acbedff74003935f072b8f54"
+      },
+      "mbpp_57": {
+        "pass": false,
+        "code_sha256": "f55458543f4559050bc71f89e361310e7f3eb3ce8d9d24e53a4a864fedc4a559"
+      },
+      "mbpp_58": {
+        "pass": true,
+        "code_sha256": "fa17105ebc73507f6f52a573fa2e963334c7e122f41146d2d7b640d8ece43351"
+      },
+      "mbpp_59": {
+        "pass": false,
+        "code_sha256": "4b9576f73b3548897555b0bf4dc2f71a3eda463884111033f5cb2ff68e555ae3"
+      },
+      "mbpp_61": {
+        "pass": false,
+        "code_sha256": "ef0372ec145509f1d639f2d1f0210b7d46490cb23cc14c65a88e04df2e344e06"
+      },
+      "mbpp_62": {
+        "pass": true,
+        "code_sha256": "822248a9327048b9697e27933e7f22bff026a8672467f57c98bb5908191c1488"
+      },
+      "mbpp_63": {
+        "pass": false,
+        "code_sha256": "b40ce1b0d18ec378412b372f5e5b9aa8379acb9c68cd81cda0e44e2c78764834"
+      },
+      "mbpp_64": {
+        "pass": true,
+        "code_sha256": "a85a7988f6b1bb7d7840ca22e27d592dc3da7280a00bb6ce04df572aad15ac66"
+      },
+      "mbpp_65": {
+        "pass": false,
+        "code_sha256": "205f6ba3799499a12610eb02536ec2225b9e2b8da024c1c835a21cdf06aef107"
+      },
+      "mbpp_66": {
+        "pass": true,
+        "code_sha256": "2a502299e55b599fd6fa918d5de38f6224a83e60d7fa012ed857517556c7ae28"
+      },
+      "mbpp_67": {
+        "pass": false,
+        "code_sha256": "c7b351ac235b38cd6437e207bd76ae3d5c3c770b344b169893a412fd8fb908f4"
+      },
+      "mbpp_68": {
+        "pass": true,
+        "code_sha256": "c3dab90a5f3b26a45ab4ee042d1417470c97d37a9ec0fae4243054a39f75a20d"
+      },
+      "mbpp_69": {
+        "pass": false,
+        "code_sha256": "c20adb8ab42c271b7e97ebf4e4c8a6c348b7364143bd41df7153ecbd484a04b9"
+      },
+      "mbpp_70": {
+        "pass": false,
+        "code_sha256": "efd1f67520802ef7340b085565f6e48e3fdb7175a2e59382ffff39ab1f12e0d2"
+      },
+      "mbpp_71": {
+        "pass": false,
+        "code_sha256": "b7033af90137411022f97cf2e115e8c3b3253660bf73550081c4f9ff0b6ae68a"
+      },
+      "mbpp_72": {
+        "pass": false,
+        "code_sha256": "d7dd0b16554636c7d58a183b8f464c35f8ac2cb7ac58be71a4aa18480c762689"
+      },
+      "mbpp_74": {
+        "pass": false,
+        "code_sha256": "7571c0fea50108e2e50b11aa0a7086f17f65d6edae55e4e91d062a88f64b6648"
+      },
+      "mbpp_75": {
+        "pass": true,
+        "code_sha256": "28b2e7bbd83d9f3c787c0826f0f5531b55950dadcc7a1bcf9fee5e853da0764d"
+      },
+      "mbpp_77": {
+        "pass": true,
+        "code_sha256": "1f6a6a53c1aed1102c6aa9865add8588415b5c2d070180a9910403112397e3f2"
+      },
+      "mbpp_79": {
+        "pass": true,
+        "code_sha256": "b82dc69c12cbd8560d1461fd1e87fc249b41ea660de38f6beaf7c284f7920760"
+      },
+      "mbpp_80": {
+        "pass": false,
+        "code_sha256": "2dd6aadbfae6f00fa657cedcd49df21added39eb01b664f6c2d4bec27ce24334"
+      },
+      "mbpp_82": {
+        "pass": true,
+        "code_sha256": "04155eaa513bee81e56a64ce359ae577f1880933f623a295e256fef357888b14"
+      },
+      "mbpp_83": {
+        "pass": false,
+        "code_sha256": "8fe3a18a6ca110ac65922b7723bfa7c1a4c0ee120545f43a1cf0ad3cdfac2a6f"
+      },
+      "mbpp_84": {
+        "pass": false,
+        "code_sha256": "ef3547fe53d4c15c70c3f9979e4457669b5599ec52877dc905978ae12f0a8ced"
+      },
+      "mbpp_85": {
+        "pass": true,
+        "code_sha256": "ed475e7ead5e82b7f1554b06dfe14030f539ab0bb6a12d5de91c1ce5b85cd110"
+      },
+      "mbpp_86": {
+        "pass": false,
+        "code_sha256": "3888eaba8f434f3e785c7d36c9149273326d9ec63bfd63274abd0585ff0d1d82"
+      },
+      "mbpp_87": {
+        "pass": false,
+        "code_sha256": "0161eee41240f18df293e0dbe994c19c766f2ff02c83189d669678a0885af0ac"
+      },
+      "mbpp_88": {
+        "pass": true,
+        "code_sha256": "b842153cd3dda7683c6bf1eadd1f7d59d0e273aaac36c3e4264f0d8721e0ae9a"
+      },
+      "mbpp_89": {
+        "pass": true,
+        "code_sha256": "f0962915b8920124dc7598af443e91513e87eb0897e505ba91d3d0a129d4769d"
+      },
+      "mbpp_90": {
+        "pass": false,
+        "code_sha256": "aec8f21c006399c510e20083b5dae3a17b2dd3dd24789179c51512fd64bc159b"
+      },
+      "mbpp_91": {
+        "pass": true,
+        "code_sha256": "0e0175eb4725dca4ee1a3ca3e9745fb5f0aa51f427973ca2315bff94551a4340"
+      },
+      "mbpp_92": {
+        "pass": false,
+        "code_sha256": "754faf7e39755714cdb4ec2f8e177657421c3f5c0050df69bb623b496e335108"
+      },
+      "mbpp_93": {
+        "pass": true,
+        "code_sha256": "4220da4b52ea295a6b431b10fafe941b3b4b60497b530da391c42df291905d91"
+      },
+      "mbpp_94": {
+        "pass": true,
+        "code_sha256": "7df3651b4dffd0ebe8a4a7abc9e918406fd6f0a2eb79e24cabb6dff5454bef9e"
+      },
+      "mbpp_95": {
+        "pass": true,
+        "code_sha256": "0e5effa52eb030dd391c1d6b1721d47467f49467b6f3b8265c85fe9cbfde3767"
+      },
+      "mbpp_96": {
+        "pass": true,
+        "code_sha256": "b8124ddffb9731f88ade73799c37e9b9bf832204bc211d23a1102a29a0e12719"
+      },
+      "mbpp_97": {
+        "pass": true,
+        "code_sha256": "c2a4888635edc0d17a7be72b708142704c84b226fe712e78401d553fdcfe9776"
+      },
+      "mbpp_98": {
+        "pass": false,
+        "code_sha256": "58aae48ec6cb906256b79b82c99056c59af4205d6e1f922b47b9581d87434540"
+      },
+      "mbpp_99": {
+        "pass": true,
+        "code_sha256": "7ba8f73c15302659ad3e21e2bbfea67697878c9714422ba39b1dadbbe534c321"
+      },
+      "mbpp_100": {
+        "pass": false,
+        "code_sha256": "76a2be2282481b5e5df59bef65f6523b8716e39ef49917e52e932f6494b2cdf5"
+      },
+      "mbpp_101": {
+        "pass": false,
+        "code_sha256": "161a5e8a95d0d2dd53d6aa2af466ee4705a9f4069284d21a638995f56c4d492e"
+      },
+      "mbpp_102": {
+        "pass": true,
+        "code_sha256": "e0599a064e17d3037596e43a74757875e3aeb90d9ce00f43ae0de077e2fbe721"
+      },
+      "mbpp_103": {
+        "pass": false,
+        "code_sha256": "7b8f64289ecc63c298ff483b1ecb8b769ffb75bde418d2dd5d4f4c10f01d50d9"
+      },
+      "mbpp_104": {
+        "pass": true,
+        "code_sha256": "5995f5a11af65e92eef54840dd27ed2faebe868fb8688f9d0016987918a236cd"
+      },
+      "mbpp_105": {
+        "pass": false,
+        "code_sha256": "f34a8e4572c314f5a7aa1fdb33e56bfd0b4c0ea08d6d07e70e23bc0b2c1d7b98"
+      }
+    },
+    "tuned": {
+      "mbpp_2": {
+        "pass": true,
+        "code_sha256": "7ec52dd0b47764864aa04ddc8b745053ccac571c248dc64232248d7754e32e20"
+      },
+      "mbpp_3": {
+        "pass": true,
+        "code_sha256": "2ee94b400928ebdd141fabc8ba0e853da40a314c1a61e53eaae8e87a17d0c98e"
+      },
+      "mbpp_4": {
+        "pass": false,
+        "code_sha256": "ca365b7bf54cf450aa8e562add1b4154d644453dd1a50750037ea89802230162"
+      },
+      "mbpp_6": {
+        "pass": false,
+        "code_sha256": "c0c125d00688701cf0d6866fc959b55e71b1cb0f5559b9537e987f57e5d7fd34"
+      },
+      "mbpp_7": {
+        "pass": true,
+        "code_sha256": "b912058c8e1bc22ad4579bb0e6841e40925c6dcd4904ff8daf54dcc0ca192421"
+      },
+      "mbpp_8": {
+        "pass": true,
+        "code_sha256": "b44e27b4bf8681155f2b7fcb0cb55c847da8f6ce14ee89f1dd1f0719d327f3d8"
+      },
+      "mbpp_9": {
+        "pass": false,
+        "code_sha256": "6f5b846c70851c32a15f26a0dbd1e0598b4b6ba151d9a5b8b5ce8b9287463157"
+      },
+      "mbpp_11": {
+        "pass": false,
+        "code_sha256": "39deebc5be6b80c8de8954bd07645dcb8edff0474765ea7d60eef7512835d52f"
+      },
+      "mbpp_12": {
+        "pass": true,
+        "code_sha256": "f73269590f67e84afcf5e79cd907610ec0c102f5c065895d3b7b0e0b0b22eebf"
+      },
+      "mbpp_14": {
+        "pass": true,
+        "code_sha256": "750255871860b84164fd4acf68381409c6981e128e58c41c942a9d8a92d0d0a6"
+      },
+      "mbpp_16": {
+        "pass": false,
+        "code_sha256": "b46babc546978ad48d75f34618293f683ec03cac5871edcf9d11d99dc78be421"
+      },
+      "mbpp_17": {
+        "pass": true,
+        "code_sha256": "c470272b1d40229a3c294ef7b477c8dba5fe04e86be3f7c1b1bed1f1059792ba"
+      },
+      "mbpp_18": {
+        "pass": false,
+        "code_sha256": "d98c3485ff8a280ce51738399ab5fc3444efdf528185ee3c62ae196f334b0206"
+      },
+      "mbpp_19": {
+        "pass": true,
+        "code_sha256": "421cbe6491b4ca51caaaa853a19347828b7f67f79db3480b8aee8f2e44467c3a"
+      },
+      "mbpp_20": {
+        "pass": false,
+        "code_sha256": "b08a3cc07ba8d79fc44fc7f5a098af80458bb43d1b997da775c359febd05f3f7"
+      },
+      "mbpp_56": {
+        "pass": true,
+        "code_sha256": "6011afd34a47f3e68bcc87f3dfc52c993a96310ba303b06f98d54d74fc5f3050"
+      },
+      "mbpp_57": {
+        "pass": false,
+        "code_sha256": "3b07464a1cbaaf033f39072c8a6238a3dede853d2f867b4ad845c3c91b99459d"
+      },
+      "mbpp_58": {
+        "pass": true,
+        "code_sha256": "f3ca5bca78feb4956ee8b4f2a12f755c48f06a1a6c5b90c47bf2d23561c5c038"
+      },
+      "mbpp_59": {
+        "pass": false,
+        "code_sha256": "dc073e75092d79967e581446458f4d9dae96b77a92bc57698a9d78ee9775f860"
+      },
+      "mbpp_61": {
+        "pass": false,
+        "code_sha256": "b45b11bebaeb2bb4d5e3c21c61f20bab93d4ab249f9959c9a1bfd0c5dc4a7d03"
+      },
+      "mbpp_62": {
+        "pass": true,
+        "code_sha256": "499096349adc3f286f2205fd70afa1acf1ddbbd8f64b417b23b5039829783960"
+      },
+      "mbpp_63": {
+        "pass": false,
+        "code_sha256": "26eb85dcd147fb479205927015fc690c4a585c809bf29122481292672ffc145a"
+      },
+      "mbpp_64": {
+        "pass": true,
+        "code_sha256": "4d647d2a7ea1ee27580d7d8116450c2373a7196f42045cddac89f9ae5532dbfc"
+      },
+      "mbpp_65": {
+        "pass": false,
+        "code_sha256": "c7e114aa929c495a3605dd4c5b57223dc458ac1282dd8b54a98247eb3829e630"
+      },
+      "mbpp_66": {
+        "pass": true,
+        "code_sha256": "a2bc5a6dea4671afd5d4638a4a5e80f3233abf0abc5d595896e216288e2a36ae"
+      },
+      "mbpp_67": {
+        "pass": false,
+        "code_sha256": "92bf252afb19d580b0cb7f971c59037fc2e43e31b1c49bd12daf64937f9cde8a"
+      },
+      "mbpp_68": {
+        "pass": true,
+        "code_sha256": "5f1c7a51f11a02bec363b9c16709df27365466a533ef02ecaa009511719455f4"
+      },
+      "mbpp_69": {
+        "pass": true,
+        "code_sha256": "c3e9ea4f5b8c9b9ff0df7d08a1635363a9f0c1e5804106e1b24552c600208f6d"
+      },
+      "mbpp_70": {
+        "pass": false,
+        "code_sha256": "70532bd0ae0de49a56e39e5bd8122d281102bb9a19e9a84d6d0b5a64c071e3d0"
+      },
+      "mbpp_71": {
+        "pass": false,
+        "code_sha256": "50b4676dee92416dc1aa56e3a24a524db2743150418ccf6fed808f76c26acd3f"
+      },
+      "mbpp_72": {
+        "pass": false,
+        "code_sha256": "9a282c7521c8d9696f43dd285f3ca1dd426ae2fd01853a0a77420d70873d8409"
+      },
+      "mbpp_74": {
+        "pass": false,
+        "code_sha256": "27de193205f089e0d36b27148abe8d485a9b50eca23d1cf651614dcde008d8ac"
+      },
+      "mbpp_75": {
+        "pass": false,
+        "code_sha256": "9f551dd026393d0055e72023e57f6b456b742c61617ee5c88cee9d0748fecef8"
+      },
+      "mbpp_77": {
+        "pass": true,
+        "code_sha256": "7e960bbb1fb0624f125d1f359e96cc17b44d22b42b3563adce24fa3561dabea8"
+      },
+      "mbpp_79": {
+        "pass": true,
+        "code_sha256": "7e8c795f8ef44b46fe2e68c45b5297d1c42f5cb940a66f0cdd73de1a582ca733"
+      },
+      "mbpp_80": {
+        "pass": true,
+        "code_sha256": "53a629e6db5daba93de83bed1dae995f900b85bf00b2c24e2a617b4ccf73bf09"
+      },
+      "mbpp_82": {
+        "pass": true,
+        "code_sha256": "a61632e6345702bd8cee09c9cbfd1e52b5cbc2774b72674d48220b6cbcca9cad"
+      },
+      "mbpp_83": {
+        "pass": false,
+        "code_sha256": "8bdd69d90631d6a8633f84430f5eec27447f74cd43fb8c8eab21a00498244a0c"
+      },
+      "mbpp_84": {
+        "pass": false,
+        "code_sha256": "e5059f7c4877979aa80bdcbeec9fd1eeba6be2661106b395b6dffc9d46d0cc30"
+      },
+      "mbpp_85": {
+        "pass": true,
+        "code_sha256": "945cfb8994adbbab225b313246046498a1ed9ad99b17536c9a251198dbf526bc"
+      },
+      "mbpp_86": {
+        "pass": false,
+        "code_sha256": "d5f4e1bcc71b421debcb6a667dd3ffd1b69bfa28887c3a1434e03c37c1215f17"
+      },
+      "mbpp_87": {
+        "pass": false,
+        "code_sha256": "b91f5d3ba476b93ff89755702ec798d3044f4ce528d33c05e5049b9ad2051fb1"
+      },
+      "mbpp_88": {
+        "pass": true,
+        "code_sha256": "d64bfb4b5852520ce82a3e985dd5c98808b9e37fc56755ec04cfe359b0e5ec2b"
+      },
+      "mbpp_89": {
+        "pass": false,
+        "code_sha256": "ed17541f51c7598efbe6951f88f39cb8c2d763b15008bc76c9669344f07af924"
+      },
+      "mbpp_90": {
+        "pass": false,
+        "code_sha256": "75deb5a3a8555670bd95518e84be3062549a146d27fe40e40fcfde7b24ae6c04"
+      },
+      "mbpp_91": {
+        "pass": true,
+        "code_sha256": "5fe8722aef91d244eee7baceb075b6cda5460bf03b57a79d92859282bd604bb3"
+      },
+      "mbpp_92": {
+        "pass": false,
+        "code_sha256": "ff092ab7c5aa7dce4980eeebcf257fbddbbca5c8b0babdcd9a6374e11e6e725e"
+      },
+      "mbpp_93": {
+        "pass": true,
+        "code_sha256": "8f3d84cb46445e6cf30a228534e2adcb211dfa8602b7e9c0a64585651726d77c"
+      },
+      "mbpp_94": {
+        "pass": false,
+        "code_sha256": "e454f03bba5c81c5c3edf333f93eef353a1072b2a63502ff8b5d3a620744909c"
+      },
+      "mbpp_95": {
+        "pass": true,
+        "code_sha256": "6a3c059aeb18ec349d89dbd63d0f05c1b4d5c13b9e2320ff92478a5d606048fb"
+      },
+      "mbpp_96": {
+        "pass": true,
+        "code_sha256": "0fcc274d62f2337f3b716a5fc8c7a3d8d20d1465b00e8a43ddb986b6eba412d0"
+      },
+      "mbpp_97": {
+        "pass": false,
+        "code_sha256": "c94deb82550c7aa85a5f5a0462d9c41bf85dd7dd80fa4a306f2d2b2f8cd91fc6"
+      },
+      "mbpp_98": {
+        "pass": false,
+        "code_sha256": "548a076f111f6fd3a57722301913a4235d97ad37d2462d5b4cb7a2ec94c90d7a"
+      },
+      "mbpp_99": {
+        "pass": true,
+        "code_sha256": "d5315392764dd37efbb992849050e5a27ed6b38902a49ca0356d76e2d1255b1f"
+      },
+      "mbpp_100": {
+        "pass": false,
+        "code_sha256": "f55ab0f65857dc6c96c1bbcf5bbc064df5c4b99ee789eedf0a148eb80d24b115"
+      },
+      "mbpp_101": {
+        "pass": false,
+        "code_sha256": "cd889bc3dc8e205f31e1f9c28be149fab2a037687a044936f585deb5066d32fe"
+      },
+      "mbpp_102": {
+        "pass": true,
+        "code_sha256": "2be275297990c7b2a2da40d38f4af18fb22a7cac2e9eaff7d6f2e08924765180"
+      },
+      "mbpp_103": {
+        "pass": false,
+        "code_sha256": "f37e7d0355b6643807be95552a8f2da585394a04af0a94746c933f1087b05839"
+      },
+      "mbpp_104": {
+        "pass": false,
+        "code_sha256": "dbbb19e09263d92066b71c762fb7de966e388b8939eecc9d3c2e5e6cb5e2cbdb"
+      },
+      "mbpp_105": {
+        "pass": false,
+        "code_sha256": "0f05bdbf14d93814a89d1cb22d629bfa0b2c6166aadbdbc7a10507a0962a40f8"
+      }
+    }
+  }
+}
