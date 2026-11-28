@@ -34,15 +34,25 @@ The same model was then trained with group-relative advantages computed from its
 by hidden executable tests, with no reference solutions. This optimises the behaviour that is scored
 rather than the text of a solution.
 
-| run | held-out delta | improved | regressed | note |
-|---|---|---|---|---|
-| 80 tasks, 18 steps | -1.7 on 60 | 0 | 1 | 62 of 80 tasks flat |
-| 200 tasks, one pass | +6.7 on 60, p 0.125 | 4 | 0 | below the preregistered significance bar |
-| 200 tasks, three passes | see P-003 | | | |
+| run | held-out delta | improved | regressed | exact p | note |
+|---|---|---|---|---|---|
+| 80 tasks, 18 steps | -1.7 on holdout | 0 | 1 | - | 62 of 80 tasks produced no gradient |
+| 200 tasks, one pass | +6.7 on holdout | 4 | 0 | 0.125 | below the preregistered bar |
+| 200 tasks, three passes | +3.3 on holdout | 5 | 3 | 0.7266 | 398 of 600 visits had no gradient |
+| 200 tasks, three passes | -3.3 on second holdout | 2 | 4 | 0.6875 | sign flip, guard breached |
 
-The 200-task run produced the only positive weight result in the programme and it did not clear the
+The one-pass run produced the only positive weight result in the programme and it did not clear the
 bar of p under 0.05, because four discordant pairs is too few to distinguish an effect from luck.
-We report it as unconfirmed rather than as a win.
+
+The three-pass run was meant to give the loop its best shot: three times the update steps, 202
+gradient steps in total, 130 minutes on a free T4. It moved the first holdout by 3.3 points, below the
+declared 5, and moved the second holdout backwards by 3.3, which breached the preregistered guard
+against a sign flip. The telemetry explains why better than the verdict does. Of 600 task visits, 398
+were skipped because all four samples returned the same reward, and there is no group-relative
+gradient when every sample agrees. The model solved at least one of four samples on 387 visits.
+
+Compute was not the constraint. Disagreement was. We were reinforcing a pool the model could mostly
+already solve.
 
 ### 6.3 Reflective prompt evolution, and what it actually optimised
 
@@ -102,17 +112,37 @@ per task, improved unseen tasks reliably.
 
 ### 6.5 What this suggests
 
-Improvement here is bounded by transfer, not by optimiser strength. We changed the weights, changed
-the reward, and changed the instruction, and the shape was identical: a gain on the surface being
-optimised that did not cross to the surface being tested.
+Improvement here is bounded by the instrument and by transfer, not by optimiser strength. We changed
+the weights, changed the reward, and changed the instruction. The shape was identical, and in two of
+the three routes the gain did not survive a clean measurement at all.
 
-Two explanations are live and we cannot separate them with this data. The first is that sixty-task
-families are too small: with a base near 0.63 there are about twenty-two failures, and an optimiser
-finds the ones that are cheap to flip, which are not the ones that generalise. The second is that
-the model has already saturated the easy behaviour and the remaining failures are beyond a small
-model regardless of instruction or adapter.
+Three findings, in order of how much they should change someone else's practice.
 
-Either way the practical consequence is the same, and it is the recommendation we would give any
-team running this kind of work: preregister the rule, use at least 120 held-out tasks, keep the
-development family disjoint from the evaluation families, and treat a dev-set gain as a hypothesis
-rather than a result.
+**First, the dev pool has to have room.** The seed instruction solves 220 of the 307 MBPP tasks we
+hold outside the evaluation families, 0.717. Of the 87 it fails, 79 score zero on a dense metric:
+the code runs and the algorithm is wrong. A prompt optimiser cannot supply an algorithm, and a
+reinforcement loop cannot learn from tasks where all four samples agree. Both of our search lanes were
+climbing a slope that did not exist.
+
+**Second, the instrument is part of the hypothesis.** GEPA's ten point dev gain was an instruction that
+said "never return empty". Our client was returning empty completions when the model spent its whole
+budget on internal reasoning, and scoring them as wrong answers. The optimiser found that hole and
+filled it, because the instrument paid for filling it. This is not an exotic failure mode: it is what
+an optimiser does by default, and it is invisible unless the instrument is validated separately from
+the search.
+
+**Third, disjointness has to be checked by task id, not by belief.** We reported a dev family as
+disjoint from our evaluation families when it was the evaluation family, same sixty ids in the same
+order, because we had verified a different pair and generalised. The run was still informative only
+because one family had never been touched. A five line check, run on the same turn the family is used
+and recorded in the report, removes this whole class of error. We now run it before every run.
+
+What we would tell a team attempting this: preregister the rule and do not move it. Validate the
+scoring path on tasks with known outcomes before letting any optimiser near it. Check disjointness by
+identifier every time. Use at least 120 held-out tasks, because sixty cannot resolve five points. And
+treat a dev-set gain as a hypothesis about your instrument until a frozen family says otherwise.
+
+The one durable positive result in the programme is inference-time search: sample three solutions,
+select the one that passes the most self-written tests, plus 8.0 and plus 10.5 points on 200 tasks at
+p 0.0025 and p 0.0001. It works because nothing is fitted to a development set. Everything that was
+fitted, by weights, by reward or by prompt, moved the surface it was fitted on and nothing else.
