@@ -1,0 +1,26 @@
+{
+ "kind": "weights-combined",
+ "date": "2026-11-28",
+ "model": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+ "adapter": "/home/vault/work/lora-mbpp",
+ "families": [
+  "families/mbpp-test60",
+  "families/mbpp-hold60"
+ ],
+ "base": {
+  "passed": 51,
+  "of": 120,
+  "accuracy": 0.425
+ },
+ "tuned": {
+  "passed": 55,
+  "of": 120,
+  "accuracy": 0.4583
+ },
+ "delta": 0.0333,
+ "improved": 15,
+ "regressed": 11,
+ "mcnemar_exact_p": 0.5572,
+ "verdict": "fail",
+ "note": "Neither set trained on; training split starts at index 120. Delta is inside the noise floor measured at sd 0.030."
+}

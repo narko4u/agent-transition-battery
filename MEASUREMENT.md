@@ -31,3 +31,20 @@ and no amount of analysis changes that.
 On 27 November the same configuration, `bon3`, scored 0.8167 and 0.9000 on the same sixty tasks
 inside one hour. Eight points apart with nothing changed. Any comparison that treats a single
 run of a five point effect as a finding is measuring that spread, not the effect.
+
+## Weight-level transfer, sixty plus sixty held-out MBPP tasks
+
+The sixth route in the M2 attempt was not text. A LoRA adapter was trained on the first 120 MBPP
+tasks and evaluated on tasks 61 to 120 and 0 to 59, neither of them in the training split.
+
+| Set | Base | Tuned | Delta | Up | Down |
+|---|---|---|---|---|---|
+| tasks 61 to 120 | 25/60 | 28/60 | +5.0 | 9 | 6 |
+| tasks 0 to 59 | 26/60 | 27/60 | +1.7 | 6 | 5 |
+| combined | 51/120 | 55/120 | +3.3 | 15 | 11 |
+
+Exact McNemar on the 26 discordant pairs gives p 0.557. The first set alone looks like a five-point
+gain and is not one; that is the same small-sample trap as the earlier sixty-task procedure run, and
+it is the reason the second set was run before anything was claimed.
+
+Reproduction needs no API spend: `python3 tools/eval_local.py --family families/mbpp-hold60`.
