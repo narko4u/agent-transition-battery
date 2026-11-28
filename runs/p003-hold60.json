@@ -1,0 +1,34 @@
+{
+ "kind": "weights-aggregate",
+ "date": "2026-11-28",
+ "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+ "adapter": "content/rlvr-1.5b-e3 (Colab T4 session, adapter not retrieved)",
+ "family": "families/mbpp-hold60",
+ "order": "base-first",
+ "base": {
+  "passed": 35,
+  "of": 60,
+  "accuracy": 0.5833
+ },
+ "tuned": {
+  "passed": 37,
+  "of": 60,
+  "accuracy": 0.6167
+ },
+ "delta": 0.0333,
+ "improved": 5,
+ "regressed": 3,
+ "mcnemar_exact_p": 0.7266,
+ "protocol_id": "P-003",
+ "verdict": "fail",
+ "evidence": "aggregate figures transcribed from the Colab notebook output; per-task ledger not retrieved before the session closed",
+ "training": {
+  "tasks": 600,
+  "skipped_flat": 398,
+  "solved_any": 387,
+  "solved_all": 185,
+  "steps": 202,
+  "minutes": 130.0
+ },
+ "results": null
+}

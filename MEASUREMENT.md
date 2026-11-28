@@ -182,3 +182,34 @@ task id against every evaluation family before a run, not after.
 The new dev pool is `families/mbpp-devpool`, built from MBPP tasks 120 and above in mbpp-basics,
 307 tasks, verified zero overlap with hold60 and test60. It is scored once with the seed
 instruction so that tasks the model already solves can be filtered before any search.
+
+## P-003: three passes of reinforcement on executed tests, and it still does not hold
+
+Preregistered at `5406a88` before the run. Rule: hold60 at least 5 points above base with exact
+McNemar p under 0.05, and test60 no worse than base by more than 2 points. Cap $0.00, free Colab.
+
+Training: 200 MBPP tasks, four samples each, three passes, 600 task visits, 202 gradient steps,
+130 minutes on a T4. The telemetry is the interesting part: 398 of the 600 visits were skipped
+because all four samples returned the same reward, and there is no gradient when every sample agrees.
+`solved_any` 387, `solved_all` 185.
+
+| family | base | tuned | delta | improved | regressed | exact p |
+|---|---|---|---|---|---|---|
+| mbpp-hold60 | 35/60 (0.5833) | 37/60 (0.6167) | +3.3 | 5 | 3 | 0.7266 |
+| mbpp-test60 | 33/60 (0.5500) | 31/60 (0.5167) | -3.3 | 2 | 4 | 0.6875 |
+
+Verdict: **fail on both clauses.** The hold60 gain is 3.3 points, below the declared 5 and not
+significant. test60 moved the wrong way by 3.3 points, breaching the no-sign-flip guard.
+
+Per-task ledgers were not retrieved before the Colab session closed, so these reports carry aggregates
+and say so in `evidence`. That is a defect in our run discipline, not in the result.
+
+Three things this tells us, none of which is about the optimiser:
+
+1. Two thirds of the training visits produced no learning signal at all. Group-relative reinforcement
+   on a pool the model already half solves mostly samples agreement, not disagreement.
+2. The pool is too easy. `solved_any` was 64.5 per cent, so the model can reach two thirds of it
+   unaided and the remaining third is where it flips.
+3. Sixty-task families cannot resolve three points. Five of sixty up and three down is what noise
+   looks like at this sample size, and it was also what SM-004 looked like before we measured the
+   noise floor at sd 0.030.
