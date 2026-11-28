@@ -410,6 +410,9 @@ def validate(path: Path) -> int:
     if rep.get("status") not in ("pass", "fail", "partial"):
         problems.append("status %r" % rep.get("status"))
     for f in rep.get("families", []):
+        if not isinstance(f, dict):
+            problems.append("family entry is not an object: %r" % (f,))
+            continue
         if not str(f.get("verifier_sha256", "")).startswith("sha256:"):
             problems.append("family %s has no verifier hash" % f.get("id"))
     body = json.dumps({k: v for k, v in rep.items() if k != "report_id"}, sort_keys=True, indent=1)

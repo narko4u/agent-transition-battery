@@ -86,19 +86,25 @@ def main() -> int:
     ap.add_argument("--family", default="families/mbpp-test60")
     ap.add_argument("--adapter", default="/home/vault/work/lora-mbpp")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--order", choices=["base-first", "tuned-first"], default="base-first",
+                    help="arm order; counterbalanced across sets to expose cache warm-up bias")
     a = ap.parse_args()
 
     fam_dir = ROOT / a.family
     fam = json.loads((fam_dir / "family.json").read_text())
     tasks = fam["tasks"]
 
-    base = run_arm("base", None, tasks, fam_dir)
-    tuned = run_arm("tuned", a.adapter, tasks, fam_dir)
+    if a.order == "base-first":
+        base = run_arm("base", None, tasks, fam_dir)
+        tuned = run_arm("tuned", a.adapter, tasks, fam_dir)
+    else:
+        tuned = run_arm("tuned", a.adapter, tasks, fam_dir)
+        base = run_arm("base", None, tasks, fam_dir)
 
     up = sum(1 for t in tasks if tuned["results"][t["id"]]["pass"] and not base["results"][t["id"]]["pass"])
     down = sum(1 for t in tasks if base["results"][t["id"]]["pass"] and not tuned["results"][t["id"]]["pass"])
     report = {"kind": "weights", "date": time.strftime("%Y-%m-%d"), "model": MODEL,
-              "adapter": a.adapter, "family": a.family,
+              "adapter": a.adapter, "family": a.family, "order": a.order,
               "base": {k: base[k] for k in ("passed", "of", "accuracy")},
               "tuned": {k: tuned[k] for k in ("passed", "of", "accuracy")},
               "delta": round(tuned["accuracy"] - base["accuracy"], 4),

@@ -14,6 +14,14 @@ its spend. Nothing here is a leaderboard of intelligence.
 Read `SPEC.md` for the battery. Read `PAPER.md` or `PAPER.pdf` for why the battery is shaped
 this way. Code is Apache-2.0, text is CC BY 4.0, see `LICENSING.md`.
 
+## What lives in `runs/`
+
+`runs/` holds run reports, meaning files with a `test` field of `T1`, `T2`, `T3` or `T5`. Those are
+validated against the schema and against family hashes on every push. Analysis artefacts such as A/B
+comparisons, noise studies, decision files and weight-level evaluations also live here for
+convenience, carry a `kind` field instead of a `test` field, and are skipped by the validator rather
+than being forced through a schema they were never written against.
+
 ## The five loops
 
 | Test | Question | Implemented |
