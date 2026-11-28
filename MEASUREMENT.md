@@ -84,3 +84,26 @@ Two findings, and the second is the important one.
 So the failure was never "the model is too small to learn". It is that a small, narrow supervised set
 moves the model in the wrong direction. The next questions are about data and update strength, not
 parameters.
+
+## The update rule was wrong, not the substrate
+
+Gentler training (one epoch, lr 1e-4) also failed: hold60 base 0.5833, tuned 0.5167, minus 6.7 points,
+3 improved, 7 regressed. One epoch at a tenth of the learning rate is 0.97 training loss, so the model
+underfits the data and still loses capability.
+
+A direct probe of three tasks explains it. Outputs are well-formed code in both arms, so nothing is
+lost to parsing. What changed is the approach:
+
+| task | base | LoRA |
+|---|---|---|
+| mbpp_2 | `list(set(list1) & set(list2))` | `[e for e in list1 if e in list2]`, duplicates survive, test fails |
+| mbpp_4 | `heapq.nlargest(n, numbers)` | `sorted(heapq.nlargest(n, numbers), reverse=True)` |
+
+The adapter taught the model the style of 307 solutions, terse code with no intermediate reasoning, and
+that style replaced the base model's habit of reasoning toward a correct answer. Supervised imitation of
+solutions is the wrong update rule here. It optimises resemblance to the training answers, not
+behaviour the hidden tests reward.
+
+This is the distinction SIA makes in its own framing: their weight lever is reinforcement on task
+feedback, not supervised imitation. Our six routes have all been imitation, prompt engineering or
+selection. None of them has ever optimised the thing that is actually scored.

@@ -1,0 +1,13 @@
+{
+ "id": "P-002",
+ "written_at": "2026-11-28T06:29:25Z",
+ "commit": "5e68f6f5368085fff6285a668090e649c21150f5",
+ "family": "families/mbpp-hold60",
+ "hypothesis": "optimising task pass/fail directly, rather than imitating reference solutions, recovers the base 1.5B capability and exceeds it",
+ "primary_metric": "accuracy",
+ "decision_rule": "tuned >= base + 0.05 AND exact McNemar p < 0.05 on hold60, base reused from weights-1.5b-hold60.json",
+ "spend_cap_usd": 0.0,
+ "predictions": "between 0.60 and 0.68 against 0.5833",
+ "known_confounds": "reward is the same executable test family as the evaluation, so a gain could be test-family-specific; forgetting on mbpp-test60 must be checked before any claim",
+ "protocol_id": "sha256:cbfc89b6f2f5c0da70bcb25a3a260d3a039f9f0331f7cbe8aa14cdda16b7f2f9"
+}
