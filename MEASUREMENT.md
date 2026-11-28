@@ -107,3 +107,23 @@ behaviour the hidden tests reward.
 This is the distinction SIA makes in its own framing: their weight lever is reinforcement on task
 feedback, not supervised imitation. Our six routes have all been imitation, prompt engineering or
 selection. None of them has ever optimised the thing that is actually scored.
+
+## RLVR at 80 tasks: almost a no-op, and that is the finding
+
+First run of reinforcement on task feedback rather than imitation. 80 training tasks, four samples each,
+scored by executable tests, group-relative advantage, 1e-4, one epoch.
+
+- 18 gradient steps in 49 minutes, because 38 tasks produced no passing sample and 24 produced four of
+  four. Both are flat groups and carry no learning signal.
+- Held-out: base 0.5833, tuned 0.5667, delta minus 1.7 points, **0 improved and 1 regressed**.
+
+Compare the supervised runs on the same model and tasks: minus 5.8 and minus 6.7 points, with 10 and 3
+tasks improved. RLVR left the model nearly untouched. One task moved out of sixty.
+
+That is the useful result. Optimising the scored behaviour did not damage the model the way imitating
+307 solutions did, which supports the diagnosis that the harm came from style imitation. It also shows
+the real limit at this budget: 18 update steps is not training, it is a nudge.
+
+To get a real test we need update steps in the hundreds. The Colab T4 run at 200 tasks produces roughly
+100. Anything beyond that means multiple epochs over the mixed-outcome tasks, or a reward that is not
+binary pass/fail so that more samples carry signal.
