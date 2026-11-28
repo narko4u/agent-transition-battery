@@ -1,0 +1,31 @@
+{
+ "kind": "weights-provenance",
+ "date": "2026-11-28",
+ "adapter": {
+  "path": "/home/vault/work/lora-mbpp",
+  "files": {
+   "README.md": "sha256:3372703521520d8bf3cc3cf1d53ede53e353de5859fb656f0dbb2c569606c696",
+   "adapter_config.json": "sha256:94406e158eb08d61619e364c429eeea9accdff390fbacc14f26b611f1f28f2a3",
+   "adapter_model.safetensors": "sha256:9f022652e6749414d05b6298208f6c24303fc0ce1ccc5b72684b14e0a2e6b5c4",
+   "chat_template.jinja": "sha256:cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+   "tokenizer.json": "sha256:341809baea5aa2d809a9b5453714b6b73a121f097f91f4fde60e9c0cc1861133",
+   "tokenizer_config.json": "sha256:8b6f658e2435ec8da6866013cb485a1d2a6559bed4bf76ed99ea68b031854b41"
+  }
+ },
+ "base_model": {
+  "id": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+  "hf_commit": "ea3f2471cf1b1f0db85067f1ef93848e38e88c25",
+  "config": "sha256:b1e58593cd31852f7da5c2fc31ddf6135b9c066c0fd9177a4bbe95717083adff",
+  "tokenizer": "sha256:c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+ },
+ "evaluator": {
+  "path": "tools/eval_local.py",
+  "sha256": "sha256:0247d658346fee3d62f1c466a2c676a7af35bacf0be4845d1949d1fa397cde9c"
+ },
+ "python": "3.14.7",
+ "tasks": {
+  "mbpp-test60": "mbpp_106..mbpp_242",
+  "mbpp-hold60": "mbpp_2..mbpp_105"
+ },
+ "note": "Hashes computed from the artefacts on disk after the runs. They identify the model, adapter, tokenizer and evaluator that produced the numbers; the runs themselves were executed before this file existed."
+}
