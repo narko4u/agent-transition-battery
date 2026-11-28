@@ -19,9 +19,9 @@ from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from transformers import (AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig,
                           DataCollatorForLanguageModeling, Trainer, TrainingArguments)
 
-MODEL = "Qwen/Qwen2.5-Coder-0.5B-Instruct"
+MODEL = "Qwen/Qwen2.5-Coder-0.5B-Instruct"   # overridden by --model
 SPLIT_FROM = 120          # tasks 0-119 are the evaluation zone, never trained on
-MAX_LEN = 640
+MAX_LEN = 640             # overridden by --max-len
 
 
 def load_rows(path="/tmp/mbpp.json"):
@@ -41,15 +41,15 @@ def load_rows(path="/tmp/mbpp.json"):
     return out
 
 
-def build_dataset(rows, tok):
+def build_dataset(rows, tok, max_len=MAX_LEN):
     def conv(r):
         msgs = [{"role": "user", "content": "Task: %s\n\nReturn only Python code in one fenced block. "
                                            "Define exactly the function named %s." % (r["prompt"], r["entry"])},
                 {"role": "assistant", "content": "```python\n%s\n```" % r["code"]}]
         text = tok.apply_chat_template(msgs, tokenize=False)
-        enc = tok(text, truncation=True, max_length=MAX_LEN, padding=False)
+        enc = tok(text, truncation=True, max_length=max_len, padding=False)
         prompt_only = tok.apply_chat_template(msgs[:1], tokenize=False, add_generation_prompt=True)
-        n_prompt = len(tok(prompt_only, truncation=True, max_length=MAX_LEN)["input_ids"])
+        n_prompt = len(tok(prompt_only, truncation=True, max_length=max_len)["input_ids"])
         labels = list(enc["input_ids"])
         for k in range(min(n_prompt, len(labels))):
             labels[k] = -100
@@ -64,28 +64,32 @@ def main() -> int:
     ap.add_argument("--epochs", type=float, default=3.0)
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--rows", default="/tmp/mbpp.json")
+    ap.add_argument("--model", default=MODEL)
+    ap.add_argument("--max-len", type=int, default=MAX_LEN)
+    ap.add_argument("--lora-r", type=int, default=16)
     a = ap.parse_args()
+    model_id, max_len = a.model, a.max_len
 
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     rows = load_rows(a.rows)
-    print("training rows: %d (split at %d)" % (len(rows), SPLIT_FROM), flush=True)
+    print("model %s, max_len %d, rows %d (split at %d)" % (model_id, max_len, len(rows), SPLIT_FROM), flush=True)
 
-    tok = AutoTokenizer.from_pretrained(MODEL)
+    tok = AutoTokenizer.from_pretrained(model_id)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                              bnb_4bit_compute_dtype=torch.float16,
                              bnb_4bit_use_double_quant=True)
-    model = AutoModelForCausalLM.from_pretrained(MODEL, quantization_config=bnb,
+    model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb,
                                                  device_map={"": 0}, torch_dtype=torch.float16)
     model = prepare_model_for_kbit_training(model)
-    lora = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.05, bias="none",
+    lora = LoraConfig(r=a.lora_r, lora_alpha=2 * a.lora_r, lora_dropout=0.05, bias="none",
                       task_type="CAUSAL_LM",
                       target_modules=["q_proj", "k_proj", "v_proj", "o_proj"])
     model = get_peft_model(model, lora)
     model.print_trainable_parameters()
 
-    ds = build_dataset(rows, tok)
+    ds = build_dataset(rows, tok, max_len)
     collator = DataCollatorForLanguageModeling(tok, mlm=False, pad_to_multiple_of=8)
     args = TrainingArguments(output_dir=a.out, num_train_epochs=a.epochs,
                              per_device_train_batch_size=1, gradient_accumulation_steps=8,

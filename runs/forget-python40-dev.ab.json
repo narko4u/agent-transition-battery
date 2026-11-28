@@ -1,0 +1,115 @@
+{
+ "schema": "ttb5/ab-report/0.1",
+ "at": "2026-11-28T05:51:27Z",
+ "model": "deepseek-flash",
+ "tasks": 20,
+ "samples_per_task": 1,
+ "baseline": {
+  "sha256": "sha256:154a70bac480489480da749383b31d5544fbb9bcbc72a01cb718c2c7b5c65f0d",
+  "accuracy": 0.85,
+  "passed": 17,
+  "spend_usd": 0.0079
+ },
+ "candidate": {
+  "sha256": "sha256:154a70bac480489480da749383b31d5544fbb9bcbc72a01cb718c2c7b5c65f0d",
+  "accuracy": 0.85,
+  "passed": 17,
+  "spend_usd": 0.0295
+ },
+ "paired": {
+  "b_improved": 2,
+  "c_regressed": 2,
+  "mcnemar_exact_p": 1.0,
+  "flipped_to_pass": [
+   "chunk",
+   "is_anagram"
+  ],
+  "flipped_to_fail": [
+   "roman_to_int",
+   "most_common"
+  ]
+ },
+ "results": {
+  "slugify": {
+   "baseline": true,
+   "candidate": true
+  },
+  "parse_duration": {
+   "baseline": false,
+   "candidate": false
+  },
+  "chunk": {
+   "baseline": false,
+   "candidate": true
+  },
+  "clamp": {
+   "baseline": true,
+   "candidate": true
+  },
+  "median": {
+   "baseline": true,
+   "candidate": true
+  },
+  "dedupe": {
+   "baseline": true,
+   "candidate": true
+  },
+  "rotate": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_palindrome": {
+   "baseline": true,
+   "candidate": true
+  },
+  "roman_to_int": {
+   "baseline": true,
+   "candidate": false
+  },
+  "int_to_roman": {
+   "baseline": true,
+   "candidate": true
+  },
+  "flatten": {
+   "baseline": true,
+   "candidate": true
+  },
+  "caesar": {
+   "baseline": true,
+   "candidate": true
+  },
+  "binary_search_index": {
+   "baseline": true,
+   "candidate": true
+  },
+  "count_vowels": {
+   "baseline": true,
+   "candidate": true
+  },
+  "is_anagram": {
+   "baseline": false,
+   "candidate": true
+  },
+  "most_common": {
+   "baseline": true,
+   "candidate": false
+  },
+  "max_subarray_sum": {
+   "baseline": true,
+   "candidate": true
+  },
+  "transpose": {
+   "baseline": true,
+   "candidate": true
+  },
+  "valid_brackets": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mode_value": {
+   "baseline": true,
+   "candidate": true
+  }
+ },
+ "total_spend_usd": 0.0374
+}

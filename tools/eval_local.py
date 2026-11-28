@@ -19,16 +19,16 @@ import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
-MODEL = "Qwen/Qwen2.5-Coder-0.5B-Instruct"
+MODEL = "Qwen/Qwen2.5-Coder-0.5B-Instruct"   # overridden by --model
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def load(model_path=None):
-    tok = AutoTokenizer.from_pretrained(MODEL)
+def load(model_path=None, model_id=MODEL):
+    tok = AutoTokenizer.from_pretrained(model_id)
     bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                              bnb_4bit_compute_dtype=torch.float16,
                              bnb_4bit_use_double_quant=True)
-    model = AutoModelForCausalLM.from_pretrained(MODEL, quantization_config=bnb,
+    model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb,
                                                  device_map={"": 0}, torch_dtype=torch.float16)
     if model_path:
         model = PeftModel.from_pretrained(model, model_path)
@@ -63,8 +63,8 @@ def score(code, test_path, entry):
             return False
 
 
-def run_arm(name, model_path, tasks, fam_dir):
-    tok, model = load(model_path)
+def run_arm(name, model_path, tasks, fam_dir, model_id=MODEL):
+    tok, model = load(model_path, model_id)
     res = {}
     t0 = time.time()
     for i, t in enumerate(tasks, 1):
@@ -86,6 +86,7 @@ def main() -> int:
     ap.add_argument("--family", default="families/mbpp-test60")
     ap.add_argument("--adapter", default="/home/vault/work/lora-mbpp")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--model", default=MODEL)
     ap.add_argument("--order", choices=["base-first", "tuned-first"], default="base-first",
                     help="arm order; counterbalanced across sets to expose cache warm-up bias")
     a = ap.parse_args()
@@ -95,15 +96,15 @@ def main() -> int:
     tasks = fam["tasks"]
 
     if a.order == "base-first":
-        base = run_arm("base", None, tasks, fam_dir)
-        tuned = run_arm("tuned", a.adapter, tasks, fam_dir)
+        base = run_arm("base", None, tasks, fam_dir, a.model)
+        tuned = run_arm("tuned", a.adapter, tasks, fam_dir, a.model)
     else:
-        tuned = run_arm("tuned", a.adapter, tasks, fam_dir)
-        base = run_arm("base", None, tasks, fam_dir)
+        tuned = run_arm("tuned", a.adapter, tasks, fam_dir, a.model)
+        base = run_arm("base", None, tasks, fam_dir, a.model)
 
     up = sum(1 for t in tasks if tuned["results"][t["id"]]["pass"] and not base["results"][t["id"]]["pass"])
     down = sum(1 for t in tasks if base["results"][t["id"]]["pass"] and not tuned["results"][t["id"]]["pass"])
-    report = {"kind": "weights", "date": time.strftime("%Y-%m-%d"), "model": MODEL,
+    report = {"kind": "weights", "date": time.strftime("%Y-%m-%d"), "model": a.model,
               "adapter": a.adapter, "family": a.family, "order": a.order,
               "base": {k: base[k] for k in ("passed", "of", "accuracy")},
               "tuned": {k: tuned[k] for k in ("passed", "of", "accuracy")},

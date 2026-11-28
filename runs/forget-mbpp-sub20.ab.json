@@ -1,0 +1,114 @@
+{
+ "schema": "ttb5/ab-report/0.1",
+ "at": "2026-11-28T05:53:09Z",
+ "model": "deepseek-flash",
+ "tasks": 20,
+ "samples_per_task": 1,
+ "baseline": {
+  "sha256": "sha256:154a70bac480489480da749383b31d5544fbb9bcbc72a01cb718c2c7b5c65f0d",
+  "accuracy": 0.7,
+  "passed": 14,
+  "spend_usd": 0.0091
+ },
+ "candidate": {
+  "sha256": "sha256:154a70bac480489480da749383b31d5544fbb9bcbc72a01cb718c2c7b5c65f0d",
+  "accuracy": 0.75,
+  "passed": 15,
+  "spend_usd": 0.0309
+ },
+ "paired": {
+  "b_improved": 2,
+  "c_regressed": 1,
+  "mcnemar_exact_p": 1.0,
+  "flipped_to_pass": [
+   "mbpp_16",
+   "mbpp_61"
+  ],
+  "flipped_to_fail": [
+   "mbpp_7"
+  ]
+ },
+ "results": {
+  "mbpp_2": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_3": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_4": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_6": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_7": {
+   "baseline": true,
+   "candidate": false
+  },
+  "mbpp_8": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_9": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_11": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_12": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_14": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_16": {
+   "baseline": false,
+   "candidate": true
+  },
+  "mbpp_17": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_18": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_19": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_20": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_56": {
+   "baseline": false,
+   "candidate": false
+  },
+  "mbpp_57": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_58": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_59": {
+   "baseline": true,
+   "candidate": true
+  },
+  "mbpp_61": {
+   "baseline": false,
+   "candidate": true
+  }
+ },
+ "total_spend_usd": 0.04
+}

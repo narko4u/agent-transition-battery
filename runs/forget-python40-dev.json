@@ -1,0 +1,11 @@
+{
+ "kind": "forgetting",
+ "family": "families/python-basics40-dev",
+ "adapter": "bon3",
+ "incumbent": 0.85,
+ "accepted": 0.85,
+ "delta": 0.0,
+ "tolerance": 0.05,
+ "verdict": "no-forgetting",
+ "note": "one-sided: only a regression counts against the candidate"
+}

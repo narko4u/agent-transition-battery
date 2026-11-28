@@ -1,0 +1,11 @@
+{
+ "kind": "forgetting",
+ "family": "families/mbpp-sub20",
+ "adapter": "bon3",
+ "incumbent": 0.7,
+ "accepted": 0.75,
+ "delta": 0.05,
+ "tolerance": 0.05,
+ "verdict": "no-forgetting",
+ "note": "one-sided: only a regression counts against the candidate"
+}
