@@ -1,0 +1,13 @@
+{
+ "id": "P-001",
+ "written_at": "2026-11-28T06:21:01Z",
+ "commit": "a1bc7b78eaa8fdb4a79dd718346ba82d275a942e",
+ "family": "families/mbpp-hold60",
+ "hypothesis": "the failure to transfer is the training signal, not the substrate: a model trained on its own verified solutions, at a gentler learning rate, will beat its base by at least five points",
+ "primary_metric": "accuracy",
+ "decision_rule": "tuned >= base + 0.05 AND exact McNemar p < 0.05, base arm results reused from weights-1.5b-hold60.json, evaluated on hold60 only",
+ "spend_cap_usd": 0.0,
+ "predictions": "between 0.60 and 0.64, against a base of 0.5833",
+ "known_confounds": "self-generated solutions come from the same model, so gains may reflect style matching rather than general skill; the test set is unseen either way",
+ "protocol_id": "sha256:34c5e1d0c4e0184f4e4ab393acd17000fd0211935914422efe1650e44dc8f31d"
+}

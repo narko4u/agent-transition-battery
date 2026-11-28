@@ -89,18 +89,30 @@ def main() -> int:
     ap.add_argument("--model", default=MODEL)
     ap.add_argument("--order", choices=["base-first", "tuned-first"], default="base-first",
                     help="arm order; counterbalanced across sets to expose cache warm-up bias")
+    ap.add_argument("--arm", choices=["both", "base", "tuned"], default="both",
+                    help="run one arm; with --reuse-base the other arm's stored results are reused")
+    ap.add_argument("--reuse-base", default="", help="previous report whose base results are reused")
+    ap.add_argument("--protocol", default="", help="protocol id this run was pre-registered under")
     a = ap.parse_args()
 
     fam_dir = ROOT / a.family
     fam = json.loads((fam_dir / "family.json").read_text())
     tasks = fam["tasks"]
 
-    if a.order == "base-first":
+    stored = json.loads(Path(a.reuse_base).read_text()) if a.reuse_base else None
+    base = tuned = None
+    if a.arm in ("both", "base"):
         base = run_arm("base", None, tasks, fam_dir, a.model)
+    if a.arm in ("both", "tuned"):
         tuned = run_arm("tuned", a.adapter, tasks, fam_dir, a.model)
-    else:
-        tuned = run_arm("tuned", a.adapter, tasks, fam_dir, a.model)
-        base = run_arm("base", None, tasks, fam_dir, a.model)
+    if base is None and stored:
+        base = {"passed": stored["base"]["passed"], "of": stored["base"]["of"],
+                "accuracy": stored["base"]["accuracy"], "results": stored["results"]["base"]}
+        print("base arm reused from %s" % a.reuse_base)
+    if tuned is None and stored:
+        tuned = {"passed": stored["tuned"]["passed"], "of": stored["tuned"]["of"],
+                 "accuracy": stored["tuned"]["accuracy"], "results": stored["results"]["tuned"]}
+        print("tuned arm reused from %s" % a.reuse_base)
 
     up = sum(1 for t in tasks if tuned["results"][t["id"]]["pass"] and not base["results"][t["id"]]["pass"])
     down = sum(1 for t in tasks if base["results"][t["id"]]["pass"] and not tuned["results"][t["id"]]["pass"])
@@ -110,6 +122,7 @@ def main() -> int:
               "tuned": {k: tuned[k] for k in ("passed", "of", "accuracy")},
               "delta": round(tuned["accuracy"] - base["accuracy"], 4),
               "improved": up, "regressed": down,
+              "protocol_id": a.protocol or None,
               "verdict": "pass" if tuned["accuracy"] - base["accuracy"] >= 0.05 and tuned["accuracy"] >= base["accuracy"] else "fail",
               "results": {"base": base["results"], "tuned": tuned["results"]}}
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
