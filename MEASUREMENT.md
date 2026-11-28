@@ -213,3 +213,26 @@ Three things this tells us, none of which is about the optimiser:
 3. Sixty-task families cannot resolve three points. Five of sixty up and three down is what noise
    looks like at this sample size, and it was also what SM-004 looked like before we measured the
    noise floor at sd 0.030.
+
+## Dev-pool saturation audit: the seed solves 72 per cent of the spare pool
+
+The 307 MBPP tasks outside the weight training pool and outside both evaluation families were scored
+once with the seed instruction, using the fixed client. 220 of 307 passed, 0.7166, 13 empty
+completions after retry, $0.209 and 15.2 minutes.
+
+Of the 87 failures, 79 scored zero on the dense metric, four scored 0.67, three 0.33 and one 0.25.
+A zero here is not a formatting failure: the code imports and runs, then fails the first assertion.
+Dense scoring was supposed to give an optimiser a slope to climb on partly correct answers. There are
+eight such answers in the whole pool.
+
+So the pool offers a prompt optimiser almost nothing. It is saturated on the tasks the model can do,
+and on the tasks it cannot do the failure is logic rather than comprehension. Instruction text cannot
+supply logic.
+
+This also explains GEPA v1 exactly. Its dev gain was output hygiene, because hygiene was the only
+defect in reach. When the failures are wrong algorithms, the lever has no purchase. That is a
+statement about the lever, not about GEPA's implementation.
+
+`families/mbpp-devhard` exists, 60 tasks, verified zero overlap with both evaluation families. It is
+kept as the honest record of what the failures look like, not used as a dev family for instruction
+search, because an all-zero dev set gives a search nothing either.
