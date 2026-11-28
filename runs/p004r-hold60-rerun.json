@@ -1,0 +1,511 @@
+{
+ "kind": "procedure",
+ "date": "2026-11-28",
+ "model": "deepseek-flash",
+ "family": "families/mbpp-hold60",
+ "order": "base-first",
+ "base": {
+  "passed": 52,
+  "of": 60,
+  "accuracy": 0.8667
+ },
+ "tuned": {
+  "passed": 47,
+  "of": 60,
+  "accuracy": 0.7833
+ },
+ "delta": -0.0833,
+ "improved": 0,
+ "regressed": 5,
+ "mcnemar_exact_p": 0.0625,
+ "protocol_id": "P-004R",
+ "empty_completions": 8,
+ "spend_usd": 0.0525,
+ "minutes": 3.8,
+ "results": {
+  "base": {
+   "mbpp_2": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_3": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_4": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_6": {
+    "pass": false,
+    "err": "/ie-ozx2m_kz/test_mbpp_6.py\", line 13, in test_cases\n    assert differ_At_One_Bit_Pos(13,9) == True\n           ^^^^^^^^^^^^^^^^^^^^^\nNameError: name 'differ_At_One_Bit_Pos' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_7": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_8": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_9": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_11": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_12": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_14": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_16": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_17": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_18": {
+    "pass": false,
+    "err": "est_mbpp_18.py\", line 13, in test_cases\n    assert remove_dirty_chars(\"probasscurve\", \"pros\") == 'bacuve'\n           ^^^^^^^^^^^^^^^^^^\nNameError: name 'remove_dirty_chars' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_19": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_20": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_56": {
+    "pass": false,
+    "err": "last):\n  File \"/home/vault/.hermes/cache/scratch/ie-2n001dgr/test_mbpp_56.py\", line 13, in test_cases\n    assert check(70) == False\n           ^^^^^\nNameError: name 'check' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_57": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_58": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_59": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_61": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_62": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_63": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_64": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_65": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_66": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_67": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_68": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_69": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_70": {
+    "pass": false,
+    "err": "che/scratch/ie-ep_15y12/test_mbpp_70.py\", line 13, in test_cases\n    assert get_equal([(11, 22, 33), (44, 55, 66)]) == True\n           ^^^^^^^^^\nNameError: name 'get_equal' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_71": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_72": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_74": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_75": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_77": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_79": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_80": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_82": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_83": {
+    "pass": false,
+    "err": " last):\n  File \"/home/vault/.hermes/cache/scratch/ie-bd2x2yf3/test_mbpp_83.py\", line 13, in test_cases\n    assert get_Char(\"abc\") == \"f\"\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_84": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_85": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_86": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_87": {
+    "pass": false,
+    "err": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_88": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_89": {
+    "pass": false,
+    "err": "File \"/home/vault/.hermes/cache/scratch/ie-433mpgsj/test_mbpp_89.py\", line 7, in <module>\n    from solution import closest_num  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'closest_num' from 'solution' (/home/vault/.hermes/cache/scratch/ie-433mpgsj/solution.py)\n"
+   },
+   "mbpp_90": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_91": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_92": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_93": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_94": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_95": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_96": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_97": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_98": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_99": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_100": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_101": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_102": {
+    "pass": false,
+    "err": "fup9k5/test_mbpp_102.py\", line 13, in test_cases\n    assert snake_to_camel('python_program')=='PythonProgram'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_103": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_104": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_105": {
+    "pass": true,
+    "err": ""
+   }
+  },
+  "tuned": {
+   "mbpp_2": {
+    "pass": false,
+    "err": "ult/.hermes/cache/scratch/ie-le4l0bed/test_mbpp_2.py\", line 7, in <module>\n    from solution import similar_elements  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nImportError: cannot import name 'similar_elements' from 'solution' (/home/vault/.hermes/cache/scratch/ie-le4l0bed/solution.py)\n"
+   },
+   "mbpp_3": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_4": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_6": {
+    "pass": false,
+    "err": "/ie-egm94bp_/test_mbpp_6.py\", line 13, in test_cases\n    assert differ_At_One_Bit_Pos(13,9) == True\n           ^^^^^^^^^^^^^^^^^^^^^\nNameError: name 'differ_At_One_Bit_Pos' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_7": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_8": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_9": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_11": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_12": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_14": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_16": {
+    "pass": false,
+    "err": "-ig0oy51h/test_mbpp_16.py\", line 15, in test_cases\n    assert text_lowercase_underscore(\"Aaab_abbbc\")==(False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_17": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_18": {
+    "pass": false,
+    "err": "est_mbpp_18.py\", line 13, in test_cases\n    assert remove_dirty_chars(\"probasscurve\", \"pros\") == 'bacuve'\n           ^^^^^^^^^^^^^^^^^^\nNameError: name 'remove_dirty_chars' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_19": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_20": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_56": {
+    "pass": false,
+    "err": "last):\n  File \"/home/vault/.hermes/cache/scratch/ie-27qmv_fs/test_mbpp_56.py\", line 13, in test_cases\n    assert check(70) == False\n           ^^^^^\nNameError: name 'check' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_57": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_58": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_59": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_61": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_62": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_63": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_64": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_65": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_66": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_67": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_68": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_69": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_70": {
+    "pass": false,
+    "err": "che/scratch/ie-ekehyh1d/test_mbpp_70.py\", line 13, in test_cases\n    assert get_equal([(11, 22, 33), (44, 55, 66)]) == True\n           ^^^^^^^^^\nNameError: name 'get_equal' is not defined\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_71": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_72": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_74": {
+    "pass": false,
+    "err": "ne 13, in test_cases\n    assert is_samepatterns([\"red\",\"green\",\"green\"], [\"a\", \"b\", \"b\"])==True\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_75": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_77": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_79": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_80": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_82": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_83": {
+    "pass": false,
+    "err": " last):\n  File \"/home/vault/.hermes/cache/scratch/ie-65hs1ged/test_mbpp_83.py\", line 13, in test_cases\n    assert get_Char(\"abc\") == \"f\"\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_84": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_85": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_86": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_87": {
+    "pass": false,
+    "err": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_88": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_89": {
+    "pass": false,
+    "err": "ll last):\n  File \"/home/vault/.hermes/cache/scratch/ie-nuxcfdrc/test_mbpp_89.py\", line 13, in test_cases\n    assert closest_num(11) == 10\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_90": {
+    "pass": false,
+    "err": " in len_log\n    return max((len(word) for word in sentence.split()), default=0)\n                                      ^^^^^^^^^^^^^^\nAttributeError: 'list' object has no attribute 'split'\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_91": {
+    "pass": false,
+    "err": ".py\", line 2, in <genexpr>\n    return any(substring in value for value in string_list)\n               ^^^^^^^^^^^^^^^^^^\nTypeError: 'in <string>' requires string as left operand, not list\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+   },
+   "mbpp_92": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_93": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_94": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_95": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_96": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_97": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_98": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_99": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_100": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_101": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_102": {
+    "pass": false,
+    "err": "u49yd5/test_mbpp_102.py\", line 13, in test_cases\n    assert snake_to_camel('python_program')=='PythonProgram'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+   },
+   "mbpp_103": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_104": {
+    "pass": true,
+    "err": ""
+   },
+   "mbpp_105": {
+    "pass": true,
+    "err": ""
+   }
+  }
+ }
+}

@@ -103,6 +103,7 @@ def main():
         "regressed": dn,
         "mcnemar_exact_p": round(p, 4),
         "protocol_id": a.protocol,
+        "empty_completions": meter.empties,
         "spend_usd": round(meter.usd, 4),
         "minutes": round((time.time() - t0) / 60, 1),
         "results": {"base": base, "tuned": tuned},

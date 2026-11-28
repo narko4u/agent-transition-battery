@@ -236,3 +236,38 @@ statement about the lever, not about GEPA's implementation.
 `families/mbpp-devhard` exists, 60 tasks, verified zero overlap with both evaluation families. It is
 kept as the honest record of what the failures look like, not used as a dev family for instruction
 search, because an all-zero dev set gives a search nothing either.
+
+## P-004R: the GEPA gain was the instrument's bug, not the optimiser's insight
+
+Preregistered at `1123c77` before the run. Same two frozen families, same instruction pair, same rule
+as P-004. One change: the solver budget is 3000 tokens and the client retries when a completion comes
+back empty, so the model can no longer answer nothing and be scored wrong.
+
+| run | family | base | tuned | delta | improved | regressed | exact p |
+|---|---|---|---|---|---|---|---|
+| P-004 | hold60 | 38/60 (0.633) | 39/60 (0.650) | +1.7 | 5 | 4 | 1.0000 |
+| P-004R | hold60 | 52/60 (0.867) | 51/60 (0.850) | -1.7 | 0 | 1 | 1.0000 |
+| P-004R repeat | hold60 | 52/60 (0.867) | 47/60 (0.783) | -8.3 | 0 | 5 | 0.0625 |
+| P-004 | test60 | 36/60 (0.600) | 38/60 (0.633) | +3.3 | 5 | 3 | 0.7266 |
+| P-004R | test60 | 47/60 (0.783) | 47/60 (0.783) | 0.0 | 1 | 1 | 1.0000 |
+
+Verdict: **fail.** No gain on hold60 in either replication and exactly no change on test60.
+
+Two things follow, and they are the most useful results in this document.
+
+First, the seed instruction was worth 14 more tasks on hold60 and 11 more on test60 than P-004
+measured. Every one of those was an empty completion scored as a wrong answer. The base rate for this
+model on MBPP was 0.867 and 0.783 all along, not 0.633 and 0.600.
+
+Second, the GEPA dev gain of 10 points was produced by an instruction whose content was "never return
+empty, no fences, no prose, exact function name". That is a description of the defect. The optimiser
+did not find a better way to solve tasks. It found the harness's empty-completion hole and plugged it,
+because the harness rewards anything that turns a blank into code, whether or not the code is right.
+
+Once the hole is closed in the client, that instruction is worth nothing: minus 1.7 and minus 8.3 on
+the family it was evolved on, and dead level on the family it never saw. A prompt optimiser optimises
+whatever the instrument measures, including the instrument's own faults.
+
+P-005 is therefore not run. Its five fixes were aimed at an optimiser that was never the problem, and
+the dev pool audit shows the remaining failures are logic failures with no prompt-shaped slope to
+climb.
