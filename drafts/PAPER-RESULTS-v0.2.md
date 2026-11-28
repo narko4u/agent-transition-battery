@@ -47,9 +47,8 @@ We report it as unconfirmed rather than as a win.
 ### 6.3 Reflective prompt evolution
 
 We then took the optimiser out of our own hands. GEPA (MIT) evolves the text of a system prompt by
-reflecting on scored failures. It was given the seeded instruction, sixty dev tasks that are disjoint
-from the training pool and both evaluation families, and the battery's own scorer: the family's test
-file executed in a subprocess.
+reflecting on scored failures. It was given the seeded instruction, sixty dev tasks drawn from the
+same public benchmark, and the battery's own scorer: the family's test file executed in a subprocess.
 
 Evolution moved the dev family from 0.633 to 0.733 in 933 calls, 47 minutes and $0.26. The winning
 instruction was output hygiene rather than method: no markdown fences, no prose, exact function name,
@@ -62,14 +61,27 @@ never return empty.
 | held-out 2 | 36/60 | 38/60 | +3.3 | 5 | 3 | 0.7266 |
 | held-out combined | 74/120 | 77/120 | +2.5 | 10 | 7 | 0.6291 |
 
-The decay is six to one.
+**A correction we owe the reader.** The dev family and held-out 1 turned out to be the same sixty
+tasks, compared by id after the run. Held-out 1 is therefore in-sample and is reported here only to
+show that even in-sample the gain was 1.7 points on the binary outcome. The only genuinely unseen
+family in this experiment is held-out 2, where the change was 36 to 38 of 60, five up and three
+down, exact p 0.7266. Neither row supports a transfer claim.
+
+**A defect in the measuring instrument.** The task model spends part of its completion budget on
+internal reasoning before emitting code. At a 900 token limit it sometimes spent all of it and
+returned an empty completion with `finish_reason=length`, which the scorer recorded as a wrong
+answer: 16 of 60 failures in one arm and 17 of 60 in another. Both arms were affected equally, so
+the comparison stands, but the absolute rates are depressed and any future work should report the
+count of empty completions alongside the score.
+
 
 ### 6.4 The one thing that did transfer
 
 Inference-time search, not learning. Sampling three solutions and selecting the candidate that passes
 the most self-written tests beat one-shot on 200 tasks twice, by 8.0 points (131 to 147, p 0.0025) and
-10.5 points (131 to 152, p 0.0001). It transfers because nothing is fitted: the selection happens per
-task at inference, so there is no dev set to overfit.
+10.5 points (131 to 152, p 0.0001). Nothing is fitted to a dev set: the selection happens per task at
+inference, so there is no pool of tasks to overfit. That is a statement about where the improvement
+came from, not a claim that the gain generalises beyond the named evaluations, which we did not test.
 
 That distinction is the finding. Every mechanism that learned from a development set produced a gain
 that lived only on that set. The mechanism that learned nothing, and instead spent test-time compute
