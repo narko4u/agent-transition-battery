@@ -63,3 +63,24 @@ a fresh process:
 Identical to the task. The order effect is zero on this set, the measurement is order-invariant, and
 the null stands on both orderings. A replication that returns the same numbers is the only cheap
 defence against an order confound, and it costs nothing here because the model already ships.
+
+## 1.5B, same tasks: capacity helped, the update hurt
+
+Same 120 held-out tasks, same tests, same procedure. Qwen2.5-Coder-1.5B with a LoRA trained on the
+same 307 solutions.
+
+| Model | Base | Tuned | Delta |
+|---|---|---|---|
+| 0.5B | 51/120 (0.425) | 55/120 (0.458) | +3.3 |
+| 1.5B | 68/120 (0.567) | 61/120 (0.508) | -5.8 |
+
+Two findings, and the second is the important one.
+
+1. Capacity is not the binding constraint. The 1.5B base is 14 points better than the 0.5B base on the
+   same tasks. The substrate improved exactly as expected.
+2. The update made a stronger model worse: 10 tasks improved, 17 regressed, exact McNemar p 0.248. Three
+   epochs at 2e-4 on 307 examples is enough to drift a model away from the behaviour the tests reward.
+
+So the failure was never "the model is too small to learn". It is that a small, narrow supervised set
+moves the model in the wrong direction. The next questions are about data and update strength, not
+parameters.
