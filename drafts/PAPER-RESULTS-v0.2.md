@@ -44,36 +44,49 @@ The 200-task run produced the only positive weight result in the programme and i
 bar of p under 0.05, because four discordant pairs is too few to distinguish an effect from luck.
 We report it as unconfirmed rather than as a win.
 
-### 6.3 Reflective prompt evolution
+### 6.3 Reflective prompt evolution, and what it actually optimised
 
 We then took the optimiser out of our own hands. GEPA (MIT) evolves the text of a system prompt by
-reflecting on scored failures. It was given the seeded instruction, sixty dev tasks drawn from the
-same public benchmark, and the battery's own scorer: the family's test file executed in a subprocess.
+reflecting on scored failures. It was given a seeded instruction, sixty dev tasks drawn from the same
+public benchmark, and the battery's own scorer: the family's test file executed in a subprocess.
 
 Evolution moved the dev family from 0.633 to 0.733 in 933 calls, 47 minutes and $0.26. The winning
 instruction was output hygiene rather than method: no markdown fences, no prose, exact function name,
-never return empty.
+never return empty. We read that as a modest finding about prompt hygiene and moved to evaluation.
 
-| family | base | tuned | delta | improved | regressed | exact p |
-|---|---|---|---|---|---|---|
-| dev, optimised | 38/60 | 44/60 | +10.0 | - | - | - |
-| held-out 1 | 38/60 | 39/60 | +1.7 | 5 | 4 | 1.0000 |
-| held-out 2 | 36/60 | 38/60 | +3.3 | 5 | 3 | 0.7266 |
-| held-out combined | 74/120 | 77/120 | +2.5 | 10 | 7 | 0.6291 |
+Evaluation disagreed with the dev set, and then we found out why.
 
-**A correction we owe the reader.** The dev family and held-out 1 turned out to be the same sixty
-tasks, compared by id after the run. Held-out 1 is therefore in-sample and is reported here only to
-show that even in-sample the gain was 1.7 points on the binary outcome. The only genuinely unseen
-family in this experiment is held-out 2, where the change was 36 to 38 of 60, five up and three
-down, exact p 0.7266. Neither row supports a transfer claim.
+The task model spends part of its completion budget on internal reasoning before it emits code. At
+900 tokens it sometimes spent all of it and returned an empty completion with `finish_reason=length`,
+which the scorer recorded as a wrong answer. Sixteen of sixty failures in one arm and seventeen of
+sixty in another were blank answers.
 
-**A defect in the measuring instrument.** The task model spends part of its completion budget on
-internal reasoning before emitting code. At a 900 token limit it sometimes spent all of it and
-returned an empty completion with `finish_reason=length`, which the scorer recorded as a wrong
-answer: 16 of 60 failures in one arm and 17 of 60 in another. Both arms were affected equally, so
-the comparison stands, but the absolute rates are depressed and any future work should report the
-count of empty completions alongside the score.
+We repaired the client to retry at triple budget when a completion comes back empty, then re-ran the
+same comparison under the same preregistered rule (P-004R).
 
+| run | family | base | tuned | delta | improved | regressed | exact p |
+|---|---|---|---|---|---|---|---|
+| P-004 | dev, optimised | 38/60 | 44/60 | +10.0 | - | - | - |
+| P-004R | holdout 1 | 52/60 | 51/60 | -1.7 | 0 | 1 | 1.0000 |
+| P-004R repeat | holdout 1 | 52/60 | 47/60 | -8.3 | 0 | 5 | 0.0625 |
+| P-004R | holdout 2 | 47/60 | 47/60 | 0.0 | 1 | 1 | 1.0000 |
+
+The seed instruction was worth 52 of 60 on the first holdout and 47 of 60 on the second, not the 38
+and 36 that the broken client reported. Against that floor, the evolved instruction is worth nothing
+and may be worth less: no improvement in any arm, five regressions in one replication, and dead level
+on the family it never saw.
+
+Which leaves the question of what the optimiser gained ten points on. Its winning text said "never
+return empty, no fences, no prose, exact function name". That is a description of the harness defect.
+The search did not discover a better way to solve tasks. It discovered which hole in the instrument
+paid, and it filled that hole, because the instrument rewarded any transformation of a blank answer
+into code whether or not the code was right.
+
+**The instrument is part of the hypothesis.** A scored instrument is a mirror: an optimiser pointed at
+it will optimise the instrument first, because instrument defects are usually cheaper to fix than the
+task. Any self-improvement claim that reports a dev gain without a clean, separately validated
+measurement path is reporting, at least in part, the shape of its own instrument. We did not avoid
+that error. We found it, and this is the record of it.
 
 ### 6.4 The one thing that did transfer
 
